@@ -1,0 +1,15 @@
+syntax = "proto3";
+package model;
+
+import "google/protobuf/timestamp.proto";
+
+message Task {
+  bytes ID = 2946;
+
+  string name = 4336;
+  string emoji = 2990;
+
+  bool deleted = 8622;
+  google.protobuf.Timestamp updated = 3141;
+  google.protobuf.Timestamp created = 2421;
+}
