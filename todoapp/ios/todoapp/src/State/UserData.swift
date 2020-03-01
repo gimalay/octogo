@@ -34,6 +34,10 @@ final class UserData: ObservableObject {
         }
     }
 
+    func handleError(error: Error) {
+        print("data read error: " + error.localizedDescription)
+    }
+
     func navigateTo(_ payload: SwiftProtobuf.Message) {
         do {
             let pd = try payload.serializedData()
@@ -45,7 +49,7 @@ final class UserData: ObservableObject {
             update()
 
         } catch {
-            print("Unexpected error")
+            handleError(error: error)
         }
     }
 
@@ -79,7 +83,7 @@ final class UserData: ObservableObject {
                 throw BindingError.unknownViewModeType
             }
         } catch {
-            print(error)
+            handleError(error: error)
         }
     }
 
