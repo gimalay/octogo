@@ -74,13 +74,17 @@ final class UserData: ObservableObject {
             case .task:
                 task = try ViewModel.Task(serializedData: data)
             case .unknown:
-                return
+                throw BindingError.unknownViewModeType
             case .UNRECOGNIZED(_):
-                return
+                throw BindingError.unknownViewModeType
             }
         } catch {
             print(error)
         }
     }
 
+}
+
+enum BindingError: Error {
+    case unknownViewModeType
 }
