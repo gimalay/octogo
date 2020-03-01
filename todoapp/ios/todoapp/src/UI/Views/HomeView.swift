@@ -4,19 +4,17 @@ struct HomeView: View {
     @EnvironmentObject var commander: Commander
     @EnvironmentObject var data: UserData
 
-    @State var showNewIdentityForm: Bool = false
-
     var body: some View {
         List {
             ForEach(data.home.projects) { p in
-                ProjectView(project: p)
+                ProjectView(project: p).onTapGesture(perform: { self.deleteProject(id: p.id) })
             }
 
             Section() {
                 HStack {
                     Text("New Project")
                     Spacer()
-                    Button(action: { self.showNewIdentityForm.toggle() }) {
+                    Button(action: newProject) {
                         Image(systemName: "plus.circle")
                     }
                 }
@@ -26,6 +24,32 @@ struct HomeView: View {
                 .listStyle(GroupedListStyle())
                 .environment(\.horizontalSizeClass, .regular)
                 .onAppear(perform: { self.data.navigateTo(Location.Home()) })
+    }
+
+    func deleteProject(id: Data) {
+        commander.executeCommand(Command.DeleteProject.with({
+            $0.projectID = id
+        }))
+    }
+
+    func newProject() {
+        commander.executeCommand(Command.NewProject.with({
+            $0.projectID = newId()
+            $0.name = "New Project"
+        }))
+
+    }
+
+}
+
+func newId() -> Data {
+    uuidToBytes(UUID())
+}
+
+
+func uuidToBytes(_ uuid: UUID) -> Data {
+    withUnsafePointer(to: uuid) {
+        Data(bytes: $0, count: MemoryLayout.size(ofValue: UUID().uuid))
     }
 }
 

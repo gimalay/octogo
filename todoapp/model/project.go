@@ -46,6 +46,8 @@ func mapProjectEvent(t EventType) ProjectEvent {
 		return &Event_TaskRemoved{}
 	case EventType_TaskAdded:
 		return &Event_TaskAdded{}
+	case EventType_ProjectDeleted:
+		return &Event_ProjectDeleted{}
 	case EventType_ProjectRenamed:
 		return &Event_ProjectRenamed{}
 	default:
@@ -116,6 +118,13 @@ func (pl *Event_TaskAdded) aggregate(i *Project, ev Event) (*Project, error) {
 func (pl *Event_ProjectRenamed) aggregate(i *Project, ev Event) (*Project, error) {
 	i.Name = pl.Name
 	i.Updated = ev.Timestamp
+
+	return i, nil
+}
+
+func (pl *Event_ProjectDeleted) aggregate(i *Project, ev Event) (*Project, error) {
+	i.Updated = ev.Timestamp
+	i.Deleted = true
 
 	return i, nil
 }

@@ -27,6 +27,7 @@ enum CommandType: SwiftProtobuf.Enum {
   case removeTask // = 3687
   case addTask // = 2150
   case renameProject // = 4662
+  case deleteProject // = 1898
   case renameTask // = 3442
   case UNRECOGNIZED(Int)
 
@@ -37,6 +38,7 @@ enum CommandType: SwiftProtobuf.Enum {
   init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
+    case 1898: self = .deleteProject
     case 1947: self = .newProject
     case 2150: self = .addTask
     case 3327: self = .newTask
@@ -50,6 +52,7 @@ enum CommandType: SwiftProtobuf.Enum {
   var rawValue: Int {
     switch self {
     case .unknown: return 0
+    case .deleteProject: return 1898
     case .newProject: return 1947
     case .addTask: return 2150
     case .newTask: return 3327
@@ -73,6 +76,7 @@ extension CommandType: CaseIterable {
     .removeTask,
     .addTask,
     .renameProject,
+    .deleteProject,
     .renameTask,
   ]
 }
@@ -151,6 +155,18 @@ struct Command {
     init() {}
   }
 
+  struct DeleteProject {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var projectID: Data = SwiftProtobuf.Internal.emptyData
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct AddTask {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -207,6 +223,7 @@ fileprivate let _protobuf_package = "binding"
 extension CommandType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "Unknown"),
+    1898: .same(proto: "DeleteProject"),
     1947: .same(proto: "NewProject"),
     2150: .same(proto: "AddTask"),
     3327: .same(proto: "NewTask"),
@@ -405,6 +422,35 @@ extension Command.RemoveTask: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   static func ==(lhs: Command.RemoveTask, rhs: Command.RemoveTask) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.taskID != rhs.taskID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Command.DeleteProject: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Command.protoMessageName + ".DeleteProject"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    9326: .same(proto: "projectID"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 9326: try decoder.decodeSingularBytesField(value: &self.projectID)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.projectID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.projectID, fieldNumber: 9326)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Command.DeleteProject, rhs: Command.DeleteProject) -> Bool {
+    if lhs.projectID != rhs.projectID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

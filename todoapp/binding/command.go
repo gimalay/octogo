@@ -21,6 +21,8 @@ func mapCommandPayload(t CommandType) command {
 		return &Command_RenameTask{}
 	case CommandType_RenameProject:
 		return &Command_RenameProject{}
+	case CommandType_DeleteProject:
+		return &Command_DeleteProject{}
 	}
 	panic(fmt.Sprintf("unknown command type: %v", t))
 }
@@ -96,6 +98,18 @@ func (c Command_RenameTask) Execute(ctx commandContext, r db.Reader) ([]newEvent
 		},
 	}, nil
 }
+
+func (c Command_DeleteProject) Execute(ctx commandContext, r db.Reader) ([]newEvent, error) {
+	return []newEvent{
+		newEvent{
+			Type:          model.EventType_ProjectDeleted,
+			Payload:       &model.Event_ProjectDeleted{},
+			AggregateID:   c.ProjectID,
+			AggregateType: model.AggregateType_Project,
+		},
+	}, nil
+}
+
 func (c Command_RenameProject) Execute(ctx commandContext, r db.Reader) ([]newEvent, error) {
 	return []newEvent{
 		newEvent{

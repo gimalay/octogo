@@ -6,6 +6,6 @@ protoc --go_out=plugins=grpc:. -I "$GOPATH"/src github.com/gimalay/octogo/todoap
 protoc --go_out=plugins=grpc:. -I "$GOPATH"/src github.com/gimalay/octogo/todoapp/binding/viewModel.proto
 
 cd "$GOPATH"/src/github.com/gimalay/octogo/todoapp/binding || exit
-protoc --swift_out=../ios/todoapp/Models command.proto
-protoc --swift_out=../ios/todoapp/Models viewModel.proto
+protoc --swift_out=../ios/todoapp/src/Models command.proto
+protoc --swift_out=../ios/todoapp/src/Models viewModel.proto
 

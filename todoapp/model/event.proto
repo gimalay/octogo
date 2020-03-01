@@ -9,6 +9,7 @@ enum EventType {
   // Project
   ProjectCreated = 8812;
   ProjectRenamed = 8489;
+  ProjectDeleted = 6094;
   TaskAdded = 1541;
   TaskRemoved = 4982;
 
@@ -44,6 +45,7 @@ message Event {
   message TaskRemoved { bytes taskID = 2296; }
   message TaskAdded { bytes taskID = 6339; }
   message ProjectRenamed { string name = 8825; }
+  message ProjectDeleted {}
 
   message TaskCreated {
     string name = 3500;

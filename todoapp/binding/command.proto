@@ -12,6 +12,7 @@ enum CommandType {
   RemoveTask = 3687;
   AddTask = 2150;
   RenameProject = 4662;
+  DeleteProject = 1898;
   RenameTask = 3442;
 }
 
@@ -36,6 +37,8 @@ message Command {
     bytes projectID = 9326;
     bytes taskID = 8534;
   }
+
+  message DeleteProject { bytes projectID = 9326; }
 
   message AddTask {
     bytes projectID = 8326;

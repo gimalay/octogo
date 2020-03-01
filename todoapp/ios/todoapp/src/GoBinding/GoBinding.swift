@@ -59,6 +59,8 @@ final class GoBinding {
             return CommandType.renameProject
         case is Command.RenameTask:
             return CommandType.renameTask
+        case is Command.DeleteProject:
+            return CommandType.deleteProject
         default:
             return CommandType.unknown
         }

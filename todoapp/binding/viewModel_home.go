@@ -7,24 +7,33 @@ import (
 	"github.com/gimalay/octogo/todoapp/model"
 )
 
-func (state *ViewModel_Home) read(settings *Settings, r db.Reader) error {
-	Tasks := model.TasksSlice{}
-	err := r.List(&Tasks)
+func (vm *ViewModel_Home) read(settings *Settings, r db.Reader) error {
+	tasks := model.TasksSlice{}
+	err := r.List(&tasks)
 	if err != nil {
 		return err
 	}
-	identites := model.ProjectsSlice{}
-	err = r.List(&identites)
-	if err != nil {
-		return err
-	}
-
-	is, err := homeProjectsState(identites, Tasks, r)
+	projects := model.ProjectsSlice{}
+	err = r.List(&projects)
 	if err != nil {
 		return err
 	}
 
-	state.Projects = is
+	activProjects := model.ProjectsSlice{}
+
+	for _, p := range projects {
+		if !p.Deleted {
+			activProjects = append(activProjects, p)
+		}
+
+	}
+
+	is, err := homeProjectsViewModel(activProjects, tasks, r)
+	if err != nil {
+		return err
+	}
+
+	vm.Projects = is
 
 	if err != nil {
 		return err
@@ -32,12 +41,12 @@ func (state *ViewModel_Home) read(settings *Settings, r db.Reader) error {
 	return err
 }
 
-func homeProjectsState(identites model.ProjectsSlice, as model.TasksSlice, r db.Reader) ([]*ViewModel_Home_Project, error) {
+func homeProjectsViewModel(projects model.ProjectsSlice, as model.TasksSlice, r db.Reader) ([]*ViewModel_Home_Project, error) {
 	ar := []*ViewModel_Home_Project{}
-	for _, i := range identites {
+	for _, i := range projects {
 		hia := homeProjectTasks(i, as)
 
-		his, err := homeProjectState(i, hia, r)
+		his, err := homeProjectViewModel(i, hia, r)
 		if err != nil {
 			return nil, err
 		}
@@ -61,10 +70,10 @@ func homeProjectTasks(i *model.Project, as model.TasksSlice) model.TasksSlice {
 	return res
 }
 
-func homeProjectState(i *model.Project, as model.TasksSlice, r db.Reader) (*ViewModel_Home_Project, error) {
+func homeProjectViewModel(i *model.Project, as model.TasksSlice, r db.Reader) (*ViewModel_Home_Project, error) {
 	ar := []*ViewModel_Home_Project_Task{}
 	for _, a := range as {
-		as, err := homeTaskState(a, r)
+		as, err := homeTaskViewModel(a, r)
 		if err != nil {
 			return nil, err
 		}
@@ -79,7 +88,7 @@ func homeProjectState(i *model.Project, as model.TasksSlice, r db.Reader) (*View
 	}, nil
 
 }
-func homeTaskState(a *model.Task, r db.Reader) (*ViewModel_Home_Project_Task, error) {
+func homeTaskViewModel(a *model.Task, r db.Reader) (*ViewModel_Home_Project_Task, error) {
 	return &ViewModel_Home_Project_Task{
 		ID:    a.ID,
 		Name:  a.Name,
