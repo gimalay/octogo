@@ -5,6 +5,8 @@ github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/gimalay/binx v0.0.0-20200222193834-08b8ebd30e6f h1:0OUs1H3Q89+RARZg2OmHDJJg3BYYd4JFtDlGNzq92RA=
 github.com/gimalay/binx v0.0.0-20200222193834-08b8ebd30e6f/go.mod h1:Ag1LttCt0BnrViHCwY72FE4rffjukcbzxCnYcD78WE4=
+github.com/gimalay/binx v0.0.0-20200304185723-813c6347b9b0 h1:Po6tPxisqV3x9BeNEAyQbOIaIfKDlpbFsWAYGpyFfuo=
+github.com/gimalay/binx v0.0.0-20200304185723-813c6347b9b0/go.mod h1:Ag1LttCt0BnrViHCwY72FE4rffjukcbzxCnYcD78WE4=
 github.com/golang/protobuf v1.3.4 h1:87PNWwrRvUSnqS4dlcBU/ftvOIBep4sYuBLlh6rX2wk=
 github.com/golang/protobuf v1.3.4/go.mod h1:vzj43D7+SQXF/4pzW/hwtAqwc6iTitCiVSaWz5lYuqw=
 github.com/google/go-cmp v0.4.0 h1:xsAVV57WRhGj6kEIi8ReJzQlHHqcBYCElAvkovg3B/4=
