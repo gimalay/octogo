@@ -2,6 +2,7 @@ syntax = "proto3";
 package app;
 
 option swift_prefix = "";
+option java_package = "com.example.todolist.model";
 
 enum LocationType {
   Unknown = 0;

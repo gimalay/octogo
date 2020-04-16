@@ -4,6 +4,7 @@ package app;
 import "google/protobuf/timestamp.proto";
 
 option swift_prefix = "";
+option java_package = "com.example.todolist.model";
 
 enum CommandType {
   Unknown = 0;
