@@ -1,7 +1,6 @@
 package com.example.todolist.ui
 
 import androidx.compose.Composable
-import androidx.compose.onActive
 import androidx.compose.unaryPlus
 import androidx.ui.core.Text
 import androidx.ui.core.dp
@@ -12,18 +11,15 @@ import androidx.ui.material.Button
 import androidx.ui.material.ContainedButtonStyle
 import androidx.ui.material.MaterialTheme
 import androidx.ui.material.TextButtonStyle
+import androidx.ui.tooling.preview.Preview
 
+@Preview
 @Composable
 fun Activity(
     text: String,
     onCopy: () -> Unit,
     onRemove: () -> Unit
 ) {
-    +onActive {
-        val a = 1
-
-        //Binding.new_().viewModel(Home());
-    }
     Row(
         modifier = Spacing(left = 16.dp, right = 16.dp, top = 5.dp, bottom = 5.dp)
     ) {
