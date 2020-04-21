@@ -1,0 +1,55 @@
+package com.example.todolist.services
+
+import android.os.Environment
+import binding.Binding
+import binding.Binding_
+import com.example.todolist.model.CommandOuterClass.Command
+import com.example.todolist.model.CommandOuterClass.CommandType
+import com.example.todolist.model.ViewModelOuterClass.Location
+import com.example.todolist.model.ViewModelOuterClass.LocationType
+import com.google.protobuf.GeneratedMessageV3
+import java.io.File
+
+object GoBinding {
+    private var binding: Binding_
+
+    init {
+        val path: String = Environment
+            .getExternalStorageDirectory()
+            .getAbsolutePath()
+
+        val dbDirPath = "$path/Android/data/com.example.todolist"
+        val dbDir = File(dbDirPath)
+        dbDir.mkdirs()
+
+        binding = Binding.new_("$dbDirPath/boltdb")
+    }
+
+    fun read(type: LocationType, payload: GeneratedMessageV3): ByteArray? {
+        val location = Location
+            .newBuilder()
+            .setType(type)
+            .setPayload(payload.toByteString())
+            .build()
+
+        val data = binding.viewModel(location.toByteArray())
+
+        return data
+    }
+
+    fun execute(type: CommandType, payload: GeneratedMessageV3) {
+        val ts = com.google.protobuf.Timestamp
+            .newBuilder()
+            .setSeconds(System.currentTimeMillis() / 1000)
+            .build()
+
+        val command = Command
+            .newBuilder()
+            .setType(type)
+            .setPayload(payload.toByteString())
+            .setTimestamp(ts)
+            .build()
+
+        binding.execute(command.toByteArray())
+    }
+}
