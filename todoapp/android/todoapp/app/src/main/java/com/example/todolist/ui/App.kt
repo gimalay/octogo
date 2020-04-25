@@ -1,42 +1,26 @@
 package com.example.todolist.ui
 
 import androidx.compose.*
-import androidx.ui.foundation.VerticalScroller
-import androidx.ui.layout.Column
-import androidx.ui.material.MaterialTheme
-import androidx.ui.tooling.preview.Preview
-import com.example.todolist.model.HomeModelBase
-import com.example.todolist.model.HomeModelMock
-
-@Preview
-@Composable
-fun AppPreview() {
-    val homeModel = +state { HomeModelMock() }
-    App(
-        home = homeModel.value
-    )
-}
+import com.example.todolist.data.SourceData
+import com.example.todolist.services.Executor
+import com.example.todolist.services.Loader
 
 @Composable
-fun App(home: HomeModelBase) {
+fun App() {
+    val sourceData = +state { SourceData() }
     +onActive {
-        home.load()
+        sourceData.value.home = Loader.Home.get()
     }
 
-    MaterialTheme(
-        colors = lightThemeColors,
-        typography = themeTypography
-    ) {
-        VerticalScroller {
-            Column {
-                home.data.projectsList.forEach {
-                    Activity(
-                        text = it.name,
-                        onCopy = { home.addProject(it.name) },
-                        onRemove = { home.removeProject(it.id) }
-                    )
-                }
-            }
+    HomeActivity(
+        projects = sourceData.value.home.projectsList,
+        onCopyProject = {
+            Executor.Home.addProject(it)
+            sourceData.value.home = Loader.Home.get()
+        },
+        onRemoveProject = {
+            Executor.Home.removeProject(it)
+            sourceData.value.home = Loader.Home.get()
         }
-    }
+    )
 }

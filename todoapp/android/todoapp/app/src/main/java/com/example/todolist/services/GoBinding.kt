@@ -7,7 +7,7 @@ import com.example.todolist.model.CommandOuterClass.Command
 import com.example.todolist.model.CommandOuterClass.CommandType
 import com.example.todolist.model.ViewModelOuterClass.Location
 import com.example.todolist.model.ViewModelOuterClass.LocationType
-import com.google.protobuf.GeneratedMessageV3
+import com.google.protobuf.Message
 import java.io.File
 
 object GoBinding {
@@ -25,7 +25,8 @@ object GoBinding {
         binding = Binding.new_("$dbDirPath/boltdb")
     }
 
-    fun read(type: LocationType, payload: GeneratedMessageV3): ByteArray? {
+    fun read(payload: Message): ByteArray? {
+        val type = LocationType.valueOf(payload.javaClass.simpleName)
         val location = Location
             .newBuilder()
             .setType(type)
@@ -37,12 +38,13 @@ object GoBinding {
         return data
     }
 
-    fun execute(type: CommandType, payload: GeneratedMessageV3) {
+    fun execute(payload: Message) {
         val ts = com.google.protobuf.Timestamp
             .newBuilder()
             .setSeconds(System.currentTimeMillis() / 1000)
             .build()
 
+        val type = CommandType.valueOf(payload.javaClass.simpleName)
         val command = Command
             .newBuilder()
             .setType(type)

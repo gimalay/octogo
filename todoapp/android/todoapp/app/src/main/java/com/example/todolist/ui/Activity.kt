@@ -11,9 +11,7 @@ import androidx.ui.material.Button
 import androidx.ui.material.ContainedButtonStyle
 import androidx.ui.material.MaterialTheme
 import androidx.ui.material.TextButtonStyle
-import androidx.ui.tooling.preview.Preview
 
-@Preview
 @Composable
 fun Activity(
     text: String,
