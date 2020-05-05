@@ -10,7 +10,7 @@ import com.example.todolist.model.ViewModelOuterClass.LocationType
 import com.google.protobuf.Message
 import java.io.File
 
-object GoBinding {
+class GoBinding {
     private var binding: Binding_
 
     init {

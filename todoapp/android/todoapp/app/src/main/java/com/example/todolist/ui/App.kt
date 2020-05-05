@@ -6,21 +6,21 @@ import com.example.todolist.services.Executor
 import com.example.todolist.services.Loader
 
 @Composable
-fun App() {
+fun App(loader: Loader, executor: Executor) {
     val sourceData = +state { SourceData() }
     +onActive {
-        sourceData.value.home = Loader.Home.get()
+        sourceData.value.home = loader.getHome()
     }
 
     HomeActivity(
         projects = sourceData.value.home.projectsList,
         onCopyProject = {
-            Executor.Home.addProject(it)
-            sourceData.value.home = Loader.Home.get()
+            executor.addHomeProject(it)
+            sourceData.value.home = loader.getHome()
         },
         onRemoveProject = {
-            Executor.Home.removeProject(it)
-            sourceData.value.home = Loader.Home.get()
+            executor.removeHomeProject(it)
+            sourceData.value.home = loader.getHome()
         }
     )
 }
