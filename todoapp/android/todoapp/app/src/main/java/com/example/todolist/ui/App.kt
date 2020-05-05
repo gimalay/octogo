@@ -4,6 +4,7 @@ import androidx.compose.*
 import com.example.todolist.data.SourceData
 import com.example.todolist.services.Executor
 import com.example.todolist.services.Loader
+import com.example.todolist.ui.home.Home
 
 @Composable
 fun App(loader: Loader, executor: Executor) {
@@ -12,9 +13,9 @@ fun App(loader: Loader, executor: Executor) {
         sourceData.value.home = loader.getHome()
     }
 
-    HomeActivity(
+    Home(
         projects = sourceData.value.home.projectsList,
-        onCopyProject = {
+        onAddProject = {
             executor.addHomeProject(it)
             sourceData.value.home = loader.getHome()
         },

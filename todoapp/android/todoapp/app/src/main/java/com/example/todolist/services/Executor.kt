@@ -1,8 +1,8 @@
 package com.example.todolist.services
 
-import com.example.todolist.data.newUUIDasByteString
 import com.example.todolist.di.ServiceLocator
 import com.example.todolist.model.CommandOuterClass.Command
+import com.example.todolist.utils.newUUIDasByteString
 import com.google.protobuf.ByteString
 
 class Executor {
