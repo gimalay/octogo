@@ -1,12 +1,10 @@
 package com.example.todolist.services
 
-import com.example.todolist.di.ServiceLocator
 import com.example.todolist.model.CommandOuterClass.Command
 import com.example.todolist.utils.newUUIDasByteString
 import com.google.protobuf.ByteString
 
-class Executor {
-    private val binding = ServiceLocator.goBinding
+class Commander(private val binding: GoBinding) {
 
     fun addHomeProject(projectName: String) {
         val newProject = Command.NewProject

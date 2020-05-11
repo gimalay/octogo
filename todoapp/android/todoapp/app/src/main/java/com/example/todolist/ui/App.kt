@@ -1,27 +1,19 @@
 package com.example.todolist.ui
 
 import androidx.compose.*
-import com.example.todolist.data.SourceData
-import com.example.todolist.services.Executor
-import com.example.todolist.services.Loader
-import com.example.todolist.ui.home.Home
+import androidx.ui.animation.Crossfade
+import androidx.ui.material.MaterialTheme
+import com.example.todolist.services.Navigator
 
 @Composable
-fun App(loader: Loader, executor: Executor) {
-    val sourceData = +state { SourceData() }
-    +onActive {
-        sourceData.value.home = loader.getHome()
+fun App(
+    screen: Navigator.Screen,
+    children: @Composable() (Navigator.Screen) -> Unit
+) {
+    MaterialTheme(
+        colors = lightThemeColors,
+        typography = themeTypography
+    ) {
+        Crossfade(screen) { children(it) }
     }
-
-    Home(
-        projects = sourceData.value.home.projectsList,
-        onAddProject = {
-            executor.addHomeProject(it)
-            sourceData.value.home = loader.getHome()
-        },
-        onRemoveProject = {
-            executor.removeHomeProject(it)
-            sourceData.value.home = loader.getHome()
-        }
-    )
 }
