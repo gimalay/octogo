@@ -25,6 +25,19 @@ type commandAdapter struct {
 	timestamp time.Time
 }
 
+func (c *commandAdapter) Execute() ([]octogo.Event, error) {
+	ev, err := c.Cmd.Execute(c.Reader)
+
+	r := []octogo.Event{}
+
+	for _, e := range ev {
+		e.Timestamp = c.timestamp
+		r = append(r, e)
+	}
+
+	return r, err
+}
+
 type Unmarshaler struct {
 	Reader
 }
@@ -33,6 +46,15 @@ type Message struct {
 	Type      int
 	Payload   []byte
 	Timestamp time.Time
+}
+
+func (u *Unmarshaler) Unmarshal(data Message) (octogo.Command, error) {
+	c := MapCommandPayload(data.Type)
+	err := proto.Unmarshal(data.Payload, c)
+	if err != nil {
+		panic("cannot unmarshal")
+	}
+	return &commandAdapter{Cmd: c, Reader: u.Reader, timestamp: data.Timestamp}, nil
 }
 
 func MapCommandPayload(t int) Cmd {
