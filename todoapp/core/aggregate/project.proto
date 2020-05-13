@@ -1,6 +1,7 @@
 syntax = "proto3";
 package aggregate;
 
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 import "google/protobuf/timestamp.proto";
 
 message Project {
@@ -10,6 +11,21 @@ message Project {
     repeated bytes tasks = 8856;
 
     bool deleted = 9429;
-    google.protobuf.Timestamp updated = 5144;
-    google.protobuf.Timestamp created = 7432;
+    google.protobuf.Timestamp updated = 5144 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+    google.protobuf.Timestamp created = 7432 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+
+    message Created {
+        string name = 2825;
+        repeated bytes Tasks = 9477;
+    }
+
+    message TaskRemoved {
+        bytes TaskID = 2296;
+    }
+    message TaskAdded {
+        bytes TaskID = 6339;
+    }
+    message Renamed {
+        string name = 8825;
+    }
 }

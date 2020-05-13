@@ -5,17 +5,21 @@ package aggregate
 
 import (
 	fmt "fmt"
-	types "github.com/gogo/protobuf/types"
+	_ "github.com/gogo/protobuf/gogoproto"
+	_ "github.com/gogo/protobuf/types"
+	github_com_gogo_protobuf_types "github.com/gogo/protobuf/types"
 	proto "github.com/golang/protobuf/proto"
 	io "io"
 	math "math"
 	math_bits "math/bits"
+	time "time"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
+var _ = time.Kitchen
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the proto package it is being compiled against.
@@ -24,15 +28,15 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type Project struct {
-	ID                   []byte           `protobuf:"bytes,4947,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name                 string           `protobuf:"bytes,4032,opt,name=name,proto3" json:"name,omitempty"`
-	Tasks                [][]byte         `protobuf:"bytes,8856,rep,name=tasks,proto3" json:"tasks,omitempty"`
-	Deleted              bool             `protobuf:"varint,9429,opt,name=deleted,proto3" json:"deleted,omitempty"`
-	Updated              *types.Timestamp `protobuf:"bytes,5144,opt,name=updated,proto3" json:"updated,omitempty"`
-	Created              *types.Timestamp `protobuf:"bytes,7432,opt,name=created,proto3" json:"created,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	ID                   []byte    `protobuf:"bytes,4947,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name                 string    `protobuf:"bytes,4032,opt,name=name,proto3" json:"name,omitempty"`
+	Tasks                [][]byte  `protobuf:"bytes,8856,rep,name=tasks,proto3" json:"tasks,omitempty"`
+	Deleted              bool      `protobuf:"varint,9429,opt,name=deleted,proto3" json:"deleted,omitempty"`
+	Updated              time.Time `protobuf:"bytes,5144,opt,name=updated,proto3,stdtime" json:"updated"`
+	Created              time.Time `protobuf:"bytes,7432,opt,name=created,proto3,stdtime" json:"created"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *Project) Reset()         { *m = Project{} }
@@ -96,22 +100,222 @@ func (m *Project) GetDeleted() bool {
 	return false
 }
 
-func (m *Project) GetUpdated() *types.Timestamp {
+func (m *Project) GetUpdated() time.Time {
 	if m != nil {
 		return m.Updated
+	}
+	return time.Time{}
+}
+
+func (m *Project) GetCreated() time.Time {
+	if m != nil {
+		return m.Created
+	}
+	return time.Time{}
+}
+
+type Project_Created struct {
+	Name                 string   `protobuf:"bytes,2825,opt,name=name,proto3" json:"name,omitempty"`
+	Tasks                [][]byte `protobuf:"bytes,9477,rep,name=Tasks,proto3" json:"Tasks,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Project_Created) Reset()         { *m = Project_Created{} }
+func (m *Project_Created) String() string { return proto.CompactTextString(m) }
+func (*Project_Created) ProtoMessage()    {}
+func (*Project_Created) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b2dd6387ba28cc56, []int{0, 0}
+}
+func (m *Project_Created) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *Project_Created) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_Project_Created.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *Project_Created) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Project_Created.Merge(m, src)
+}
+func (m *Project_Created) XXX_Size() int {
+	return m.Size()
+}
+func (m *Project_Created) XXX_DiscardUnknown() {
+	xxx_messageInfo_Project_Created.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Project_Created proto.InternalMessageInfo
+
+func (m *Project_Created) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *Project_Created) GetTasks() [][]byte {
+	if m != nil {
+		return m.Tasks
 	}
 	return nil
 }
 
-func (m *Project) GetCreated() *types.Timestamp {
+type Project_TaskRemoved struct {
+	TaskID               []byte   `protobuf:"bytes,2296,opt,name=TaskID,proto3" json:"TaskID,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Project_TaskRemoved) Reset()         { *m = Project_TaskRemoved{} }
+func (m *Project_TaskRemoved) String() string { return proto.CompactTextString(m) }
+func (*Project_TaskRemoved) ProtoMessage()    {}
+func (*Project_TaskRemoved) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b2dd6387ba28cc56, []int{0, 1}
+}
+func (m *Project_TaskRemoved) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *Project_TaskRemoved) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_Project_TaskRemoved.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *Project_TaskRemoved) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Project_TaskRemoved.Merge(m, src)
+}
+func (m *Project_TaskRemoved) XXX_Size() int {
+	return m.Size()
+}
+func (m *Project_TaskRemoved) XXX_DiscardUnknown() {
+	xxx_messageInfo_Project_TaskRemoved.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Project_TaskRemoved proto.InternalMessageInfo
+
+func (m *Project_TaskRemoved) GetTaskID() []byte {
 	if m != nil {
-		return m.Created
+		return m.TaskID
 	}
 	return nil
+}
+
+type Project_TaskAdded struct {
+	TaskID               []byte   `protobuf:"bytes,6339,opt,name=TaskID,proto3" json:"TaskID,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Project_TaskAdded) Reset()         { *m = Project_TaskAdded{} }
+func (m *Project_TaskAdded) String() string { return proto.CompactTextString(m) }
+func (*Project_TaskAdded) ProtoMessage()    {}
+func (*Project_TaskAdded) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b2dd6387ba28cc56, []int{0, 2}
+}
+func (m *Project_TaskAdded) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *Project_TaskAdded) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_Project_TaskAdded.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *Project_TaskAdded) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Project_TaskAdded.Merge(m, src)
+}
+func (m *Project_TaskAdded) XXX_Size() int {
+	return m.Size()
+}
+func (m *Project_TaskAdded) XXX_DiscardUnknown() {
+	xxx_messageInfo_Project_TaskAdded.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Project_TaskAdded proto.InternalMessageInfo
+
+func (m *Project_TaskAdded) GetTaskID() []byte {
+	if m != nil {
+		return m.TaskID
+	}
+	return nil
+}
+
+type Project_Renamed struct {
+	Name                 string   `protobuf:"bytes,8825,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Project_Renamed) Reset()         { *m = Project_Renamed{} }
+func (m *Project_Renamed) String() string { return proto.CompactTextString(m) }
+func (*Project_Renamed) ProtoMessage()    {}
+func (*Project_Renamed) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b2dd6387ba28cc56, []int{0, 3}
+}
+func (m *Project_Renamed) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *Project_Renamed) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_Project_Renamed.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *Project_Renamed) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Project_Renamed.Merge(m, src)
+}
+func (m *Project_Renamed) XXX_Size() int {
+	return m.Size()
+}
+func (m *Project_Renamed) XXX_DiscardUnknown() {
+	xxx_messageInfo_Project_Renamed.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Project_Renamed proto.InternalMessageInfo
+
+func (m *Project_Renamed) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
 }
 
 func init() {
 	proto.RegisterType((*Project)(nil), "aggregate.Project")
+	proto.RegisterType((*Project_Created)(nil), "aggregate.Project.Created")
+	proto.RegisterType((*Project_TaskRemoved)(nil), "aggregate.Project.TaskRemoved")
+	proto.RegisterType((*Project_TaskAdded)(nil), "aggregate.Project.TaskAdded")
+	proto.RegisterType((*Project_Renamed)(nil), "aggregate.Project.Renamed")
 }
 
 func init() {
@@ -119,24 +323,31 @@ func init() {
 }
 
 var fileDescriptor_b2dd6387ba28cc56 = []byte{
-	// 267 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x8e, 0xbd, 0x4a, 0xc4, 0x40,
-	0x14, 0x46, 0x9d, 0xf5, 0x27, 0xee, 0xb8, 0xa0, 0x8c, 0x08, 0x71, 0x8b, 0x6c, 0xb0, 0x90, 0xa9,
-	0x32, 0xa0, 0xd8, 0x58, 0x58, 0xc8, 0x5a, 0xa4, 0x93, 0xe0, 0x0b, 0x4c, 0x92, 0xeb, 0x18, 0x4d,
-	0xbc, 0xc3, 0xe4, 0xa6, 0xf0, 0x0d, 0x7c, 0x84, 0x3c, 0x8e, 0xa5, 0x9d, 0x82, 0xd8, 0x4b, 0x7c,
-	0x11, 0xd9, 0xc4, 0xd8, 0x5a, 0x7e, 0x7c, 0xe7, 0xc0, 0xe1, 0x17, 0xa6, 0xa0, 0xbb, 0x26, 0x8d,
-	0x32, 0xac, 0x94, 0x29, 0x2a, 0x5d, 0xea, 0x27, 0x85, 0x19, 0xa1, 0x41, 0x45, 0x98, 0xa3, 0xb6,
-	0x56, 0x65, 0xe8, 0x40, 0x69, 0x63, 0x1c, 0x18, 0x4d, 0xa0, 0xac, 0xc3, 0x7b, 0xc8, 0x28, 0xb2,
-	0x0e, 0x09, 0xc5, 0xf4, 0xef, 0x98, 0x2f, 0x0c, 0xa2, 0x29, 0x7b, 0x80, 0x30, 0x6d, 0x6e, 0x15,
-	0x15, 0x15, 0xd4, 0xa4, 0x2b, 0x3b, 0xb0, 0x47, 0x6f, 0x8c, 0x7b, 0xd7, 0x83, 0x2d, 0x76, 0xf9,
-	0x24, 0x5e, 0xfa, 0x1f, 0xc7, 0x21, 0x93, 0xb3, 0x64, 0x12, 0x2f, 0xc5, 0x3e, 0xdf, 0x78, 0xd4,
-	0x15, 0xf8, 0x2f, 0x8b, 0x90, 0xc9, 0x69, 0xd2, 0x0f, 0x71, 0xc0, 0x37, 0x49, 0xd7, 0x0f, 0xb5,
-	0xdf, 0x5e, 0x85, 0xeb, 0x72, 0x96, 0x0c, 0x4b, 0x1c, 0x72, 0x2f, 0x87, 0x12, 0x08, 0x72, 0xff,
-	0x33, 0x0e, 0x99, 0xdc, 0x4e, 0xc6, 0x2d, 0xce, 0xb8, 0xd7, 0xd8, 0x5c, 0xaf, 0xae, 0x56, 0x86,
-	0x4c, 0xee, 0x9c, 0xcc, 0xa3, 0xa1, 0x2b, 0x1a, 0xbb, 0xa2, 0x9b, 0xb1, 0x2b, 0x19, 0xd9, 0x95,
-	0x96, 0x39, 0xe8, 0xb5, 0xe7, 0xf3, 0xff, 0xb5, 0x5f, 0xf6, 0x72, 0xef, 0xb5, 0x0b, 0xd8, 0x7b,
-	0x17, 0xb0, 0xaf, 0x2e, 0x60, 0xed, 0x77, 0xb0, 0x96, 0x6e, 0xf5, 0xf8, 0xe9, 0x4f, 0x00, 0x00,
-	0x00, 0xff, 0xff, 0x27, 0xec, 0x4a, 0xaa, 0x58, 0x01, 0x00, 0x00,
+	// 370 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x90, 0xc1, 0x4a, 0xf3, 0x40,
+	0x14, 0x85, 0x3b, 0xed, 0xff, 0x37, 0xed, 0xb4, 0xa0, 0x46, 0xd4, 0x98, 0x45, 0x12, 0x44, 0x4a,
+	0x36, 0x26, 0xa8, 0xb8, 0x71, 0xa1, 0x58, 0xe3, 0x22, 0xae, 0x24, 0xf4, 0x05, 0xa6, 0xc9, 0x75,
+	0xac, 0x36, 0x4e, 0x48, 0xa7, 0x82, 0x0f, 0x20, 0xd4, 0x9d, 0xcb, 0x3e, 0x8e, 0xe0, 0xa6, 0x4b,
+	0x41, 0xdc, 0xaa, 0xd4, 0x97, 0xd0, 0x9d, 0x64, 0xa6, 0x69, 0xed, 0xd2, 0xdd, 0xfd, 0x98, 0x73,
+	0xcf, 0x3d, 0x67, 0xf0, 0x01, 0xed, 0xf0, 0x8b, 0x7e, 0xdb, 0x09, 0x59, 0xec, 0xd2, 0x4e, 0x4c,
+	0xba, 0xe4, 0xd6, 0x65, 0x21, 0x67, 0x94, 0xb9, 0x9c, 0x45, 0x8c, 0x24, 0x89, 0x1b, 0xb2, 0x14,
+	0x5c, 0x42, 0x69, 0x0a, 0x94, 0x70, 0x70, 0x93, 0x94, 0x5d, 0x42, 0xc8, 0x9d, 0x24, 0x65, 0x9c,
+	0xa9, 0xd5, 0xe9, 0x83, 0xbe, 0xf5, 0xdb, 0x2a, 0x33, 0x10, 0x8a, 0x76, 0xff, 0x5c, 0x90, 0x00,
+	0x31, 0xc9, 0x4d, 0xdd, 0xa4, 0x8c, 0xd1, 0x2e, 0xcc, 0x54, 0xbc, 0x13, 0x43, 0x8f, 0x93, 0x38,
+	0x91, 0x82, 0x8d, 0x41, 0x09, 0x2b, 0x67, 0xf2, 0x98, 0xba, 0x80, 0x8b, 0xbe, 0xa7, 0xbd, 0x34,
+	0x2c, 0x64, 0xd7, 0x83, 0xa2, 0xef, 0xa9, 0xcb, 0xf8, 0xdf, 0x35, 0x89, 0x41, 0x7b, 0x34, 0x2d,
+	0x64, 0x57, 0x03, 0x01, 0xea, 0x0a, 0xfe, 0xcf, 0x49, 0xef, 0xaa, 0xa7, 0x0d, 0x4f, 0xac, 0x92,
+	0x5d, 0x0f, 0x24, 0xa9, 0xeb, 0x58, 0x89, 0xa0, 0x0b, 0x1c, 0x22, 0xed, 0xd5, 0xb7, 0x90, 0x5d,
+	0x09, 0x72, 0x56, 0x0f, 0xb1, 0xd2, 0x4f, 0x22, 0x92, 0x3d, 0x0d, 0x6d, 0x0b, 0xd9, 0xb5, 0x1d,
+	0xdd, 0x91, 0xb9, 0x9c, 0x3c, 0x97, 0xd3, 0xca, 0x73, 0x35, 0x2b, 0xa3, 0x37, 0xb3, 0xf0, 0xf0,
+	0x6e, 0xa2, 0x20, 0xdf, 0xca, 0x0c, 0xc2, 0x14, 0x84, 0xc1, 0x60, 0xff, 0x2f, 0x06, 0x93, 0x2d,
+	0x7d, 0x0f, 0x2b, 0xc7, 0x72, 0x9c, 0x76, 0xba, 0x5f, 0x9d, 0xef, 0xd4, 0x12, 0x9d, 0xee, 0x4e,
+	0x65, 0x27, 0x41, 0x7a, 0x03, 0xd7, 0xb2, 0x21, 0x80, 0x98, 0xdd, 0x40, 0xa4, 0xae, 0xe1, 0x72,
+	0x86, 0xbe, 0xa7, 0x7d, 0x2d, 0x89, 0x3f, 0x9a, 0xa0, 0xbe, 0x89, 0xab, 0xd9, 0x74, 0x14, 0x45,
+	0x73, 0xaa, 0xa7, 0xed, 0x39, 0x95, 0x81, 0x95, 0x00, 0xb2, 0x73, 0xb3, 0x10, 0xdf, 0xde, 0x2c,
+	0x44, 0x73, 0x71, 0x34, 0x36, 0xd0, 0xf3, 0xd8, 0x40, 0x1f, 0x63, 0x03, 0x0d, 0x3f, 0x8d, 0x42,
+	0xbb, 0x2c, 0xda, 0xed, 0xfe, 0x04, 0x00, 0x00, 0xff, 0xff, 0x8a, 0xde, 0x5c, 0xae, 0x40, 0x02,
+	0x00, 0x00,
 }
 
 func (m *Project) Marshal() (dAtA []byte, err error) {
@@ -190,38 +401,30 @@ func (m *Project) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 			dAtA[i] = 0xc2
 		}
 	}
-	if m.Created != nil {
-		{
-			size, err := m.Created.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
-			}
-			i -= size
-			i = encodeVarintProject(dAtA, i, uint64(size))
-		}
-		i--
-		dAtA[i] = 0x3
-		i--
-		dAtA[i] = 0xd0
-		i--
-		dAtA[i] = 0xc2
+	n1, err1 := github_com_gogo_protobuf_types.StdTimeMarshalTo(m.Created, dAtA[i-github_com_gogo_protobuf_types.SizeOfStdTime(m.Created):])
+	if err1 != nil {
+		return 0, err1
 	}
-	if m.Updated != nil {
-		{
-			size, err := m.Updated.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
-			}
-			i -= size
-			i = encodeVarintProject(dAtA, i, uint64(size))
-		}
-		i--
-		dAtA[i] = 0x2
-		i--
-		dAtA[i] = 0xc1
-		i--
-		dAtA[i] = 0xc2
+	i -= n1
+	i = encodeVarintProject(dAtA, i, uint64(n1))
+	i--
+	dAtA[i] = 0x3
+	i--
+	dAtA[i] = 0xd0
+	i--
+	dAtA[i] = 0xc2
+	n2, err2 := github_com_gogo_protobuf_types.StdTimeMarshalTo(m.Updated, dAtA[i-github_com_gogo_protobuf_types.SizeOfStdTime(m.Updated):])
+	if err2 != nil {
+		return 0, err2
 	}
+	i -= n2
+	i = encodeVarintProject(dAtA, i, uint64(n2))
+	i--
+	dAtA[i] = 0x2
+	i--
+	dAtA[i] = 0xc1
+	i--
+	dAtA[i] = 0xc2
 	if len(m.ID) > 0 {
 		i -= len(m.ID)
 		copy(dAtA[i:], m.ID)
@@ -243,6 +446,171 @@ func (m *Project) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		dAtA[i] = 0xfc
 		i--
 		dAtA[i] = 0x82
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *Project_Created) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *Project_Created) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *Project_Created) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if len(m.Tasks) > 0 {
+		for iNdEx := len(m.Tasks) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.Tasks[iNdEx])
+			copy(dAtA[i:], m.Tasks[iNdEx])
+			i = encodeVarintProject(dAtA, i, uint64(len(m.Tasks[iNdEx])))
+			i--
+			dAtA[i] = 0x4
+			i--
+			dAtA[i] = 0xd0
+			i--
+			dAtA[i] = 0xaa
+		}
+	}
+	if len(m.Name) > 0 {
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
+		i = encodeVarintProject(dAtA, i, uint64(len(m.Name)))
+		i--
+		dAtA[i] = 0x1
+		i--
+		dAtA[i] = 0xb0
+		i--
+		dAtA[i] = 0xca
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *Project_TaskRemoved) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *Project_TaskRemoved) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *Project_TaskRemoved) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if len(m.TaskID) > 0 {
+		i -= len(m.TaskID)
+		copy(dAtA[i:], m.TaskID)
+		i = encodeVarintProject(dAtA, i, uint64(len(m.TaskID)))
+		i--
+		dAtA[i] = 0x1
+		i--
+		dAtA[i] = 0x8f
+		i--
+		dAtA[i] = 0xc2
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *Project_TaskAdded) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *Project_TaskAdded) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *Project_TaskAdded) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if len(m.TaskID) > 0 {
+		i -= len(m.TaskID)
+		copy(dAtA[i:], m.TaskID)
+		i = encodeVarintProject(dAtA, i, uint64(len(m.TaskID)))
+		i--
+		dAtA[i] = 0x3
+		i--
+		dAtA[i] = 0x8c
+		i--
+		dAtA[i] = 0x9a
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *Project_Renamed) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *Project_Renamed) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *Project_Renamed) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if len(m.Name) > 0 {
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
+		i = encodeVarintProject(dAtA, i, uint64(len(m.Name)))
+		i--
+		dAtA[i] = 0x4
+		i--
+		dAtA[i] = 0xa7
+		i--
+		dAtA[i] = 0xca
 	}
 	return len(dAtA) - i, nil
 }
@@ -272,14 +640,10 @@ func (m *Project) Size() (n int) {
 	if l > 0 {
 		n += 3 + l + sovProject(uint64(l))
 	}
-	if m.Updated != nil {
-		l = m.Updated.Size()
-		n += 3 + l + sovProject(uint64(l))
-	}
-	if m.Created != nil {
-		l = m.Created.Size()
-		n += 3 + l + sovProject(uint64(l))
-	}
+	l = github_com_gogo_protobuf_types.SizeOfStdTime(m.Updated)
+	n += 3 + l + sovProject(uint64(l))
+	l = github_com_gogo_protobuf_types.SizeOfStdTime(m.Created)
+	n += 3 + l + sovProject(uint64(l))
 	if len(m.Tasks) > 0 {
 		for _, b := range m.Tasks {
 			l = len(b)
@@ -288,6 +652,76 @@ func (m *Project) Size() (n int) {
 	}
 	if m.Deleted {
 		n += 4
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *Project_Created) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Name)
+	if l > 0 {
+		n += 3 + l + sovProject(uint64(l))
+	}
+	if len(m.Tasks) > 0 {
+		for _, b := range m.Tasks {
+			l = len(b)
+			n += 3 + l + sovProject(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *Project_TaskRemoved) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.TaskID)
+	if l > 0 {
+		n += 3 + l + sovProject(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *Project_TaskAdded) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.TaskID)
+	if l > 0 {
+		n += 3 + l + sovProject(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *Project_Renamed) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Name)
+	if l > 0 {
+		n += 3 + l + sovProject(uint64(l))
 	}
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
@@ -425,10 +859,7 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if m.Updated == nil {
-				m.Updated = &types.Timestamp{}
-			}
-			if err := m.Updated.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := github_com_gogo_protobuf_types.StdTimeUnmarshal(&m.Updated, dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -461,10 +892,7 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if m.Created == nil {
-				m.Created = &types.Timestamp{}
-			}
-			if err := m.Created.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := github_com_gogo_protobuf_types.StdTimeUnmarshal(&m.Created, dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -520,6 +948,386 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				}
 			}
 			m.Deleted = bool(v != 0)
+		default:
+			iNdEx = preIndex
+			skippy, err := skipProject(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthProject
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthProject
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *Project_Created) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowProject
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: Created: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: Created: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 2825:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Name", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowProject
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthProject
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthProject
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Name = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 9477:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Tasks", wireType)
+			}
+			var byteLen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowProject
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				byteLen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if byteLen < 0 {
+				return ErrInvalidLengthProject
+			}
+			postIndex := iNdEx + byteLen
+			if postIndex < 0 {
+				return ErrInvalidLengthProject
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Tasks = append(m.Tasks, make([]byte, postIndex-iNdEx))
+			copy(m.Tasks[len(m.Tasks)-1], dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipProject(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthProject
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthProject
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *Project_TaskRemoved) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowProject
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: TaskRemoved: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: TaskRemoved: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 2296:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TaskID", wireType)
+			}
+			var byteLen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowProject
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				byteLen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if byteLen < 0 {
+				return ErrInvalidLengthProject
+			}
+			postIndex := iNdEx + byteLen
+			if postIndex < 0 {
+				return ErrInvalidLengthProject
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.TaskID = append(m.TaskID[:0], dAtA[iNdEx:postIndex]...)
+			if m.TaskID == nil {
+				m.TaskID = []byte{}
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipProject(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthProject
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthProject
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *Project_TaskAdded) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowProject
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: TaskAdded: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: TaskAdded: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 6339:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TaskID", wireType)
+			}
+			var byteLen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowProject
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				byteLen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if byteLen < 0 {
+				return ErrInvalidLengthProject
+			}
+			postIndex := iNdEx + byteLen
+			if postIndex < 0 {
+				return ErrInvalidLengthProject
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.TaskID = append(m.TaskID[:0], dAtA[iNdEx:postIndex]...)
+			if m.TaskID == nil {
+				m.TaskID = []byte{}
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipProject(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthProject
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthProject
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *Project_Renamed) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowProject
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: Renamed: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: Renamed: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 8825:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Name", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowProject
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthProject
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthProject
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Name = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipProject(dAtA[iNdEx:])
