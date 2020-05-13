@@ -1,16 +1,22 @@
 package com.example.todolist.di
 
-import com.example.todolist.services.Commander
-import com.example.todolist.services.GoBinding
-import com.example.todolist.services.Loader
-import com.example.todolist.services.Navigator
+import android.os.Handler
+import android.os.Looper
+import com.example.todolist.commanders.HomeCommander
+import com.example.todolist.model.UiModel
+import com.example.todolist.repositories.HomeRepository
+import com.example.todolist.repositories.ProjectRepository
+import com.example.todolist.services.*
+import java.util.concurrent.Executors
 
 /**
  * Dependency Injection container at the application level.
  */
 interface AppContainer {
-    val loader: Loader
-    val commander: Commander
+    val uiModel: UiModel
+    val homeRepository: HomeRepository
+    val projectRepository: ProjectRepository
+    val homeCommander: HomeCommander
     val navigator: Navigator
 }
 
@@ -28,15 +34,52 @@ class AppContainerImpl : AppContainer {
         Navigator()
     }
 
-    override val loader: Loader by lazy {
-        Loader(
-            binding = this.goBinding
+    private val loader: Loader by lazy {
+        val executor = ExecutorInBackground<ByteArray>(
+            executor = Executors.newFixedThreadPool(4),
+            mainThreadHandler = Handler(Looper.getMainLooper())
+        )
+
+        LoaderImpl(
+            binding = goBinding,
+            executor = executor,
+            uiModel = uiModel
         )
     }
 
-    override val commander: Commander by lazy {
-        Commander(
-           binding = this.goBinding
+    private val commander: Commander by lazy {
+        val executor = ExecutorInBackground<Unit>(
+            executor = Executors.newFixedThreadPool(4),
+            mainThreadHandler = Handler(Looper.getMainLooper())
+        )
+
+        CommanderImpl(
+            binding = goBinding,
+            executor = executor,
+            uiModel = uiModel
         )
     }
+
+    override val homeCommander: HomeCommander by lazy {
+        HomeCommander(
+            commander = commander,
+            repository = homeRepository
+        )
+    }
+
+    override val uiModel: UiModel by lazy {
+        UiModel()
+    }
+
+    override val homeRepository: HomeRepository by lazy {
+        HomeRepository(
+            loader = loader,
+            uiModel = uiModel
+        )
+    }
+
+    override val projectRepository: ProjectRepository by lazy {
+        ProjectRepository(loader = loader)
+    }
+
 }

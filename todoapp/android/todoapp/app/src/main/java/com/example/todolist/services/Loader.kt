@@ -1,14 +1,32 @@
 package com.example.todolist.services
 
-import com.example.todolist.model.ViewModelOuterClass.ViewModel
-import com.example.todolist.model.ViewModelOuterClass.Location
+import com.example.todolist.model.UiModel
+import com.google.protobuf.Message
 
-class Loader(private val binding: GoBinding) {
+interface Loader {
+    fun load(payload: Message, callback: (ByteArray) -> Unit)
+}
 
-    fun getHome(): ViewModel.Home {
-        val payload = Location.Home.newBuilder().build()
-        val data = binding.read(payload)
-        return ViewModel.Home.parseFrom(data)
+class LoaderImpl(
+    private val binding: GoBinding,
+    private val uiModel: UiModel,
+    private val executor: ExecutorInBackground<ByteArray>
+) : Loader {
+    override fun load(payload: Message, callback: (ByteArray) -> Unit) {
+        uiModel.isLoading = true
+        executor.executeInThreads(
+            command = {
+                binding.read(payload)
+            },
+            onSuccess = { result ->
+                callback(result)
+            },
+            onFail = { e ->
+                throw Error("Data cannot be read. Message: " + e.message )
+            },
+            onFinal = {
+                uiModel.isLoading = false
+            }
+        )
     }
-
 }

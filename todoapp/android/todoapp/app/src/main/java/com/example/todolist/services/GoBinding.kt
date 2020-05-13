@@ -25,7 +25,7 @@ class GoBinding {
         binding = Binding.new_("$dbDirPath/boltdb")
     }
 
-    fun read(payload: Message): ByteArray? {
+    fun read(payload: Message): ByteArray {
         val type = LocationType.valueOf(payload.javaClass.simpleName)
         val location = Location
             .newBuilder()

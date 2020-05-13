@@ -1,32 +1,27 @@
 package com.example.todolist.ui.home
 
-import androidx.compose.Composable
-import androidx.compose.onActive
-import androidx.compose.state
-import androidx.compose.unaryPlus
-import com.example.todolist.data.SourceData
+import androidx.compose.*
+import com.example.todolist.model.UiModel
 import com.example.todolist.di.AppContainer
 
 @Composable
-fun HomeScreen(appContainer: AppContainer) {
-    val loader = appContainer.loader
-    val commander = appContainer.commander
+fun HomeScreen(
+    uiState: State<UiModel>,
+    appContainer: AppContainer
+) {
+    val repo = appContainer.homeRepository
+    val commander = appContainer.homeCommander
     val navigator = appContainer.navigator
 
-    val sourceData = +state { SourceData() }
-    +onActive {
-        sourceData.value.home = loader.getHome()
-    }
+    +onActive { repo.getHome() }
 
     Home(
-        projects = sourceData.value.home.projectsList,
-        onAddProject = {
-            commander.addHomeProject(it)
-            sourceData.value.home = loader.getHome()
+        projects = uiState.value.home.projectsList,
+        onAddProject = { projectName ->
+            commander.addProject(projectName)
         },
-        onRemoveProject = {
-            commander.removeHomeProject(it)
-            sourceData.value.home = loader.getHome()
+        onRemoveProject = { id ->
+            commander.removeProject(id)
         },
         onNavigateTo = { screen ->
             navigator.navigateTo(screen)

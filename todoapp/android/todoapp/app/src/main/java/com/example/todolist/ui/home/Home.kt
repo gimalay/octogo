@@ -26,9 +26,7 @@ fun Home(
             projects.forEach {
                 Clickable(
                     onClick = {
-                        onNavigateTo(
-                            Navigator.Screen.Article(it)
-                        )
+                        onNavigateTo(Navigator.Screen.Article(it))
                     }
                 ) {
                     Article(
