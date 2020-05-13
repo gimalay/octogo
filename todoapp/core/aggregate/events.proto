@@ -1,0 +1,16 @@
+syntax = "proto3";
+package aggregate;
+
+enum EventType {
+    Unknown = 0;
+
+    // Project
+    ProjectCreated = 8812;
+    ProjectRenamed = 8489;
+    TaskAdded = 1541;
+    TaskRemoved = 4982;
+
+    // Task
+    TaskCreated = 8694;
+    TaskRenamed = 5239;
+}
