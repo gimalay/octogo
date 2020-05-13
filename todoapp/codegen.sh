@@ -1,5 +1,5 @@
 cd "$GOPATH"/src || exit
-gofiles=("aggregate/events" "aggregate/project" "aggregate/task" "command/command")
+gofiles=("aggregate/events" "aggregate/project" "aggregate/task" "command/command" "viewModel/viewModel")
 
 for f in "${gofiles[@]}"
 do

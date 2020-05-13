@@ -1,12 +1,12 @@
 package aggregate
 
 import (
-	"github.com/gimalay/octogo/pkg/octogo"
+	"github.com/gimalay/octogo/pkg/aggregator"
 )
 
 type Mapper struct{}
 
-func (a *Mapper) MapAggregate(ev octogo.Event) octogo.Aggregate {
+func (a *Mapper) MapAggregate(ev aggregator.Event) aggregator.Aggregate {
 	if ((*Task)(nil)).CanAggregate(ev) {
 		return (*Task)(nil)
 	}

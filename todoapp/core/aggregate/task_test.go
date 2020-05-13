@@ -1,7 +1,7 @@
 package aggregate
 
 import (
-	"github.com/gimalay/octogo/pkg/octogo"
+	"github.com/gimalay/octogo/pkg/aggregator"
 	"testing"
 	"time"
 
@@ -13,15 +13,15 @@ import (
 func TestTask_Aggregate(t *testing.T) {
 	tests := []struct {
 		name     string
-		existing octogo.Aggregate
-		argument octogo.Event
+		existing aggregator.Aggregate
+		argument aggregator.Event
 		expected *Task
 		err      error
 	}{
 		{
 			name:     "task created",
 			existing: (*Task)(nil),
-			argument: octogo.Event{
+			argument: aggregator.Event{
 				AggregateID: id(1),
 				Payload: bt(&Task_Created{
 					Name: "name1",
@@ -42,7 +42,7 @@ func TestTask_Aggregate(t *testing.T) {
 			existing: &Task{
 				ID: id(1),
 			},
-			argument: octogo.Event{
+			argument: aggregator.Event{
 				AggregateID: id(1),
 				Payload:     bt(&Task_Created{}),
 				Type:        int(EventType_TaskCreated),

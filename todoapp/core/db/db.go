@@ -4,7 +4,7 @@ import (
 	"errors"
 	bolt "github.com/coreos/bbolt"
 	"github.com/gimalay/binx"
-	"github.com/gimalay/octogo/pkg/octogo"
+	"github.com/gimalay/octogo/pkg/aggregator"
 	"github.com/gimalay/octogo/todoapp/core/aggregate"
 )
 
@@ -13,7 +13,7 @@ type DB struct {
 	binx.Writer
 }
 
-func (w *DB) WriteAggregate(ag octogo.Aggregate) error {
+func (w *DB) WriteAggregate(ag aggregator.Aggregate) error {
 	switch a := ag.(type) {
 	case *aggregate.Project:
 		return w.Put((*project)(a))

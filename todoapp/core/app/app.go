@@ -2,8 +2,8 @@ package app
 
 import (
 	"fmt"
+	"github.com/gimalay/octogo/pkg/aggregator"
 	"github.com/gimalay/octogo/pkg/eventDB"
-	"github.com/gimalay/octogo/pkg/octogo"
 	"github.com/gimalay/octogo/todoapp/core/aggregate"
 	"github.com/gimalay/octogo/todoapp/core/command"
 	"github.com/gimalay/octogo/todoapp/core/db"
@@ -47,7 +47,7 @@ func (a *App) ViewModel(location Message) ([]byte, error) {
 
 func (a *App) Execute(cmd Message) error {
 	return a.db.Update(func(tx *bolt.Tx) error {
-		oc := octogo.Aggregator{
+		oc := aggregator.Aggregator{
 			EventWriter:     &eventDB.EventDB{Tx: tx},
 			EventReader:     &eventDB.EventDB{Tx: tx},
 			AggregateWriter: &db.DB{Writer: binx.NewWriter(tx)},

@@ -1,11 +1,11 @@
 package aggregate
 
 import (
-	"github.com/gimalay/octogo/pkg/octogo"
+	"github.com/gimalay/octogo/pkg/aggregator"
 	"github.com/golang/protobuf/proto"
 )
 
-func (ag *Task) AggregateEvent(e octogo.Event) (octogo.Aggregate, error) {
+func (ag *Task) AggregateEvent(e aggregator.Event) (aggregator.Aggregate, error) {
 	h := ag.handler(EventType(e.Type))
 	if h == nil {
 		return ag, errEventUnknownType
@@ -21,13 +21,13 @@ func (ag *Task) AggregateEvent(e octogo.Event) (octogo.Aggregate, error) {
 	return ag, err
 }
 
-func (ag *Task) CanAggregate(ev octogo.Event) bool {
+func (ag *Task) CanAggregate(ev aggregator.Event) bool {
 	return ag.handler(EventType(ev.Type)) != nil
 }
 
 type taskEventHandler interface {
 	proto.Message
-	handle(*Task, octogo.Event) (*Task, error)
+	handle(*Task, aggregator.Event) (*Task, error)
 }
 
 func (i *Task) handler(t EventType) taskEventHandler {
@@ -41,7 +41,7 @@ func (i *Task) handler(t EventType) taskEventHandler {
 	}
 }
 
-func (pl *Task_Renamed) handle(a *Task, ev octogo.Event) (*Task, error) {
+func (pl *Task_Renamed) handle(a *Task, ev aggregator.Event) (*Task, error) {
 	if a == nil {
 		return a, errTaskDoesNotExist
 	}
@@ -53,7 +53,7 @@ func (pl *Task_Renamed) handle(a *Task, ev octogo.Event) (*Task, error) {
 	return a, nil
 }
 
-func (pl *Task_Created) handle(a *Task, ev octogo.Event) (*Task, error) {
+func (pl *Task_Created) handle(a *Task, ev aggregator.Event) (*Task, error) {
 	if a != nil {
 		return a, errTaskAlreadyCreated
 	}

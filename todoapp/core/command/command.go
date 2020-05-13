@@ -2,7 +2,7 @@ package command
 
 import (
 	fmt "fmt"
-	"github.com/gimalay/octogo/pkg/octogo"
+	"github.com/gimalay/octogo/pkg/aggregator"
 	"github.com/gimalay/octogo/todoapp/core/aggregate"
 	"time"
 
@@ -10,7 +10,7 @@ import (
 )
 
 type Cmd interface {
-	Execute(Reader) ([]octogo.Event, error)
+	Execute(Reader) ([]aggregator.Event, error)
 	proto.Message
 }
 
@@ -25,10 +25,10 @@ type commandAdapter struct {
 	timestamp time.Time
 }
 
-func (c *commandAdapter) Execute() ([]octogo.Event, error) {
+func (c *commandAdapter) Execute() ([]aggregator.Event, error) {
 	ev, err := c.Cmd.Execute(c.Reader)
 
-	r := []octogo.Event{}
+	r := []aggregator.Event{}
 
 	for _, e := range ev {
 		e.Timestamp = c.timestamp
@@ -48,7 +48,7 @@ type Message struct {
 	Timestamp time.Time
 }
 
-func (u *Unmarshaler) Unmarshal(data Message) (octogo.Command, error) {
+func (u *Unmarshaler) Unmarshal(data Message) (aggregator.Command, error) {
 	c := MapCommandPayload(data.Type)
 	err := proto.Unmarshal(data.Payload, c)
 	if err != nil {
@@ -75,8 +75,8 @@ func MapCommandPayload(t int) Cmd {
 	panic(fmt.Sprintf("unknown command type: %v", t))
 }
 
-func (c Command_NewTask) Execute(r Reader) ([]octogo.Event, error) {
-	events := []octogo.Event{
+func (c Command_NewTask) Execute(r Reader) ([]aggregator.Event, error) {
+	events := []aggregator.Event{
 		{
 			Type: int(aggregate.EventType_TaskCreated),
 			Payload: bytes(&aggregate.Task_Created{
@@ -89,8 +89,8 @@ func (c Command_NewTask) Execute(r Reader) ([]octogo.Event, error) {
 	return events, nil
 }
 
-func (c Command_NewProject) Execute(r Reader) ([]octogo.Event, error) {
-	events := []octogo.Event{
+func (c Command_NewProject) Execute(r Reader) ([]aggregator.Event, error) {
+	events := []aggregator.Event{
 		{
 			Type: int(aggregate.EventType_ProjectCreated),
 			Payload: bytes(&aggregate.Project_Created{
@@ -104,8 +104,8 @@ func (c Command_NewProject) Execute(r Reader) ([]octogo.Event, error) {
 	return events, nil
 }
 
-func (c Command_RemoveTask) Execute(r Reader) ([]octogo.Event, error) {
-	return []octogo.Event{
+func (c Command_RemoveTask) Execute(r Reader) ([]aggregator.Event, error) {
+	return []aggregator.Event{
 		{
 			Type: int(aggregate.EventType_TaskRemoved),
 			Payload: bytes(&aggregate.Project_TaskRemoved{
@@ -116,8 +116,8 @@ func (c Command_RemoveTask) Execute(r Reader) ([]octogo.Event, error) {
 	}, nil
 }
 
-func (c Command_AddTask) Execute(r Reader) ([]octogo.Event, error) {
-	return []octogo.Event{
+func (c Command_AddTask) Execute(r Reader) ([]aggregator.Event, error) {
+	return []aggregator.Event{
 		{
 			Type: int(aggregate.EventType_TaskAdded),
 			Payload: bytes(&aggregate.Project_TaskAdded{
@@ -128,8 +128,8 @@ func (c Command_AddTask) Execute(r Reader) ([]octogo.Event, error) {
 	}, nil
 }
 
-func (c Command_RenameTask) Execute(r Reader) ([]octogo.Event, error) {
-	return []octogo.Event{
+func (c Command_RenameTask) Execute(r Reader) ([]aggregator.Event, error) {
+	return []aggregator.Event{
 		{
 			Type: int(aggregate.EventType_TaskRenamed),
 			Payload: bytes(&aggregate.Task_Renamed{
@@ -139,8 +139,8 @@ func (c Command_RenameTask) Execute(r Reader) ([]octogo.Event, error) {
 		},
 	}, nil
 }
-func (c Command_RenameProject) Execute(r Reader) ([]octogo.Event, error) {
-	return []octogo.Event{
+func (c Command_RenameProject) Execute(r Reader) ([]aggregator.Event, error) {
+	return []aggregator.Event{
 		{
 			Type: int(aggregate.EventType_ProjectRenamed),
 			Payload: bytes(&aggregate.Project_Renamed{

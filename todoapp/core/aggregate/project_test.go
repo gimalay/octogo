@@ -1,7 +1,7 @@
 package aggregate
 
 import (
-	"github.com/gimalay/octogo/pkg/octogo"
+	"github.com/gimalay/octogo/pkg/aggregator"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -10,15 +10,15 @@ import (
 func TestProject_Aggregate(t *testing.T) {
 	tests := []struct {
 		name     string
-		existing octogo.Aggregate
-		argument octogo.Event
+		existing aggregator.Aggregate
+		argument aggregator.Event
 		expected *Project
 		err      error
 	}{
 		{
 			name:     "Project created",
 			existing: (*Project)(nil),
-			argument: octogo.Event{
+			argument: aggregator.Event{
 				AggregateID: id(1),
 				Payload: bt(&Project_Created{
 					Name:  "name1",
@@ -46,7 +46,7 @@ func TestProject_Aggregate(t *testing.T) {
 				},
 				Created: tm(1),
 			},
-			argument: octogo.Event{
+			argument: aggregator.Event{
 				AggregateID: id(1),
 				Payload: bt(&Project_TaskRemoved{
 					TaskID: []byte{2},
@@ -70,7 +70,7 @@ func TestProject_Aggregate(t *testing.T) {
 				Tasks:   [][]byte{[]byte{1}},
 				Created: tm(1),
 			},
-			argument: octogo.Event{
+			argument: aggregator.Event{
 				AggregateID: id(1),
 				Payload: bt(&Project_TaskRemoved{
 					TaskID: []byte{1},

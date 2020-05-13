@@ -2,11 +2,11 @@ package aggregate
 
 import (
 	"bytes"
-	"github.com/gimalay/octogo/pkg/octogo"
+	"github.com/gimalay/octogo/pkg/aggregator"
 	"github.com/gogo/protobuf/proto"
 )
 
-func (ag *Project) AggregateEvent(e octogo.Event) (octogo.Aggregate, error) {
+func (ag *Project) AggregateEvent(e aggregator.Event) (aggregator.Aggregate, error) {
 	h := ag.handler(EventType(e.Type))
 	if h == nil {
 		return ag, errEventUnknownType
@@ -22,13 +22,13 @@ func (ag *Project) AggregateEvent(e octogo.Event) (octogo.Aggregate, error) {
 	return ag, err
 }
 
-func (ag *Project) CanAggregate(ev octogo.Event) bool {
+func (ag *Project) CanAggregate(ev aggregator.Event) bool {
 	return ag.handler(EventType(ev.Type)) != nil
 }
 
 type ProjectEventHandler interface {
 	proto.Message
-	handle(*Project, octogo.Event) (*Project, error)
+	handle(*Project, aggregator.Event) (*Project, error)
 }
 
 func (i *Project) handler(t EventType) ProjectEventHandler {
@@ -46,7 +46,7 @@ func (i *Project) handler(t EventType) ProjectEventHandler {
 	}
 }
 
-func (pl *Project_Created) handle(i *Project, ev octogo.Event) (*Project, error) {
+func (pl *Project_Created) handle(i *Project, ev aggregator.Event) (*Project, error) {
 	if i != nil {
 		return nil, errProjectAlreadyCreated
 	}
@@ -63,7 +63,7 @@ func (pl *Project_Created) handle(i *Project, ev octogo.Event) (*Project, error)
 	return i, nil
 }
 
-func (pl *Project_TaskRemoved) handle(i *Project, ev octogo.Event) (*Project, error) {
+func (pl *Project_TaskRemoved) handle(i *Project, ev aggregator.Event) (*Project, error) {
 	if i == nil {
 		return nil, errProjectDoesNotExist
 	}
@@ -82,7 +82,7 @@ func (pl *Project_TaskRemoved) handle(i *Project, ev octogo.Event) (*Project, er
 	return i, nil
 }
 
-func (pl *Project_TaskAdded) handle(i *Project, ev octogo.Event) (*Project, error) {
+func (pl *Project_TaskAdded) handle(i *Project, ev aggregator.Event) (*Project, error) {
 	if i == nil {
 		return nil, errProjectDoesNotExist
 	}
@@ -92,7 +92,7 @@ func (pl *Project_TaskAdded) handle(i *Project, ev octogo.Event) (*Project, erro
 	return i, nil
 }
 
-func (pl *Project_Renamed) handle(i *Project, ev octogo.Event) (*Project, error) {
+func (pl *Project_Renamed) handle(i *Project, ev aggregator.Event) (*Project, error) {
 	if i == nil {
 		return nil, errProjectDoesNotExist
 	}

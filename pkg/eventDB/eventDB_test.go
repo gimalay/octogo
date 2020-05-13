@@ -145,7 +145,7 @@ func Test_eventsForAggregate(t *testing.T) {
 		name     string
 		existing []*eventIndexable
 		argument []byte
-		expected []aggregator.Event
+		expected []octogo.Event
 		err      error
 	}{
 		{
@@ -164,7 +164,7 @@ func Test_eventsForAggregate(t *testing.T) {
 					Payload:     []byte{1},
 				}},
 			argument: id(1),
-			expected: []aggregator.Event{
+			expected: []octogo.Event{
 				{
 					AggregateID: id(1),
 					Timestamp:   tm(1),
@@ -193,7 +193,7 @@ func Test_eventsForAggregate(t *testing.T) {
 					Payload:     []byte{1},
 				}},
 			argument: id(1),
-			expected: []aggregator.Event{
+			expected: []octogo.Event{
 				{
 					AggregateID: id(1),
 					Timestamp:   tm(1),
