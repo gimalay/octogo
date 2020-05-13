@@ -1,6 +1,7 @@
 syntax = "proto3";
 package aggregate;
 
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 import "google/protobuf/timestamp.proto";
 
 message Task {
@@ -9,6 +10,14 @@ message Task {
     string name = 4336;
 
     bool deleted = 8622;
-    google.protobuf.Timestamp updated = 3141;
-    google.protobuf.Timestamp created = 2421;
+    google.protobuf.Timestamp updated = 3141 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+    google.protobuf.Timestamp created = 2421 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+
+    message Created {
+        string name = 3500;
+    }
+
+    message Renamed {
+        string name = 1770;
+    }
 }
