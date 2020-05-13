@@ -43,7 +43,7 @@ func (i *Task) handler(t EventType) taskEventHandler {
 
 func (pl *Task_Renamed) handle(a *Task, ev octogo.Event) (*Task, error) {
 	if a == nil {
-		return a, errActivtiyDoesNotExist
+		return a, errTaskDoesNotExist
 	}
 
 	a.Updated = ev.Timestamp
