@@ -1,11 +1,12 @@
 import SwiftUI
+import Octogo
 
 struct ContentView: View {
-    @EnvironmentObject var userData: Commander
+    @EnvironmentObject var homeLoader: HomeLoader
 
     var body: some View {
         NavigationView {
-            HomeView()
+            HomeView(model: homeLoader.model)
         }
     }
 }
@@ -14,9 +15,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
 
-        let data = Commander.shared
 
-        return ContentView().environmentObject(data)
+        return ContentView().environmentObject(HomeLoader(commandObserver: Commander.shared))
     }
 }
 #endif

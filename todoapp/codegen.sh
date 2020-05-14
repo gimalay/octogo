@@ -12,3 +12,8 @@ Mgoogle/protobuf/wrappers.proto=github.com/gogo/protobuf/types:. \
 github.com/gimalay/octogo/todoapp/core/$f.proto
 done
 
+cd "$GOPATH"/src/github.com/gimalay/octogo/todoapp/core/command || exit
+protoc -I=. -I=$GOPATH/src  --swift_out=../../ios/todoapp/src/Models command.proto
+
+cd "$GOPATH"/src/github.com/gimalay/octogo/todoapp/core/viewModel || exit
+protoc -I=. -I=$GOPATH/src  --swift_out=../../ios/todoapp/src/Models viewModel.proto

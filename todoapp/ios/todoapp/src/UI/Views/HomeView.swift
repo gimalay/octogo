@@ -1,13 +1,15 @@
 import SwiftUI
+import Octogo
 
 struct HomeView: View {
     @EnvironmentObject var commander: Commander
-    @EnvironmentObject var data: UserData
+    @EnvironmentObject var homeLoader: HomeLoader
+    let model: ViewModel.Home
 
     var body: some View {
         List {
-            ForEach(data.home.projects) { p in
-                ProjectView(project: p).onTapGesture(perform: { self.deleteProject(id: p.id) })
+            ForEach(model.projects) { p in
+                ProjectView(project: p).onTapGesture(perform: { })
             }
 
             Section() {
@@ -23,17 +25,11 @@ struct HomeView: View {
                 .navigationBarTitle(Text("Todo"), displayMode: .large)
                 .listStyle(GroupedListStyle())
                 .environment(\.horizontalSizeClass, .regular)
-                .onAppear(perform: { self.data.navigateTo(Location.Home()) })
-    }
-
-    func deleteProject(id: Data) {
-        commander.executeCommand(Command.DeleteProject.with({
-            $0.projectID = id
-        }))
+        .onAppear(perform: { self.homeLoader.load() })
     }
 
     func newProject() {
-        commander.executeCommand(Command.NewProject.with({
+        commander.execute(Command.NewProject.with({
             $0.projectID = newId()
             $0.name = "New Project"
         }))
@@ -59,11 +55,10 @@ struct P986245_Previews: PreviewProvider {
 
         return ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
             NavigationView {
-                HomeView()
+                HomeView(model: ViewModel.Home())
                         .previewDevice(PreviewDevice(rawValue: deviceName))
                         .previewDisplayName(deviceName)
                         .environmentObject(Commander.shared)
-                        .environmentObject(UserData.shared)
             }
         }
     }

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Octogo",
+        "repositoryURL": "git@github.com:gimalay/octogo.swift.git",
+        "state": {
+          "branch": "master",
+          "revision": "65aef46b67c16378ad0ab61163ccbe646408a6ac",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

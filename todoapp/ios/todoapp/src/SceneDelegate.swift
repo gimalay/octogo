@@ -1,5 +1,70 @@
 import UIKit
 import SwiftUI
+import Binding
+import Octogo
+import SwiftProtobuf
+
+class BindingAdapter: Octogo.BindingAdapterProtocol {
+    private var binding: BindingBindingProtocol?
+
+    func execute(commandType: Int, payload: Data, timestamp: String) throws {
+        try binding!.execute(commandType, payload: payload, timestamp: timestamp)
+    }
+
+    func viewModel(commandType: Int, payload: Data, timestamp: String) throws -> Data {
+        try binding!.viewModel(commandType, payload: payload, timestamp: timestamp)
+    }
+
+    func open(dbPath: String) throws {
+        let error: ErrorPointer = nil
+        let b = BindingNew(dbPath, error)
+        self.binding = b
+        if (error != nil) {
+            print(error ?? "no error")
+        }
+    }
+
+    func close() throws {
+        try binding!.close()
+    }
+}
+
+extension Commander {
+    static let shared: Commander = {
+        let binding = GoBinding(binding: BindingAdapter(), dbPath: GetDatabasePath())
+        binding.open()
+        let instance = Commander(binding: binding)
+        return instance
+    }()
+}
+
+extension ViewModel.Home: ViewModelMessage {
+}
+extension Location.Home: LocationMessage {
+}
+extension ViewModel.Project: ViewModelMessage {
+}
+extension Location.Project: LocationMessage {
+}
+extension ViewModel.Task: ViewModelMessage {
+}
+extension Location.Task: LocationMessage {
+}
+
+extension Command.NewProject: CommandMessage {}
+extension Command.AddTask: CommandMessage {}
+extension Command.NewTask: CommandMessage {}
+extension Command.RemoveTask: CommandMessage {}
+extension Command.RenameProject: CommandMessage {}
+
+class HomeLoader: Loader<ViewModel.Home, Location.Home> {
+}
+
+class TaskLoader: Loader<ViewModel.Task, Location.Task> {
+}
+
+class ProjectLoader: Loader<ViewModel.Project, Location.Project> {
+}
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -14,9 +79,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
+            let commander = Commander.shared
+
             window.rootViewController = UIHostingController(rootView: ContentView()
                     .environmentObject(Commander.shared)
-                    .environmentObject(UserData.shared)
+                .environmentObject(HomeLoader(commandObserver: commander))
+                .environmentObject(TaskLoader(commandObserver: commander))
+                .environmentObject(ProjectLoader(commandObserver: commander))
             )
             self.window = window
             window.makeKeyAndVisible()
@@ -57,3 +126,44 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+func GetDatabasePath() -> String {
+    let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+    ).first!
+
+    let fileName = "\(path)/boltdb";
+
+    return fileName
+}
+
+
+enum MessageMappingError: Error {
+    case cannotMapMessageType
+}
+
+extension SwiftProtobuf.Message {
+    func type() throws -> Int {
+        let mirror = Mirror(reflecting: self)
+
+        for a in LocationType.allCases {
+            if String(describing: a).lowercased() == String(describing: mirror.subjectType).lowercased() {
+                return a.rawValue
+            }
+        }
+        for a in CommandType.allCases {
+            if String(describing: a).lowercased() == String(describing: mirror.subjectType).lowercased() {
+                return a.rawValue
+            }
+        }
+
+        throw MessageMappingError.cannotMapMessageType
+    }
+
+    init(data: Data) throws {
+        try self.init(serializedData: data)
+    }
+
+    func encode() throws -> Data {
+        try self.serializedData()
+    }
+}

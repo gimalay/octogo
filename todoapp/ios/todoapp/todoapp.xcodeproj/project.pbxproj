@@ -3,18 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E2008E6246D74A600EB8217 /* Octogo in Frameworks */ = {isa = PBXBuildFile; productRef = 8E2008E5246D74A600EB8217 /* Octogo */; };
 		8E95B0F92409D83A001CCB2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95B0F82409D83A001CCB2C /* AppDelegate.swift */; };
 		8E95B0FB2409D83A001CCB2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95B0FA2409D83A001CCB2C /* SceneDelegate.swift */; };
 		8E95B0FF2409D83B001CCB2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E95B0FE2409D83B001CCB2C /* Assets.xcassets */; };
 		8E95B1022409D83B001CCB2C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E95B1012409D83B001CCB2C /* Preview Assets.xcassets */; };
 		8E95B1052409D83B001CCB2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E95B1032409D83B001CCB2C /* LaunchScreen.storyboard */; };
-		8ED2330E2409DABA00DC073D /* GoBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED233002409DABA00DC073D /* GoBinding.swift */; };
-		8ED2330F2409DABA00DC073D /* Commander.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED233022409DABA00DC073D /* Commander.swift */; };
-		8ED233102409DABA00DC073D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED233032409DABA00DC073D /* UserData.swift */; };
 		8ED233112409DABA00DC073D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED233062409DABA00DC073D /* HomeView.swift */; };
 		8ED233122409DABA00DC073D /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED233072409DABA00DC073D /* TaskView.swift */; };
 		8ED233132409DABA00DC073D /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED233082409DABA00DC073D /* ProjectView.swift */; };
@@ -49,9 +47,6 @@
 		8E95B1012409D83B001CCB2C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8E95B1042409D83B001CCB2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E95B1062409D83B001CCB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8ED233002409DABA00DC073D /* GoBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoBinding.swift; sourceTree = "<group>"; };
-		8ED233022409DABA00DC073D /* Commander.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commander.swift; sourceTree = "<group>"; };
-		8ED233032409DABA00DC073D /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		8ED233062409DABA00DC073D /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8ED233072409DABA00DC073D /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		8ED233082409DABA00DC073D /* ProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
@@ -69,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ED233242409DD9300DC073D /* Binding.framework in Frameworks */,
+				8E2008E6246D74A600EB8217 /* Octogo in Frameworks */,
 				8ED233212409DD4400DC073D /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,13 +72,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E95B0EC2409D83A001CCB2C = {
+		8E2008E3246D73CE00EB8217 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				8ED2331A2409DC9100DC073D /* Binding.framework */,
 				8ED233182409DC0900DC073D /* SwiftProtobuf.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E95B0EC2409D83A001CCB2C = {
+			isa = PBXGroup;
+			children = (
 				8E95B0F72409D83A001CCB2C /* src */,
 				8E95B0F62409D83A001CCB2C /* Products */,
+				8E2008E3246D73CE00EB8217 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,7 +101,6 @@
 		8E95B0F72409D83A001CCB2C /* src */ = {
 			isa = PBXGroup;
 			children = (
-				8ED232FF2409DABA00DC073D /* GoBinding */,
 				8ED2330A2409DABA00DC073D /* Models */,
 				8ED233012409DABA00DC073D /* State */,
 				8ED233042409DABA00DC073D /* UI */,
@@ -119,19 +122,9 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		8ED232FF2409DABA00DC073D /* GoBinding */ = {
-			isa = PBXGroup;
-			children = (
-				8ED233002409DABA00DC073D /* GoBinding.swift */,
-			);
-			path = GoBinding;
-			sourceTree = "<group>";
-		};
 		8ED233012409DABA00DC073D /* State */ = {
 			isa = PBXGroup;
 			children = (
-				8ED233022409DABA00DC073D /* Commander.swift */,
-				8ED233032409DABA00DC073D /* UserData.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -182,6 +175,9 @@
 			dependencies = (
 			);
 			name = todoapp;
+			packageProductDependencies = (
+				8E2008E5246D74A600EB8217 /* Octogo */,
+			);
 			productName = todoapp;
 			productReference = 8E95B0F52409D83A001CCB2C /* todoapp.app */;
 			productType = "com.apple.product-type.application";
@@ -210,6 +206,9 @@
 				Base,
 			);
 			mainGroup = 8E95B0EC2409D83A001CCB2C;
+			packageReferences = (
+				8E2008E4246D74A600EB8217 /* XCRemoteSwiftPackageReference "octogo.swift" */,
+			);
 			productRefGroup = 8E95B0F62409D83A001CCB2C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -237,15 +236,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ED2330F2409DABA00DC073D /* Commander.swift in Sources */,
 				8ED233122409DABA00DC073D /* TaskView.swift in Sources */,
 				8ED233162409DABA00DC073D /* command.pb.swift in Sources */,
 				8E95B0F92409D83A001CCB2C /* AppDelegate.swift in Sources */,
-				8ED2330E2409DABA00DC073D /* GoBinding.swift in Sources */,
 				8ED233172409DABA00DC073D /* viewModel.pb.swift in Sources */,
 				8ED233112409DABA00DC073D /* HomeView.swift in Sources */,
 				8ED233142409DABA00DC073D /* ContentView.swift in Sources */,
-				8ED233102409DABA00DC073D /* UserData.swift in Sources */,
 				8ED233132409DABA00DC073D /* ProjectView.swift in Sources */,
 				8ED233152409DABA00DC073D /* state.extension.swift in Sources */,
 				8E95B0FB2409D83A001CCB2C /* SceneDelegate.swift in Sources */,
@@ -385,9 +381,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"src/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R4T6B9WM36;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -453,6 +449,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8E2008E4246D74A600EB8217 /* XCRemoteSwiftPackageReference "octogo.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:gimalay/octogo.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8E2008E5246D74A600EB8217 /* Octogo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8E2008E4246D74A600EB8217 /* XCRemoteSwiftPackageReference "octogo.swift" */;
+			productName = Octogo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8E95B0ED2409D83A001CCB2C /* Project object */;
 }
