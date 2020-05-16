@@ -1,6 +1,5 @@
 package com.example.todolist.services
 
-import com.example.todolist.model.UiModel
 import com.google.protobuf.Message
 
 interface Loader {
@@ -9,24 +8,9 @@ interface Loader {
 
 class LoaderImpl(
     private val binding: GoBinding,
-    private val ui: UiModel,
-    private val executor: ExecutorInBackground<ByteArray>
+    private val executor: Executor
 ) : Loader {
     override fun load(payload: Message, callback: (ByteArray) -> Unit) {
-        ui.isLoading = true
-        executor.executeInThreads(
-            command = {
-                binding.read(payload)
-            },
-            onSuccess = { result ->
-                callback(result)
-            },
-            onFail = { e ->
-                throw Error("Data cannot be read. Message: " + e.message )
-            },
-            onFinal = {
-                ui.isLoading = false
-            }
-        )
+        executor.run({ binding.read(payload) }, callback)
     }
 }
