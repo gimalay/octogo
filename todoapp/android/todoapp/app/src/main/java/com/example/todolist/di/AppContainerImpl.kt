@@ -13,11 +13,13 @@ import java.util.concurrent.Executors
  * Dependency Injection container at the application level.
  */
 interface AppContainer {
-    val uiModel: UiModel
-    val homeRepository: HomeRepository
-    val projectRepository: ProjectRepository
-    val homeCommander: HomeCommander
     val navigator: Navigator
+    val ui: UiModel
+
+    val homeRepository: HomeRepository
+    val homeCommander: HomeCommander
+
+    val projectRepository: ProjectRepository
 }
 
 /**
@@ -26,12 +28,16 @@ interface AppContainer {
  * Variables are initialized lazily and the same instance is shared across the whole app.
  */
 class AppContainerImpl : AppContainer {
-    private val goBinding: GoBinding by lazy {
-        GoBinding()
-    }
-
     override val navigator: Navigator by lazy {
         Navigator()
+    }
+
+    override val ui: UiModel by lazy {
+        UiModel()
+    }
+
+    private val goBinding: GoBinding by lazy {
+        GoBinding()
     }
 
     private val loader: Loader by lazy {
@@ -43,7 +49,7 @@ class AppContainerImpl : AppContainer {
         LoaderImpl(
             binding = goBinding,
             executor = executor,
-            uiModel = uiModel
+            ui = ui
         )
     }
 
@@ -56,30 +62,30 @@ class AppContainerImpl : AppContainer {
         CommanderImpl(
             binding = goBinding,
             executor = executor,
-            uiModel = uiModel
+            ui = ui
         )
     }
 
     override val homeCommander: HomeCommander by lazy {
         HomeCommander(
             commander = commander,
-            repository = homeRepository
+            repository = homeRepository,
+            ui = ui
         )
-    }
-
-    override val uiModel: UiModel by lazy {
-        UiModel()
     }
 
     override val homeRepository: HomeRepository by lazy {
         HomeRepository(
             loader = loader,
-            uiModel = uiModel
+            ui = ui
         )
     }
 
     override val projectRepository: ProjectRepository by lazy {
-        ProjectRepository(loader = loader)
+        ProjectRepository(
+            loader = loader,
+            ui = ui
+        )
     }
 
 }

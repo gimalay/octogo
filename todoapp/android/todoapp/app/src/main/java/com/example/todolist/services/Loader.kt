@@ -9,11 +9,11 @@ interface Loader {
 
 class LoaderImpl(
     private val binding: GoBinding,
-    private val uiModel: UiModel,
+    private val ui: UiModel,
     private val executor: ExecutorInBackground<ByteArray>
 ) : Loader {
     override fun load(payload: Message, callback: (ByteArray) -> Unit) {
-        uiModel.isLoading = true
+        ui.isLoading = true
         executor.executeInThreads(
             command = {
                 binding.read(payload)
@@ -25,7 +25,7 @@ class LoaderImpl(
                 throw Error("Data cannot be read. Message: " + e.message )
             },
             onFinal = {
-                uiModel.isLoading = false
+                ui.isLoading = false
             }
         )
     }

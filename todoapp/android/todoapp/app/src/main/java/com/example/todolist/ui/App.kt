@@ -11,7 +11,6 @@ import com.example.todolist.ui.home.HomeScreen
 @Composable
 fun App(appContainer: AppContainer) {
     val navigator = appContainer.navigator
-    val uiState = +state { appContainer.uiModel }
 
     MaterialTheme(
         colors = lightThemeColors,
@@ -19,10 +18,7 @@ fun App(appContainer: AppContainer) {
     ) {
         Crossfade(navigator.getCurrentScreen()) { screen ->
             when (screen) {
-                is Navigator.Screen.Home -> HomeScreen(
-                    appContainer = appContainer,
-                    uiState = uiState
-                )
+                is Navigator.Screen.Home -> HomeScreen(appContainer = appContainer)
                 is Navigator.Screen.Article -> ArticleScreen(
                     appContainer = appContainer,
                     title = screen.project.name,

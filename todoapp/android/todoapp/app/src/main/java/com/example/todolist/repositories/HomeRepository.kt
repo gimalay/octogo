@@ -7,15 +7,13 @@ import com.example.todolist.services.Loader
 
 class HomeRepository(
     private val loader: Loader,
-    private val uiModel: UiModel
+    private val ui: UiModel
 ) {
-    private fun flush(result: ByteArray) {
-        uiModel.home = ViewModel.Home.parseFrom(result)
-    }
-
-    fun getHome() {
+    fun loadHome() {
         val payload = Location.Home.newBuilder().build()
-        loader.load(payload) { flush(it) }
+        loader.load(payload) { result ->
+            ui.home = ViewModel.Home.parseFrom(result)
+        }
     }
 
 }

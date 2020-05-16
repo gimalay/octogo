@@ -8,18 +8,17 @@ import com.google.protobuf.ByteString
 
 class ProjectRepository(
     private val loader: Loader,
-    private val uiModel: UiModel
+    private val ui: UiModel
 ) {
-    private fun flush(result: ByteArray) {
-        uiModel.project = ViewModel.Project.parseFrom(result)
-    }
 
-    fun getProject(id: ByteString) {
+    fun loadProject(id: ByteString) {
         val payload = Location.Project
             .newBuilder()
             .setProjectID(id)
             .build()
 
-        loader.load(payload) { flush(it) }
+        loader.load(payload) { result ->
+            ui.project = ViewModel.Project.parseFrom(result)
+        }
     }
 }
