@@ -25,6 +25,9 @@ fun HomeScreen(appContainer: AppContainer) {
         },
         onApplyFilter = { filter ->
             homeRepo.applyHomeFilter(filter)
+        },
+        onApplySorter = { sorter ->
+            homeRepo.applyHomeSorter(sorter)
         }
     )
 }
