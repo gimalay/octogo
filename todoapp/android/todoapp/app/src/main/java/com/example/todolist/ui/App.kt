@@ -4,7 +4,7 @@ import androidx.compose.*
 import androidx.ui.animation.Crossfade
 import androidx.ui.material.MaterialTheme
 import com.example.todolist.di.AppContainer
-import com.example.todolist.services.Navigator
+import com.example.todolist.service.Navigator
 import com.example.todolist.ui.article.ArticleScreen
 import com.example.todolist.ui.home.HomeScreen
 

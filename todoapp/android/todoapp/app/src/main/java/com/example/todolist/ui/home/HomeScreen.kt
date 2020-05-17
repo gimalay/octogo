@@ -5,23 +5,26 @@ import com.example.todolist.di.AppContainer
 
 @Composable
 fun HomeScreen(appContainer: AppContainer) {
-    val repo = appContainer.homeRepository
-    val commander = appContainer.homeCommander
+    val homeRepo = appContainer.homeRepository
+    val homeCommander = appContainer.homeCommander
     val navigator = appContainer.navigator
     val ui = appContainer.ui
 
-    +onActive { repo.loadHome() }
+    +onActive { homeRepo.loadHome() }
 
     Home(
         projects = ui.home.projectsList,
         onAddProject = { projectName ->
-            commander.addProject(projectName)
+            homeCommander.addProject(projectName)
         },
         onRemoveProject = { id ->
-            commander.removeProject(id)
+            homeCommander.removeProject(id)
         },
         onNavigateTo = { screen ->
             navigator.navigateTo(screen)
+        },
+        onApplyFilter = { filter ->
+            homeRepo.applyHomeFilter(filter)
         }
     )
 }

@@ -1,4 +1,4 @@
-package com.example.todolist.services
+package com.example.todolist.service
 
 import com.google.protobuf.Message
 
@@ -11,6 +11,6 @@ class LoaderImpl(
     private val executor: Executor
 ) : Loader {
     override fun load(payload: Message, callback: (ByteArray) -> Unit) {
-        executor.run({ binding.read(payload) }, callback)
+        executor.run({ binding.read(payload) ?: ByteArray(0) }, callback)
     }
 }

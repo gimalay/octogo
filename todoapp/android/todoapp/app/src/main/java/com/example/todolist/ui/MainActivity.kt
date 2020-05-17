@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.ui.core.setContent
 import com.example.todolist.TodoListApplication
-import com.example.todolist.services.Navigator
+import com.example.todolist.service.Navigator
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,4 +22,12 @@ class MainActivity : AppCompatActivity() {
             else -> super.onBackPressed()
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        val appContainer = (this.application as TodoListApplication).container
+        appContainer.destroy()
+    }
+
 }

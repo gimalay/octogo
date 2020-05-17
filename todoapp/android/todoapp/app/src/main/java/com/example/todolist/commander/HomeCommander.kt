@@ -1,9 +1,9 @@
-package com.example.todolist.commanders
+package com.example.todolist.commander
 
 import com.example.todolist.model.CommandOuterClass
 import com.example.todolist.model.UiModel
-import com.example.todolist.repositories.HomeRepository
-import com.example.todolist.services.Commander
+import com.example.todolist.repository.HomeRepository
+import com.example.todolist.service.Commander
 import com.example.todolist.utils.newUUIDasByteString
 import com.google.protobuf.ByteString
 
@@ -20,10 +20,6 @@ class HomeCommander(
             .build()
 
         commander.execute(newProject) { repository.loadHome() }
-//        commander.execute(newProject) {
-//            val project = ViewModel.Home.Project.newBuilder().setName(projectName).build();
-//            ui.home = ui.home.toBuilder().addProjects(project).build()
-//        }
     }
 
     fun removeProject(projectId: ByteString) {
@@ -33,10 +29,6 @@ class HomeCommander(
             .build()
 
         commander.execute(removableProject) { repository.loadHome() }
-//        commander.execute(removableProject) {
-//            val projects = ui.home.projectsList
-//            val removableProjectIndex = projects.indexOf(projects.find { it.id == projectId })
-//            ui.home = ui.home.toBuilder().removeProjects(removableProjectIndex).build()
-//        }
     }
+
 }

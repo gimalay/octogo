@@ -1,10 +1,10 @@
 package com.example.todolist.di
 
-import com.example.todolist.commanders.HomeCommander
+import com.example.todolist.commander.HomeCommander
 import com.example.todolist.model.UiModel
-import com.example.todolist.repositories.HomeRepository
-import com.example.todolist.repositories.ProjectRepository
-import com.example.todolist.services.*
+import com.example.todolist.repository.HomeRepository
+import com.example.todolist.repository.ProjectRepository
+import com.example.todolist.service.*
 
 /**
  * Dependency Injection container at the application level.
@@ -17,6 +17,8 @@ interface AppContainer {
     val homeCommander: HomeCommander
 
     val projectRepository: ProjectRepository
+
+    fun destroy()
 }
 
 /**
@@ -75,6 +77,10 @@ class AppContainerImpl : AppContainer {
             loader = loader,
             ui = ui
         )
+    }
+
+    override fun destroy() {
+        goBinding.close()
     }
 
 }

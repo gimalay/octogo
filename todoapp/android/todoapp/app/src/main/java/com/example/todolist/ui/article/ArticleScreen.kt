@@ -11,7 +11,7 @@ import androidx.ui.material.*
 import androidx.ui.text.TextStyle
 import androidx.ui.tooling.preview.Preview
 import com.example.todolist.di.AppContainer
-import com.example.todolist.services.Navigator
+import com.example.todolist.service.Navigator
 
 @Composable
 fun ArticleScreen(
