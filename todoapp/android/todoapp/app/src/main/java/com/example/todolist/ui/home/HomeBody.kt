@@ -5,10 +5,7 @@ import androidx.compose.unaryPlus
 import androidx.ui.core.Text
 import androidx.ui.core.dp
 import androidx.ui.foundation.VerticalScroller
-import androidx.ui.layout.Column
-import androidx.ui.layout.Gravity
-import androidx.ui.layout.Row
-import androidx.ui.layout.Spacing
+import androidx.ui.layout.*
 import androidx.ui.material.Button
 import androidx.ui.material.ContainedButtonStyle
 import androidx.ui.material.MaterialTheme
@@ -50,6 +47,7 @@ fun Article(
                 style = ContainedButtonStyle(),
                 onClick = onCopy
             )
+            WidthSpacer(width = 16.dp)
             Button(
                 "Remove",
                 style = TextButtonStyle(),

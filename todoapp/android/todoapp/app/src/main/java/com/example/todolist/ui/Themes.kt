@@ -3,7 +3,6 @@ package com.example.todolist.ui
 import androidx.ui.graphics.Color
 import androidx.ui.material.ColorPalette
 
-
 val lightThemeColors = ColorPalette(
     primary = Color(0xFFDD0D3C),
     primaryVariant = Color(0xFFC20029),

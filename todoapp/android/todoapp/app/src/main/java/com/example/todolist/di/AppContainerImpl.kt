@@ -1,23 +1,24 @@
 package com.example.todolist.di
 
-import android.os.Handler
-import android.os.Looper
-import com.example.todolist.commanders.HomeCommander
+import com.example.todolist.commander.HomeCommander
 import com.example.todolist.model.UiModel
-import com.example.todolist.repositories.HomeRepository
-import com.example.todolist.repositories.ProjectRepository
-import com.example.todolist.services.*
-import java.util.concurrent.Executors
+import com.example.todolist.repository.HomeRepository
+import com.example.todolist.repository.ProjectRepository
+import com.example.todolist.service.*
 
 /**
  * Dependency Injection container at the application level.
  */
 interface AppContainer {
-    val uiModel: UiModel
-    val homeRepository: HomeRepository
-    val projectRepository: ProjectRepository
-    val homeCommander: HomeCommander
     val navigator: Navigator
+    val ui: UiModel
+
+    val homeRepository: HomeRepository
+    val homeCommander: HomeCommander
+
+    val projectRepository: ProjectRepository
+
+    fun destroy()
 }
 
 /**
@@ -30,56 +31,56 @@ class AppContainerImpl : AppContainer {
         GoBinding()
     }
 
-    override val navigator: Navigator by lazy {
-        Navigator()
+    private val executor: Executor by lazy {
+        Executor(ui)
     }
 
     private val loader: Loader by lazy {
-        val executor = ExecutorInBackground<ByteArray>(
-            executor = Executors.newFixedThreadPool(4),
-            mainThreadHandler = Handler(Looper.getMainLooper())
-        )
-
         LoaderImpl(
             binding = goBinding,
-            executor = executor,
-            uiModel = uiModel
+            executor = executor
         )
     }
 
     private val commander: Commander by lazy {
-        val executor = ExecutorInBackground<Unit>(
-            executor = Executors.newFixedThreadPool(4),
-            mainThreadHandler = Handler(Looper.getMainLooper())
-        )
-
         CommanderImpl(
             binding = goBinding,
-            executor = executor,
-            uiModel = uiModel
+            executor = executor
         )
+    }
+
+    override val navigator: Navigator by lazy {
+        Navigator()
+    }
+
+    override val ui: UiModel by lazy {
+        UiModel()
     }
 
     override val homeCommander: HomeCommander by lazy {
         HomeCommander(
             commander = commander,
-            repository = homeRepository
+            repository = homeRepository,
+            ui = ui
         )
-    }
-
-    override val uiModel: UiModel by lazy {
-        UiModel()
     }
 
     override val homeRepository: HomeRepository by lazy {
         HomeRepository(
             loader = loader,
-            uiModel = uiModel
+            ui = ui
         )
     }
 
     override val projectRepository: ProjectRepository by lazy {
-        ProjectRepository(loader = loader)
+        ProjectRepository(
+            loader = loader,
+            ui = ui
+        )
+    }
+
+    override fun destroy() {
+        goBinding.close()
     }
 
 }

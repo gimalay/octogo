@@ -6,36 +6,38 @@ import androidx.compose.unaryPlus
 import androidx.ui.core.*
 import androidx.ui.foundation.Dialog
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
+import androidx.ui.graphics.Color
 import androidx.ui.layout.*
 import androidx.ui.material.*
 import androidx.ui.material.surface.Surface
 import androidx.ui.tooling.preview.Preview
+import com.example.todolist.ui.lightThemeColors
+import com.example.todolist.ui.themeTypography
 
 @Composable
 fun DialogButton(
-    visible: Boolean = false,
+    disabled: Boolean = false,
     text: String,
-    onOk: () -> Unit = {},
+    dialogTitle: String = text,
+    defaultVisible: Boolean = false,
+    onApply: () -> Unit = {},
     children: @Composable() () -> Unit
 ) {
-    val visibleModel = +state { visible }
+    val (visible, onVisibleChanged) = +state { defaultVisible }
 
     Button(
         text,
         style = ContainedButtonStyle(),
-        onClick = {
-            visibleModel.value = true
-        }
+        onClick = { onVisibleChanged(true) }
     )
-    if (visibleModel.value) {
+    if (visible) {
         DialogForm(
-            titleText = text,
-            onClose = {
-                visibleModel.value = false
-            },
-            onOk = {
-                onOk()
-                visibleModel.value = false
+            title = dialogTitle,
+            disabled = disabled,
+            onClose = { onVisibleChanged(false) },
+            onApply = {
+                onApply()
+                onVisibleChanged(false)
             }
         ) {
             children()
@@ -45,25 +47,29 @@ fun DialogButton(
 
 @Composable
 fun DialogForm(
-    titleText: String,
-    onOk: () -> Unit,
+    title: String,
+    disabled: Boolean,
+    onApply: () -> Unit,
     onClose: () -> Unit,
     children: @Composable() () -> Unit
 ) {
     Dialog(onCloseRequest = onClose) {
-        Surface(shape = RoundedCornerShape(4.dp)) {
-            Container(/*width = AlertDialogWidth*/) {
-                Column {
-                    DialogTitle(titleText)
-
-                    children()
-
-                    HeightSpacer(height = 28.dp)
-
-                    DialogActions(
-                        onOk = onOk,
-                        onClose = onClose
-                    )
+        MaterialTheme(
+            colors = lightThemeColors,
+            typography = themeTypography
+        ) {
+            Surface(shape = RoundedCornerShape(4.dp)) {
+                Container {
+                    Column {
+                        DialogTitle(title)
+                        children()
+                        HeightSpacer(height = 28.dp)
+                        DialogActions(
+                            disabled = disabled,
+                            onApply = onApply,
+                            onClose = onClose
+                        )
+                    }
                 }
             }
         }
@@ -86,24 +92,9 @@ fun DialogTitle(titleText: String) {
 }
 
 @Composable
-fun DialogContent(
-    value: EditorModel,
-    onChange: (value: EditorModel) -> Unit
-) {
-    Padding(padding = 24.dp) {
-        Column {
-            Text("Name:")
-            TextField(
-                value = value,
-                onValueChange = onChange
-            )
-        }
-    }
-}
-
-@Composable
 fun DialogActions(
-    onOk: () -> Unit,
+    disabled: Boolean,
+    onApply: () -> Unit,
     onClose: () -> Unit
 ) {
     Container(
@@ -112,18 +103,36 @@ fun DialogActions(
         alignment = Alignment.CenterRight
     ) {
         Row {
-            Button("Ok", onClick = onOk)
+            if (disabled) {
+                Button(
+                    "Apply",
+                    style = ContainedButtonStyle().copy(
+                        color = Color.LightGray
+                    )
+                )
+            } else {
+                Button(
+                    "Apply",
+                    onClick = onApply
+                )
+            }
             WidthSpacer(8.dp)
-            Button("Dismiss", onClick = onClose)
+            Button(
+                "Dismiss",
+                style = ContainedButtonStyle().copy(
+                    color = Color.Transparent
+                ),
+                onClick = onClose
+            )
         }
     }
 }
 
 @Preview
 @Composable
-fun PreviewDialogContent() {
-    DialogContent(
-        EditorModel("123"),
-        onChange = {}
-    )
+fun PreviewDialogActions() {
+    Column {
+        DialogActions(disabled = true, onApply = {}, onClose = {})
+        DialogActions(disabled = false, onApply = {}, onClose = {})
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.todolist.services
+package com.example.todolist.service
 
 import androidx.compose.Model
 import com.example.todolist.model.ViewModelOuterClass.ViewModel

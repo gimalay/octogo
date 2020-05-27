@@ -1,4 +1,4 @@
-package com.example.todolist.services
+package com.example.todolist.service
 
 import android.os.Environment
 import binding.Binding
@@ -25,7 +25,7 @@ class GoBinding {
         binding = Binding.new_("$dbDirPath/boltdb")
     }
 
-    fun read(payload: Message): ByteArray {
+    fun read(payload: Message): ByteArray? {
         val type = LocationType.valueOf(payload.javaClass.simpleName)
         val location = Location
             .newBuilder()
@@ -53,5 +53,9 @@ class GoBinding {
             .build()
 
         binding.execute(command.toByteArray())
+    }
+
+    fun close() {
+        binding.close()
     }
 }
