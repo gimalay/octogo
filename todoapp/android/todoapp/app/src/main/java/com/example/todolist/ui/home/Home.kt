@@ -7,8 +7,7 @@ import androidx.ui.foundation.Clickable
 import androidx.ui.layout.*
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontStyle
-import com.example.todolist.model.HomeFilter
-import com.example.todolist.model.HomeSorter
+import com.example.todolist.model.ViewModelOuterClass.Location
 import com.example.todolist.model.ViewModelOuterClass.ViewModel
 import com.example.todolist.service.Navigator
 import com.google.protobuf.ByteString
@@ -19,8 +18,8 @@ fun Home(
     onAddProject: (String) -> Unit = {},
     onRemoveProject: (ByteString) -> Unit = {},
     onNavigateTo: (Navigator.Screen) -> Unit = {},
-    onApplyFilter: (HomeFilter) -> Unit,
-    onApplySorter: (HomeSorter) -> Unit
+    onApplyFilter: (Location.Home.Filter) -> Unit,
+    onApplySorter: (Location.Home.Sorter) -> Unit
 ) {
 
     Column {

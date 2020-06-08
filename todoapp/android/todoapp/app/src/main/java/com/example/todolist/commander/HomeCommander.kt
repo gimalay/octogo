@@ -23,12 +23,12 @@ class HomeCommander(
     }
 
     fun removeProject(projectId: ByteString) {
-        val removableProject = CommandOuterClass.Command.DeleteProject
-            .newBuilder()
-            .setProjectID(projectId)
-            .build()
-
-        commander.execute(removableProject) { repository.loadHome() }
+//        val removableProject = CommandOuterClass.Command.DeleteProject
+//            .newBuilder()
+//            .setProjectID(projectId)
+//            .build()
+//
+//        commander.execute(removableProject) { repository.loadHome() }
     }
 
 }

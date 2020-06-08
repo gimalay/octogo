@@ -14,6 +14,9 @@ done
 
 cd "$GOPATH"/src/github.com/gimalay/octogo/todoapp/core/command || exit
 protoc -I=. -I=$GOPATH/src  --swift_out=../../ios/todoapp/src/Models command.proto
+protoc --java_out=../../android/todoapp/app/src/main/java command.proto
 
 cd "$GOPATH"/src/github.com/gimalay/octogo/todoapp/core/viewModel || exit
 protoc -I=. -I=$GOPATH/src  --swift_out=../../ios/todoapp/src/Models viewModel.proto
+protoc --java_out=../../android/todoapp/app/src/main/java viewModel.proto
+

@@ -10,17 +10,30 @@ import androidx.ui.layout.*
 import androidx.ui.material.Checkbox
 import androidx.ui.material.MaterialTheme
 import androidx.ui.material.RadioGroup
-import com.example.todolist.model.HomeFilter
-import com.example.todolist.model.HomeSorter
+import com.example.todolist.model.ViewModelOuterClass.ViewModel
+import com.example.todolist.model.ViewModelOuterClass.Location
+import com.example.todolist.model.ViewModelOuterClass.SortDirection
 import com.example.todolist.ui.common.ActionsRow
 import com.example.todolist.ui.common.DialogButton
 import com.example.todolist.ui.common.TextFieldWithHint
 
+// todo: remove this helper when RadioBox will be able to keep objects instead of only strings
+object ProjectSortHelper {
+    private val projectFields = listOf(
+        ViewModel.Home.Project.ID_FIELD_NUMBER,
+        ViewModel.Home.Project.NAME_FIELD_NUMBER
+    )
+
+    val projectFieldTitles = listOf("Id", "Name")
+    val fieldByTitle: Map<String, Int> = (projectFieldTitles zip projectFields).toMap()
+    val titleByField: Map<Int, String> = (projectFields zip projectFieldTitles).toMap()
+}
+
 @Composable
 fun HomeHeader(
     onAddProject: (projectName: String) -> Unit,
-    onApplyFilter: (HomeFilter) -> Unit,
-    onApplySorter: (HomeSorter) -> Unit
+    onApplyFilter: (Location.Home.Filter) -> Unit,
+    onApplySorter: (Location.Home.Sorter) -> Unit
 ) {
     Column {
         ActionsRow {
@@ -36,30 +49,35 @@ fun HomeHeader(
 
 @Composable
 fun SorterOfProjectsAction(
-    onApplySorter: (HomeSorter) -> Unit
+    onApplySorter: (Location.Home.Sorter) -> Unit
 ) {
-    val radioOptions = HomeSorter.projectFieldTitles
-    val (selectedSorting, onSortingSelected) = +state { radioOptions[0] }
-    val (isDescDirection, onDirectionChanged) = +state { HomeSorter.default.isDesc }
+    val sortOptions = ProjectSortHelper.projectFieldTitles
+    val (sorting, setSorting) = +state {
+        ProjectSortHelper.titleByField[ViewModel.Home.Project.NAME_FIELD_NUMBER]
+    }
+    val (direction, setDirection) = +state { SortDirection.Desc }
 
     DialogButton(
-        text = "Sort",
+        buttonText = "Sort",
         dialogTitle = "Sort by Project fields",
         onApply = {
             onApplySorter(
-                HomeSorter(
-                    field = HomeSorter.fieldByTitle[selectedSorting] ?: HomeSorter.default.field,
-                    isDesc = isDescDirection
-                )
+                Location.Home.Sorter
+                    .newBuilder()
+                    .setProjectField(
+                        ProjectSortHelper.fieldByTitle[sorting] ?: ViewModel.Home.Project.NAME_FIELD_NUMBER
+                    )
+                    .setDirection(direction)
+                    .build()
             )
         }
     ) {
         Padding(padding = 24.dp) {
             Column {
                 RadioGroup(
-                    options = radioOptions,
-                    selectedOption = selectedSorting,
-                    onSelectedChange = onSortingSelected,
+                    options = sortOptions,
+                    selectedOption = sorting,
+                    onSelectedChange = setSorting,
                     radioColor = (+MaterialTheme.colors()).primary
                 )
                 HeightSpacer(height = 8.dp)
@@ -67,8 +85,10 @@ fun SorterOfProjectsAction(
                     modifier = Spacing(left = 11.dp, top = 8.dp)
                 ) {
                     Checkbox(
-                        checked = isDescDirection,
-                        onCheckedChange = onDirectionChanged,
+                        checked = direction == SortDirection.Desc,
+                        onCheckedChange = {
+                            setDirection(if (it) SortDirection.Desc else SortDirection.Asc)
+                        },
                         color = (+MaterialTheme.colors()).primaryVariant
                     )
                     WidthSpacer(width = 14.dp)
@@ -84,20 +104,21 @@ fun SorterOfProjectsAction(
 
 @Composable
 fun FilterOfProjectsAction(
-    onApplyFilter: (HomeFilter) -> Unit
+    onApplyFilter: (Location.Home.Filter) -> Unit
 ) {
     val (projectNameEditor, onProjectNameEditorChanged) = +state { EditorModel() }
     val (projectIdEditor, onProjectIdEditorChanged) = +state { EditorModel() }
 
     DialogButton(
-        text = "Filter",
+        buttonText = "Filter",
         dialogTitle = "Filter by Project fields",
         onApply = {
             onApplyFilter(
-                HomeFilter(
-                    projectId = projectIdEditor.text,
-                    projectName = projectNameEditor.text
-                )
+                Location.Home.Filter
+                    .newBuilder()
+                    .setProjectId(projectIdEditor.text)
+                    .setProjectName(projectNameEditor.text)
+                    .build()
             )
         }
     ) {
@@ -125,7 +146,7 @@ fun NewProjectAction(onAddProject: (String) -> Unit) {
     val (projectNameEditor, onProjectNameEditorChanged) = +state { EditorModel() }
 
     DialogButton(
-        text = "Create",
+        buttonText = "Create",
         disabled = projectNameEditor.text.isEmpty(),
         dialogTitle = "Create Project",
         onApply = {

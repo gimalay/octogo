@@ -15,7 +15,7 @@ public final class ViewModelOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
-   * Protobuf enum {@code app.LocationType}
+   * Protobuf enum {@code viewModel.LocationType}
    */
   public enum LocationType
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -133,454 +133,123 @@ public final class ViewModelOuterClass {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:app.LocationType)
+    // @@protoc_insertion_point(enum_scope:viewModel.LocationType)
   }
 
-  public interface SettingsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:app.Settings)
-      com.google.protobuf.MessageOrBuilder {
-  }
   /**
-   * Protobuf type {@code app.Settings}
+   * Protobuf enum {@code viewModel.SortDirection}
    */
-  public  static final class Settings extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:app.Settings)
-      SettingsOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Settings.newBuilder() to construct.
-    private Settings(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Settings() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Settings();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Settings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Settings_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Settings_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.example.todolist.model.ViewModelOuterClass.Settings.class, com.example.todolist.model.ViewModelOuterClass.Settings.Builder.class);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.example.todolist.model.ViewModelOuterClass.Settings)) {
-        return super.equals(obj);
-      }
-      com.example.todolist.model.ViewModelOuterClass.Settings other = (com.example.todolist.model.ViewModelOuterClass.Settings) obj;
-
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.example.todolist.model.ViewModelOuterClass.Settings parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.example.todolist.model.ViewModelOuterClass.Settings prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
+  public enum SortDirection
+      implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * Protobuf type {@code app.Settings}
+     * <code>Desc = 0;</code>
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:app.Settings)
-        com.example.todolist.model.ViewModelOuterClass.SettingsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Settings_descriptor;
-      }
+    Desc(0),
+    /**
+     * <code>Asc = 1724;</code>
+     */
+    Asc(1724),
+    UNRECOGNIZED(-1),
+    ;
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Settings_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.example.todolist.model.ViewModelOuterClass.Settings.class, com.example.todolist.model.ViewModelOuterClass.Settings.Builder.class);
-      }
-
-      // Construct using com.example.todolist.model.ViewModelOuterClass.Settings.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Settings_descriptor;
-      }
-
-      @java.lang.Override
-      public com.example.todolist.model.ViewModelOuterClass.Settings getDefaultInstanceForType() {
-        return com.example.todolist.model.ViewModelOuterClass.Settings.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.example.todolist.model.ViewModelOuterClass.Settings build() {
-        com.example.todolist.model.ViewModelOuterClass.Settings result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.example.todolist.model.ViewModelOuterClass.Settings buildPartial() {
-        com.example.todolist.model.ViewModelOuterClass.Settings result = new com.example.todolist.model.ViewModelOuterClass.Settings(this);
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.example.todolist.model.ViewModelOuterClass.Settings) {
-          return mergeFrom((com.example.todolist.model.ViewModelOuterClass.Settings)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.example.todolist.model.ViewModelOuterClass.Settings other) {
-        if (other == com.example.todolist.model.ViewModelOuterClass.Settings.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.example.todolist.model.ViewModelOuterClass.Settings parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.example.todolist.model.ViewModelOuterClass.Settings) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
+    /**
+     * <code>Desc = 0;</code>
+     */
+    public static final int Desc_VALUE = 0;
+    /**
+     * <code>Asc = 1724;</code>
+     */
+    public static final int Asc_VALUE = 1724;
 
 
-      // @@protoc_insertion_point(builder_scope:app.Settings)
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
     }
 
-    // @@protoc_insertion_point(class_scope:app.Settings)
-    private static final com.example.todolist.model.ViewModelOuterClass.Settings DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.Settings();
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SortDirection valueOf(int value) {
+      return forNumber(value);
     }
 
-    public static com.example.todolist.model.ViewModelOuterClass.Settings getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Settings>
-        PARSER = new com.google.protobuf.AbstractParser<Settings>() {
-      @java.lang.Override
-      public Settings parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Settings(input, extensionRegistry);
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static SortDirection forNumber(int value) {
+      switch (value) {
+        case 0: return Desc;
+        case 1724: return Asc;
+        default: return null;
       }
-    };
-
-    public static com.google.protobuf.Parser<Settings> parser() {
-      return PARSER;
     }
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<Settings> getParserForType() {
-      return PARSER;
+    public static com.google.protobuf.Internal.EnumLiteMap<SortDirection>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SortDirection> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SortDirection>() {
+            public SortDirection findValueByNumber(int number) {
+              return SortDirection.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.example.todolist.model.ViewModelOuterClass.getDescriptor().getEnumTypes().get(1);
     }
 
-    @java.lang.Override
-    public com.example.todolist.model.ViewModelOuterClass.Settings getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
+    private static final SortDirection[] VALUES = values();
+
+    public static SortDirection valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
     }
 
+    private final int value;
+
+    private SortDirection(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:viewModel.SortDirection)
   }
 
   public interface LocationOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:app.Location)
+      // @@protoc_insertion_point(interface_extends:viewModel.Location)
       com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>.app.LocationType type = 1;</code>
-     * @return The enum numeric value on the wire for type.
-     */
-    int getTypeValue();
-    /**
-     * <code>.app.LocationType type = 1;</code>
-     * @return The type.
-     */
-    com.example.todolist.model.ViewModelOuterClass.LocationType getType();
-
-    /**
-     * <code>bytes payload = 2;</code>
-     * @return The payload.
-     */
-    com.google.protobuf.ByteString getPayload();
   }
   /**
-   * Protobuf type {@code app.Location}
+   * Protobuf type {@code viewModel.Location}
    */
   public  static final class Location extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:app.Location)
+      // @@protoc_insertion_point(message_implements:viewModel.Location)
       LocationOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Location.newBuilder() to construct.
@@ -588,8 +257,6 @@ public final class ViewModelOuterClass {
       super(builder);
     }
     private Location() {
-      type_ = 0;
-      payload_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -622,17 +289,6 @@ public final class ViewModelOuterClass {
             case 0:
               done = true;
               break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 18: {
-
-              payload_ = input.readBytes();
-              break;
-            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -654,27 +310,57 @@ public final class ViewModelOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_descriptor;
+      return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_fieldAccessorTable
+      return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.example.todolist.model.ViewModelOuterClass.Location.class, com.example.todolist.model.ViewModelOuterClass.Location.Builder.class);
     }
 
     public interface HomeOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:app.Location.Home)
+        // @@protoc_insertion_point(interface_extends:viewModel.Location.Home)
         com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+       * @return Whether the filter field is set.
+       */
+      boolean hasFilter();
+      /**
+       * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+       * @return The filter.
+       */
+      com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter getFilter();
+      /**
+       * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+       */
+      com.example.todolist.model.ViewModelOuterClass.Location.Home.FilterOrBuilder getFilterOrBuilder();
+
+      /**
+       * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+       * @return Whether the sorter field is set.
+       */
+      boolean hasSorter();
+      /**
+       * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+       * @return The sorter.
+       */
+      com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter getSorter();
+      /**
+       * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+       */
+      com.example.todolist.model.ViewModelOuterClass.Location.Home.SorterOrBuilder getSorterOrBuilder();
     }
     /**
-     * Protobuf type {@code app.Location.Home}
+     * Protobuf type {@code viewModel.Location.Home}
      */
     public  static final class Home extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:app.Location.Home)
+        // @@protoc_insertion_point(message_implements:viewModel.Location.Home)
         HomeOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use Home.newBuilder() to construct.
@@ -714,6 +400,32 @@ public final class ViewModelOuterClass {
               case 0:
                 done = true;
                 break;
+              case 21530: {
+                com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.Builder subBuilder = null;
+                if (filter_ != null) {
+                  subBuilder = filter_.toBuilder();
+                }
+                filter_ = input.readMessage(com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(filter_);
+                  filter_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 21546: {
+                com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.Builder subBuilder = null;
+                if (sorter_ != null) {
+                  subBuilder = sorter_.toBuilder();
+                }
+                sorter_ = input.readMessage(com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(sorter_);
+                  sorter_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
               default: {
                 if (!parseUnknownField(
                     input, unknownFields, extensionRegistry, tag)) {
@@ -735,15 +447,1366 @@ public final class ViewModelOuterClass {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Home_descriptor;
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Home_fieldAccessorTable
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.example.todolist.model.ViewModelOuterClass.Location.Home.class, com.example.todolist.model.ViewModelOuterClass.Location.Home.Builder.class);
+      }
+
+      public interface FilterOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:viewModel.Location.Home.Filter)
+          com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>string projectName = 1433;</code>
+         * @return The projectName.
+         */
+        java.lang.String getProjectName();
+        /**
+         * <code>string projectName = 1433;</code>
+         * @return The bytes for projectName.
+         */
+        com.google.protobuf.ByteString
+            getProjectNameBytes();
+
+        /**
+         * <code>string projectId = 1434;</code>
+         * @return The projectId.
+         */
+        java.lang.String getProjectId();
+        /**
+         * <code>string projectId = 1434;</code>
+         * @return The bytes for projectId.
+         */
+        com.google.protobuf.ByteString
+            getProjectIdBytes();
+      }
+      /**
+       * Protobuf type {@code viewModel.Location.Home.Filter}
+       */
+      public  static final class Filter extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:viewModel.Location.Home.Filter)
+          FilterOrBuilder {
+      private static final long serialVersionUID = 0L;
+        // Use Filter.newBuilder() to construct.
+        private Filter(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+          super(builder);
+        }
+        private Filter() {
+          projectName_ = "";
+          projectId_ = "";
+        }
+
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+            UnusedPrivateParameter unused) {
+          return new Filter();
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+          return this.unknownFields;
+        }
+        private Filter(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          this();
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+              com.google.protobuf.UnknownFieldSet.newBuilder();
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 11466: {
+                  java.lang.String s = input.readStringRequireUtf8();
+
+                  projectName_ = s;
+                  break;
+                }
+                case 11474: {
+                  java.lang.String s = input.readStringRequireUtf8();
+
+                  projectId_ = s;
+                  break;
+                }
+                default: {
+                  if (!parseUnknownField(
+                      input, unknownFields, extensionRegistry, tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+          } finally {
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_Filter_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_Filter_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.class, com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.Builder.class);
+        }
+
+        public static final int PROJECTNAME_FIELD_NUMBER = 1433;
+        private volatile java.lang.Object projectName_;
+        /**
+         * <code>string projectName = 1433;</code>
+         * @return The projectName.
+         */
+        public java.lang.String getProjectName() {
+          java.lang.Object ref = projectName_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            projectName_ = s;
+            return s;
+          }
+        }
+        /**
+         * <code>string projectName = 1433;</code>
+         * @return The bytes for projectName.
+         */
+        public com.google.protobuf.ByteString
+            getProjectNameBytes() {
+          java.lang.Object ref = projectName_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            projectName_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        public static final int PROJECTID_FIELD_NUMBER = 1434;
+        private volatile java.lang.Object projectId_;
+        /**
+         * <code>string projectId = 1434;</code>
+         * @return The projectId.
+         */
+        public java.lang.String getProjectId() {
+          java.lang.Object ref = projectId_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            projectId_ = s;
+            return s;
+          }
+        }
+        /**
+         * <code>string projectId = 1434;</code>
+         * @return The bytes for projectId.
+         */
+        public com.google.protobuf.ByteString
+            getProjectIdBytes() {
+          java.lang.Object ref = projectId_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            projectId_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        private byte memoizedIsInitialized = -1;
+        @java.lang.Override
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized == 1) return true;
+          if (isInitialized == 0) return false;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          if (!getProjectNameBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 1433, projectName_);
+          }
+          if (!getProjectIdBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 1434, projectId_);
+          }
+          unknownFields.writeTo(output);
+        }
+
+        @java.lang.Override
+        public int getSerializedSize() {
+          int size = memoizedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (!getProjectNameBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1433, projectName_);
+          }
+          if (!getProjectIdBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1434, projectId_);
+          }
+          size += unknownFields.getSerializedSize();
+          memoizedSize = size;
+          return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+          if (obj == this) {
+           return true;
+          }
+          if (!(obj instanceof com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter)) {
+            return super.equals(obj);
+          }
+          com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter other = (com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter) obj;
+
+          if (!getProjectName()
+              .equals(other.getProjectName())) return false;
+          if (!getProjectId()
+              .equals(other.getProjectId())) return false;
+          if (!unknownFields.equals(other.unknownFields)) return false;
+          return true;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+          if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+          }
+          int hash = 41;
+          hash = (19 * hash) + getDescriptor().hashCode();
+          hash = (37 * hash) + PROJECTNAME_FIELD_NUMBER;
+          hash = (53 * hash) + getProjectName().hashCode();
+          hash = (37 * hash) + PROJECTID_FIELD_NUMBER;
+          hash = (53 * hash) + getProjectId().hashCode();
+          hash = (29 * hash) + unknownFields.hashCode();
+          memoizedHashCode = hash;
+          return hash;
+        }
+
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        @java.lang.Override
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder() {
+          return DEFAULT_INSTANCE.toBuilder();
+        }
+        public static Builder newBuilder(com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter prototype) {
+          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+        @java.lang.Override
+        public Builder toBuilder() {
+          return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code viewModel.Location.Home.Filter}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:viewModel.Location.Home.Filter)
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.FilterOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_Filter_descriptor;
+          }
+
+          @java.lang.Override
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_Filter_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.class, com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.Builder.class);
+          }
+
+          // Construct using com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+          }
+          @java.lang.Override
+          public Builder clear() {
+            super.clear();
+            projectName_ = "";
+
+            projectId_ = "";
+
+            return this;
+          }
+
+          @java.lang.Override
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_Filter_descriptor;
+          }
+
+          @java.lang.Override
+          public com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter getDefaultInstanceForType() {
+            return com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.getDefaultInstance();
+          }
+
+          @java.lang.Override
+          public com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter build() {
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          @java.lang.Override
+          public com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter buildPartial() {
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter result = new com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter(this);
+            result.projectName_ = projectName_;
+            result.projectId_ = projectId_;
+            onBuilt();
+            return result;
+          }
+
+          @java.lang.Override
+          public Builder clone() {
+            return super.clone();
+          }
+          @java.lang.Override
+          public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              java.lang.Object value) {
+            return super.setField(field, value);
+          }
+          @java.lang.Override
+          public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return super.clearField(field);
+          }
+          @java.lang.Override
+          public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return super.clearOneof(oneof);
+          }
+          @java.lang.Override
+          public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, java.lang.Object value) {
+            return super.setRepeatedField(field, index, value);
+          }
+          @java.lang.Override
+          public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              java.lang.Object value) {
+            return super.addRepeatedField(field, value);
+          }
+          @java.lang.Override
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter) {
+              return mergeFrom((com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter other) {
+            if (other == com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.getDefaultInstance()) return this;
+            if (!other.getProjectName().isEmpty()) {
+              projectName_ = other.projectName_;
+              onChanged();
+            }
+            if (!other.getProjectId().isEmpty()) {
+              projectId_ = other.projectId_;
+              onChanged();
+            }
+            this.mergeUnknownFields(other.unknownFields);
+            onChanged();
+            return this;
+          }
+
+          @java.lang.Override
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          @java.lang.Override
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter) e.getUnfinishedMessage();
+              throw e.unwrapIOException();
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+
+          private java.lang.Object projectName_ = "";
+          /**
+           * <code>string projectName = 1433;</code>
+           * @return The projectName.
+           */
+          public java.lang.String getProjectName() {
+            java.lang.Object ref = projectName_;
+            if (!(ref instanceof java.lang.String)) {
+              com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              projectName_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>string projectName = 1433;</code>
+           * @return The bytes for projectName.
+           */
+          public com.google.protobuf.ByteString
+              getProjectNameBytes() {
+            java.lang.Object ref = projectName_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              projectName_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>string projectName = 1433;</code>
+           * @param value The projectName to set.
+           * @return This builder for chaining.
+           */
+          public Builder setProjectName(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  
+            projectName_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string projectName = 1433;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearProjectName() {
+            
+            projectName_ = getDefaultInstance().getProjectName();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string projectName = 1433;</code>
+           * @param value The bytes for projectName to set.
+           * @return This builder for chaining.
+           */
+          public Builder setProjectNameBytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+            
+            projectName_ = value;
+            onChanged();
+            return this;
+          }
+
+          private java.lang.Object projectId_ = "";
+          /**
+           * <code>string projectId = 1434;</code>
+           * @return The projectId.
+           */
+          public java.lang.String getProjectId() {
+            java.lang.Object ref = projectId_;
+            if (!(ref instanceof java.lang.String)) {
+              com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              projectId_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>string projectId = 1434;</code>
+           * @return The bytes for projectId.
+           */
+          public com.google.protobuf.ByteString
+              getProjectIdBytes() {
+            java.lang.Object ref = projectId_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              projectId_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>string projectId = 1434;</code>
+           * @param value The projectId to set.
+           * @return This builder for chaining.
+           */
+          public Builder setProjectId(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  
+            projectId_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string projectId = 1434;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearProjectId() {
+            
+            projectId_ = getDefaultInstance().getProjectId();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string projectId = 1434;</code>
+           * @param value The bytes for projectId to set.
+           * @return This builder for chaining.
+           */
+          public Builder setProjectIdBytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+            
+            projectId_ = value;
+            onChanged();
+            return this;
+          }
+          @java.lang.Override
+          public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.setUnknownFields(unknownFields);
+          }
+
+          @java.lang.Override
+          public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.mergeUnknownFields(unknownFields);
+          }
+
+
+          // @@protoc_insertion_point(builder_scope:viewModel.Location.Home.Filter)
+        }
+
+        // @@protoc_insertion_point(class_scope:viewModel.Location.Home.Filter)
+        private static final com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter DEFAULT_INSTANCE;
+        static {
+          DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter();
+        }
+
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Filter>
+            PARSER = new com.google.protobuf.AbstractParser<Filter>() {
+          @java.lang.Override
+          public Filter parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Filter(input, extensionRegistry);
+          }
+        };
+
+        public static com.google.protobuf.Parser<Filter> parser() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Filter> getParserForType() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter getDefaultInstanceForType() {
+          return DEFAULT_INSTANCE;
+        }
+
+      }
+
+      public interface SorterOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:viewModel.Location.Home.Sorter)
+          com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>int32 projectField = 1435;</code>
+         * @return The projectField.
+         */
+        int getProjectField();
+
+        /**
+         * <code>.viewModel.SortDirection direction = 1436;</code>
+         * @return The enum numeric value on the wire for direction.
+         */
+        int getDirectionValue();
+        /**
+         * <code>.viewModel.SortDirection direction = 1436;</code>
+         * @return The direction.
+         */
+        com.example.todolist.model.ViewModelOuterClass.SortDirection getDirection();
+      }
+      /**
+       * Protobuf type {@code viewModel.Location.Home.Sorter}
+       */
+      public  static final class Sorter extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:viewModel.Location.Home.Sorter)
+          SorterOrBuilder {
+      private static final long serialVersionUID = 0L;
+        // Use Sorter.newBuilder() to construct.
+        private Sorter(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+          super(builder);
+        }
+        private Sorter() {
+          direction_ = 0;
+        }
+
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+            UnusedPrivateParameter unused) {
+          return new Sorter();
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+          return this.unknownFields;
+        }
+        private Sorter(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          this();
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+              com.google.protobuf.UnknownFieldSet.newBuilder();
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 11480: {
+
+                  projectField_ = input.readInt32();
+                  break;
+                }
+                case 11488: {
+                  int rawValue = input.readEnum();
+
+                  direction_ = rawValue;
+                  break;
+                }
+                default: {
+                  if (!parseUnknownField(
+                      input, unknownFields, extensionRegistry, tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+          } finally {
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_Sorter_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_Sorter_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.class, com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.Builder.class);
+        }
+
+        public static final int PROJECTFIELD_FIELD_NUMBER = 1435;
+        private int projectField_;
+        /**
+         * <code>int32 projectField = 1435;</code>
+         * @return The projectField.
+         */
+        public int getProjectField() {
+          return projectField_;
+        }
+
+        public static final int DIRECTION_FIELD_NUMBER = 1436;
+        private int direction_;
+        /**
+         * <code>.viewModel.SortDirection direction = 1436;</code>
+         * @return The enum numeric value on the wire for direction.
+         */
+        public int getDirectionValue() {
+          return direction_;
+        }
+        /**
+         * <code>.viewModel.SortDirection direction = 1436;</code>
+         * @return The direction.
+         */
+        public com.example.todolist.model.ViewModelOuterClass.SortDirection getDirection() {
+          @SuppressWarnings("deprecation")
+          com.example.todolist.model.ViewModelOuterClass.SortDirection result = com.example.todolist.model.ViewModelOuterClass.SortDirection.valueOf(direction_);
+          return result == null ? com.example.todolist.model.ViewModelOuterClass.SortDirection.UNRECOGNIZED : result;
+        }
+
+        private byte memoizedIsInitialized = -1;
+        @java.lang.Override
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized == 1) return true;
+          if (isInitialized == 0) return false;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          if (projectField_ != 0) {
+            output.writeInt32(1435, projectField_);
+          }
+          if (direction_ != com.example.todolist.model.ViewModelOuterClass.SortDirection.Desc.getNumber()) {
+            output.writeEnum(1436, direction_);
+          }
+          unknownFields.writeTo(output);
+        }
+
+        @java.lang.Override
+        public int getSerializedSize() {
+          int size = memoizedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (projectField_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(1435, projectField_);
+          }
+          if (direction_ != com.example.todolist.model.ViewModelOuterClass.SortDirection.Desc.getNumber()) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeEnumSize(1436, direction_);
+          }
+          size += unknownFields.getSerializedSize();
+          memoizedSize = size;
+          return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+          if (obj == this) {
+           return true;
+          }
+          if (!(obj instanceof com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter)) {
+            return super.equals(obj);
+          }
+          com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter other = (com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter) obj;
+
+          if (getProjectField()
+              != other.getProjectField()) return false;
+          if (direction_ != other.direction_) return false;
+          if (!unknownFields.equals(other.unknownFields)) return false;
+          return true;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+          if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+          }
+          int hash = 41;
+          hash = (19 * hash) + getDescriptor().hashCode();
+          hash = (37 * hash) + PROJECTFIELD_FIELD_NUMBER;
+          hash = (53 * hash) + getProjectField();
+          hash = (37 * hash) + DIRECTION_FIELD_NUMBER;
+          hash = (53 * hash) + direction_;
+          hash = (29 * hash) + unknownFields.hashCode();
+          memoizedHashCode = hash;
+          return hash;
+        }
+
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        @java.lang.Override
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder() {
+          return DEFAULT_INSTANCE.toBuilder();
+        }
+        public static Builder newBuilder(com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter prototype) {
+          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+        @java.lang.Override
+        public Builder toBuilder() {
+          return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code viewModel.Location.Home.Sorter}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:viewModel.Location.Home.Sorter)
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.SorterOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_Sorter_descriptor;
+          }
+
+          @java.lang.Override
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_Sorter_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.class, com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.Builder.class);
+          }
+
+          // Construct using com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+          }
+          @java.lang.Override
+          public Builder clear() {
+            super.clear();
+            projectField_ = 0;
+
+            direction_ = 0;
+
+            return this;
+          }
+
+          @java.lang.Override
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_Sorter_descriptor;
+          }
+
+          @java.lang.Override
+          public com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter getDefaultInstanceForType() {
+            return com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.getDefaultInstance();
+          }
+
+          @java.lang.Override
+          public com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter build() {
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          @java.lang.Override
+          public com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter buildPartial() {
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter result = new com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter(this);
+            result.projectField_ = projectField_;
+            result.direction_ = direction_;
+            onBuilt();
+            return result;
+          }
+
+          @java.lang.Override
+          public Builder clone() {
+            return super.clone();
+          }
+          @java.lang.Override
+          public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              java.lang.Object value) {
+            return super.setField(field, value);
+          }
+          @java.lang.Override
+          public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return super.clearField(field);
+          }
+          @java.lang.Override
+          public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return super.clearOneof(oneof);
+          }
+          @java.lang.Override
+          public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, java.lang.Object value) {
+            return super.setRepeatedField(field, index, value);
+          }
+          @java.lang.Override
+          public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              java.lang.Object value) {
+            return super.addRepeatedField(field, value);
+          }
+          @java.lang.Override
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter) {
+              return mergeFrom((com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter other) {
+            if (other == com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.getDefaultInstance()) return this;
+            if (other.getProjectField() != 0) {
+              setProjectField(other.getProjectField());
+            }
+            if (other.direction_ != 0) {
+              setDirectionValue(other.getDirectionValue());
+            }
+            this.mergeUnknownFields(other.unknownFields);
+            onChanged();
+            return this;
+          }
+
+          @java.lang.Override
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          @java.lang.Override
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter) e.getUnfinishedMessage();
+              throw e.unwrapIOException();
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+
+          private int projectField_ ;
+          /**
+           * <code>int32 projectField = 1435;</code>
+           * @return The projectField.
+           */
+          public int getProjectField() {
+            return projectField_;
+          }
+          /**
+           * <code>int32 projectField = 1435;</code>
+           * @param value The projectField to set.
+           * @return This builder for chaining.
+           */
+          public Builder setProjectField(int value) {
+            
+            projectField_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 projectField = 1435;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearProjectField() {
+            
+            projectField_ = 0;
+            onChanged();
+            return this;
+          }
+
+          private int direction_ = 0;
+          /**
+           * <code>.viewModel.SortDirection direction = 1436;</code>
+           * @return The enum numeric value on the wire for direction.
+           */
+          public int getDirectionValue() {
+            return direction_;
+          }
+          /**
+           * <code>.viewModel.SortDirection direction = 1436;</code>
+           * @param value The enum numeric value on the wire for direction to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDirectionValue(int value) {
+            direction_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>.viewModel.SortDirection direction = 1436;</code>
+           * @return The direction.
+           */
+          public com.example.todolist.model.ViewModelOuterClass.SortDirection getDirection() {
+            @SuppressWarnings("deprecation")
+            com.example.todolist.model.ViewModelOuterClass.SortDirection result = com.example.todolist.model.ViewModelOuterClass.SortDirection.valueOf(direction_);
+            return result == null ? com.example.todolist.model.ViewModelOuterClass.SortDirection.UNRECOGNIZED : result;
+          }
+          /**
+           * <code>.viewModel.SortDirection direction = 1436;</code>
+           * @param value The direction to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDirection(com.example.todolist.model.ViewModelOuterClass.SortDirection value) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            
+            direction_ = value.getNumber();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>.viewModel.SortDirection direction = 1436;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearDirection() {
+            
+            direction_ = 0;
+            onChanged();
+            return this;
+          }
+          @java.lang.Override
+          public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.setUnknownFields(unknownFields);
+          }
+
+          @java.lang.Override
+          public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.mergeUnknownFields(unknownFields);
+          }
+
+
+          // @@protoc_insertion_point(builder_scope:viewModel.Location.Home.Sorter)
+        }
+
+        // @@protoc_insertion_point(class_scope:viewModel.Location.Home.Sorter)
+        private static final com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter DEFAULT_INSTANCE;
+        static {
+          DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter();
+        }
+
+        public static com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Sorter>
+            PARSER = new com.google.protobuf.AbstractParser<Sorter>() {
+          @java.lang.Override
+          public Sorter parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Sorter(input, extensionRegistry);
+          }
+        };
+
+        public static com.google.protobuf.Parser<Sorter> parser() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Sorter> getParserForType() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter getDefaultInstanceForType() {
+          return DEFAULT_INSTANCE;
+        }
+
+      }
+
+      public static final int FILTER_FIELD_NUMBER = 2691;
+      private com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter filter_;
+      /**
+       * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+       * @return Whether the filter field is set.
+       */
+      public boolean hasFilter() {
+        return filter_ != null;
+      }
+      /**
+       * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+       * @return The filter.
+       */
+      public com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter getFilter() {
+        return filter_ == null ? com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.getDefaultInstance() : filter_;
+      }
+      /**
+       * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+       */
+      public com.example.todolist.model.ViewModelOuterClass.Location.Home.FilterOrBuilder getFilterOrBuilder() {
+        return getFilter();
+      }
+
+      public static final int SORTER_FIELD_NUMBER = 2693;
+      private com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter sorter_;
+      /**
+       * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+       * @return Whether the sorter field is set.
+       */
+      public boolean hasSorter() {
+        return sorter_ != null;
+      }
+      /**
+       * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+       * @return The sorter.
+       */
+      public com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter getSorter() {
+        return sorter_ == null ? com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.getDefaultInstance() : sorter_;
+      }
+      /**
+       * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+       */
+      public com.example.todolist.model.ViewModelOuterClass.Location.Home.SorterOrBuilder getSorterOrBuilder() {
+        return getSorter();
       }
 
       private byte memoizedIsInitialized = -1;
@@ -760,6 +1823,12 @@ public final class ViewModelOuterClass {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
+        if (filter_ != null) {
+          output.writeMessage(2691, getFilter());
+        }
+        if (sorter_ != null) {
+          output.writeMessage(2693, getSorter());
+        }
         unknownFields.writeTo(output);
       }
 
@@ -769,6 +1838,14 @@ public final class ViewModelOuterClass {
         if (size != -1) return size;
 
         size = 0;
+        if (filter_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2691, getFilter());
+        }
+        if (sorter_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2693, getSorter());
+        }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
@@ -784,6 +1861,16 @@ public final class ViewModelOuterClass {
         }
         com.example.todolist.model.ViewModelOuterClass.Location.Home other = (com.example.todolist.model.ViewModelOuterClass.Location.Home) obj;
 
+        if (hasFilter() != other.hasFilter()) return false;
+        if (hasFilter()) {
+          if (!getFilter()
+              .equals(other.getFilter())) return false;
+        }
+        if (hasSorter() != other.hasSorter()) return false;
+        if (hasSorter()) {
+          if (!getSorter()
+              .equals(other.getSorter())) return false;
+        }
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -795,6 +1882,14 @@ public final class ViewModelOuterClass {
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
+        if (hasFilter()) {
+          hash = (37 * hash) + FILTER_FIELD_NUMBER;
+          hash = (53 * hash) + getFilter().hashCode();
+        }
+        if (hasSorter()) {
+          hash = (37 * hash) + SORTER_FIELD_NUMBER;
+          hash = (53 * hash) + getSorter().hashCode();
+        }
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
@@ -891,21 +1986,21 @@ public final class ViewModelOuterClass {
         return builder;
       }
       /**
-       * Protobuf type {@code app.Location.Home}
+       * Protobuf type {@code viewModel.Location.Home}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:app.Location.Home)
+          // @@protoc_insertion_point(builder_implements:viewModel.Location.Home)
           com.example.todolist.model.ViewModelOuterClass.Location.HomeOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Home_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Home_fieldAccessorTable
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.example.todolist.model.ViewModelOuterClass.Location.Home.class, com.example.todolist.model.ViewModelOuterClass.Location.Home.Builder.class);
         }
@@ -928,13 +2023,25 @@ public final class ViewModelOuterClass {
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          if (filterBuilder_ == null) {
+            filter_ = null;
+          } else {
+            filter_ = null;
+            filterBuilder_ = null;
+          }
+          if (sorterBuilder_ == null) {
+            sorter_ = null;
+          } else {
+            sorter_ = null;
+            sorterBuilder_ = null;
+          }
           return this;
         }
 
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Home_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Home_descriptor;
         }
 
         @java.lang.Override
@@ -954,6 +2061,16 @@ public final class ViewModelOuterClass {
         @java.lang.Override
         public com.example.todolist.model.ViewModelOuterClass.Location.Home buildPartial() {
           com.example.todolist.model.ViewModelOuterClass.Location.Home result = new com.example.todolist.model.ViewModelOuterClass.Location.Home(this);
+          if (filterBuilder_ == null) {
+            result.filter_ = filter_;
+          } else {
+            result.filter_ = filterBuilder_.build();
+          }
+          if (sorterBuilder_ == null) {
+            result.sorter_ = sorter_;
+          } else {
+            result.sorter_ = sorterBuilder_.build();
+          }
           onBuilt();
           return result;
         }
@@ -1002,6 +2119,12 @@ public final class ViewModelOuterClass {
 
         public Builder mergeFrom(com.example.todolist.model.ViewModelOuterClass.Location.Home other) {
           if (other == com.example.todolist.model.ViewModelOuterClass.Location.Home.getDefaultInstance()) return this;
+          if (other.hasFilter()) {
+            mergeFilter(other.getFilter());
+          }
+          if (other.hasSorter()) {
+            mergeSorter(other.getSorter());
+          }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
@@ -1030,6 +2153,244 @@ public final class ViewModelOuterClass {
           }
           return this;
         }
+
+        private com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter filter_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter, com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.Builder, com.example.todolist.model.ViewModelOuterClass.Location.Home.FilterOrBuilder> filterBuilder_;
+        /**
+         * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+         * @return Whether the filter field is set.
+         */
+        public boolean hasFilter() {
+          return filterBuilder_ != null || filter_ != null;
+        }
+        /**
+         * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+         * @return The filter.
+         */
+        public com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter getFilter() {
+          if (filterBuilder_ == null) {
+            return filter_ == null ? com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.getDefaultInstance() : filter_;
+          } else {
+            return filterBuilder_.getMessage();
+          }
+        }
+        /**
+         * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+         */
+        public Builder setFilter(com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter value) {
+          if (filterBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            filter_ = value;
+            onChanged();
+          } else {
+            filterBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+         */
+        public Builder setFilter(
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.Builder builderForValue) {
+          if (filterBuilder_ == null) {
+            filter_ = builderForValue.build();
+            onChanged();
+          } else {
+            filterBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+         */
+        public Builder mergeFilter(com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter value) {
+          if (filterBuilder_ == null) {
+            if (filter_ != null) {
+              filter_ =
+                com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.newBuilder(filter_).mergeFrom(value).buildPartial();
+            } else {
+              filter_ = value;
+            }
+            onChanged();
+          } else {
+            filterBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+         */
+        public Builder clearFilter() {
+          if (filterBuilder_ == null) {
+            filter_ = null;
+            onChanged();
+          } else {
+            filter_ = null;
+            filterBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+         */
+        public com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.Builder getFilterBuilder() {
+          
+          onChanged();
+          return getFilterFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+         */
+        public com.example.todolist.model.ViewModelOuterClass.Location.Home.FilterOrBuilder getFilterOrBuilder() {
+          if (filterBuilder_ != null) {
+            return filterBuilder_.getMessageOrBuilder();
+          } else {
+            return filter_ == null ?
+                com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.getDefaultInstance() : filter_;
+          }
+        }
+        /**
+         * <code>.viewModel.Location.Home.Filter filter = 2691;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter, com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.Builder, com.example.todolist.model.ViewModelOuterClass.Location.Home.FilterOrBuilder> 
+            getFilterFieldBuilder() {
+          if (filterBuilder_ == null) {
+            filterBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter, com.example.todolist.model.ViewModelOuterClass.Location.Home.Filter.Builder, com.example.todolist.model.ViewModelOuterClass.Location.Home.FilterOrBuilder>(
+                    getFilter(),
+                    getParentForChildren(),
+                    isClean());
+            filter_ = null;
+          }
+          return filterBuilder_;
+        }
+
+        private com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter sorter_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter, com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.Builder, com.example.todolist.model.ViewModelOuterClass.Location.Home.SorterOrBuilder> sorterBuilder_;
+        /**
+         * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+         * @return Whether the sorter field is set.
+         */
+        public boolean hasSorter() {
+          return sorterBuilder_ != null || sorter_ != null;
+        }
+        /**
+         * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+         * @return The sorter.
+         */
+        public com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter getSorter() {
+          if (sorterBuilder_ == null) {
+            return sorter_ == null ? com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.getDefaultInstance() : sorter_;
+          } else {
+            return sorterBuilder_.getMessage();
+          }
+        }
+        /**
+         * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+         */
+        public Builder setSorter(com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter value) {
+          if (sorterBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            sorter_ = value;
+            onChanged();
+          } else {
+            sorterBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+         */
+        public Builder setSorter(
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.Builder builderForValue) {
+          if (sorterBuilder_ == null) {
+            sorter_ = builderForValue.build();
+            onChanged();
+          } else {
+            sorterBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+         */
+        public Builder mergeSorter(com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter value) {
+          if (sorterBuilder_ == null) {
+            if (sorter_ != null) {
+              sorter_ =
+                com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.newBuilder(sorter_).mergeFrom(value).buildPartial();
+            } else {
+              sorter_ = value;
+            }
+            onChanged();
+          } else {
+            sorterBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+         */
+        public Builder clearSorter() {
+          if (sorterBuilder_ == null) {
+            sorter_ = null;
+            onChanged();
+          } else {
+            sorter_ = null;
+            sorterBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+         */
+        public com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.Builder getSorterBuilder() {
+          
+          onChanged();
+          return getSorterFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+         */
+        public com.example.todolist.model.ViewModelOuterClass.Location.Home.SorterOrBuilder getSorterOrBuilder() {
+          if (sorterBuilder_ != null) {
+            return sorterBuilder_.getMessageOrBuilder();
+          } else {
+            return sorter_ == null ?
+                com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.getDefaultInstance() : sorter_;
+          }
+        }
+        /**
+         * <code>.viewModel.Location.Home.Sorter sorter = 2693;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter, com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.Builder, com.example.todolist.model.ViewModelOuterClass.Location.Home.SorterOrBuilder> 
+            getSorterFieldBuilder() {
+          if (sorterBuilder_ == null) {
+            sorterBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter, com.example.todolist.model.ViewModelOuterClass.Location.Home.Sorter.Builder, com.example.todolist.model.ViewModelOuterClass.Location.Home.SorterOrBuilder>(
+                    getSorter(),
+                    getParentForChildren(),
+                    isClean());
+            sorter_ = null;
+          }
+          return sorterBuilder_;
+        }
         @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1043,10 +2404,10 @@ public final class ViewModelOuterClass {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:app.Location.Home)
+        // @@protoc_insertion_point(builder_scope:viewModel.Location.Home)
       }
 
-      // @@protoc_insertion_point(class_scope:app.Location.Home)
+      // @@protoc_insertion_point(class_scope:viewModel.Location.Home)
       private static final com.example.todolist.model.ViewModelOuterClass.Location.Home DEFAULT_INSTANCE;
       static {
         DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.Location.Home();
@@ -1084,7 +2445,7 @@ public final class ViewModelOuterClass {
     }
 
     public interface ProjectOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:app.Location.Project)
+        // @@protoc_insertion_point(interface_extends:viewModel.Location.Project)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -1094,11 +2455,11 @@ public final class ViewModelOuterClass {
       com.google.protobuf.ByteString getProjectID();
     }
     /**
-     * Protobuf type {@code app.Location.Project}
+     * Protobuf type {@code viewModel.Location.Project}
      */
     public  static final class Project extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:app.Location.Project)
+        // @@protoc_insertion_point(message_implements:viewModel.Location.Project)
         ProjectOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use Project.newBuilder() to construct.
@@ -1165,13 +2526,13 @@ public final class ViewModelOuterClass {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Project_descriptor;
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Project_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Project_fieldAccessorTable
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Project_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.example.todolist.model.ViewModelOuterClass.Location.Project.class, com.example.todolist.model.ViewModelOuterClass.Location.Project.Builder.class);
       }
@@ -1342,21 +2703,21 @@ public final class ViewModelOuterClass {
         return builder;
       }
       /**
-       * Protobuf type {@code app.Location.Project}
+       * Protobuf type {@code viewModel.Location.Project}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:app.Location.Project)
+          // @@protoc_insertion_point(builder_implements:viewModel.Location.Project)
           com.example.todolist.model.ViewModelOuterClass.Location.ProjectOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Project_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Project_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Project_fieldAccessorTable
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Project_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.example.todolist.model.ViewModelOuterClass.Location.Project.class, com.example.todolist.model.ViewModelOuterClass.Location.Project.Builder.class);
         }
@@ -1387,7 +2748,7 @@ public final class ViewModelOuterClass {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Project_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Project_descriptor;
         }
 
         @java.lang.Override
@@ -1533,10 +2894,10 @@ public final class ViewModelOuterClass {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:app.Location.Project)
+        // @@protoc_insertion_point(builder_scope:viewModel.Location.Project)
       }
 
-      // @@protoc_insertion_point(class_scope:app.Location.Project)
+      // @@protoc_insertion_point(class_scope:viewModel.Location.Project)
       private static final com.example.todolist.model.ViewModelOuterClass.Location.Project DEFAULT_INSTANCE;
       static {
         DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.Location.Project();
@@ -1574,7 +2935,7 @@ public final class ViewModelOuterClass {
     }
 
     public interface TaskOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:app.Location.Task)
+        // @@protoc_insertion_point(interface_extends:viewModel.Location.Task)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -1584,11 +2945,11 @@ public final class ViewModelOuterClass {
       com.google.protobuf.ByteString getTaskID();
     }
     /**
-     * Protobuf type {@code app.Location.Task}
+     * Protobuf type {@code viewModel.Location.Task}
      */
     public  static final class Task extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:app.Location.Task)
+        // @@protoc_insertion_point(message_implements:viewModel.Location.Task)
         TaskOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use Task.newBuilder() to construct.
@@ -1655,13 +3016,13 @@ public final class ViewModelOuterClass {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Task_descriptor;
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Task_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Task_fieldAccessorTable
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Task_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.example.todolist.model.ViewModelOuterClass.Location.Task.class, com.example.todolist.model.ViewModelOuterClass.Location.Task.Builder.class);
       }
@@ -1832,21 +3193,21 @@ public final class ViewModelOuterClass {
         return builder;
       }
       /**
-       * Protobuf type {@code app.Location.Task}
+       * Protobuf type {@code viewModel.Location.Task}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:app.Location.Task)
+          // @@protoc_insertion_point(builder_implements:viewModel.Location.Task)
           com.example.todolist.model.ViewModelOuterClass.Location.TaskOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Task_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Task_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Task_fieldAccessorTable
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Task_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.example.todolist.model.ViewModelOuterClass.Location.Task.class, com.example.todolist.model.ViewModelOuterClass.Location.Task.Builder.class);
         }
@@ -1877,7 +3238,7 @@ public final class ViewModelOuterClass {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_Task_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_Task_descriptor;
         }
 
         @java.lang.Override
@@ -2023,10 +3384,10 @@ public final class ViewModelOuterClass {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:app.Location.Task)
+        // @@protoc_insertion_point(builder_scope:viewModel.Location.Task)
       }
 
-      // @@protoc_insertion_point(class_scope:app.Location.Task)
+      // @@protoc_insertion_point(class_scope:viewModel.Location.Task)
       private static final com.example.todolist.model.ViewModelOuterClass.Location.Task DEFAULT_INSTANCE;
       static {
         DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.Location.Task();
@@ -2064,15 +3425,15 @@ public final class ViewModelOuterClass {
     }
 
     public interface AddTaskOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:app.Location.AddTask)
+        // @@protoc_insertion_point(interface_extends:viewModel.Location.AddTask)
         com.google.protobuf.MessageOrBuilder {
     }
     /**
-     * Protobuf type {@code app.Location.AddTask}
+     * Protobuf type {@code viewModel.Location.AddTask}
      */
     public  static final class AddTask extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:app.Location.AddTask)
+        // @@protoc_insertion_point(message_implements:viewModel.Location.AddTask)
         AddTaskOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use AddTask.newBuilder() to construct.
@@ -2133,13 +3494,13 @@ public final class ViewModelOuterClass {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_AddTask_descriptor;
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_AddTask_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_AddTask_fieldAccessorTable
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_AddTask_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.example.todolist.model.ViewModelOuterClass.Location.AddTask.class, com.example.todolist.model.ViewModelOuterClass.Location.AddTask.Builder.class);
       }
@@ -2289,21 +3650,21 @@ public final class ViewModelOuterClass {
         return builder;
       }
       /**
-       * Protobuf type {@code app.Location.AddTask}
+       * Protobuf type {@code viewModel.Location.AddTask}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:app.Location.AddTask)
+          // @@protoc_insertion_point(builder_implements:viewModel.Location.AddTask)
           com.example.todolist.model.ViewModelOuterClass.Location.AddTaskOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_AddTask_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_AddTask_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_AddTask_fieldAccessorTable
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_AddTask_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.example.todolist.model.ViewModelOuterClass.Location.AddTask.class, com.example.todolist.model.ViewModelOuterClass.Location.AddTask.Builder.class);
         }
@@ -2332,7 +3693,7 @@ public final class ViewModelOuterClass {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_AddTask_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_AddTask_descriptor;
         }
 
         @java.lang.Override
@@ -2441,10 +3802,10 @@ public final class ViewModelOuterClass {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:app.Location.AddTask)
+        // @@protoc_insertion_point(builder_scope:viewModel.Location.AddTask)
       }
 
-      // @@protoc_insertion_point(class_scope:app.Location.AddTask)
+      // @@protoc_insertion_point(class_scope:viewModel.Location.AddTask)
       private static final com.example.todolist.model.ViewModelOuterClass.Location.AddTask DEFAULT_INSTANCE;
       static {
         DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.Location.AddTask();
@@ -2481,35 +3842,6 @@ public final class ViewModelOuterClass {
 
     }
 
-    public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
-    /**
-     * <code>.app.LocationType type = 1;</code>
-     * @return The enum numeric value on the wire for type.
-     */
-    public int getTypeValue() {
-      return type_;
-    }
-    /**
-     * <code>.app.LocationType type = 1;</code>
-     * @return The type.
-     */
-    public com.example.todolist.model.ViewModelOuterClass.LocationType getType() {
-      @SuppressWarnings("deprecation")
-      com.example.todolist.model.ViewModelOuterClass.LocationType result = com.example.todolist.model.ViewModelOuterClass.LocationType.valueOf(type_);
-      return result == null ? com.example.todolist.model.ViewModelOuterClass.LocationType.UNRECOGNIZED : result;
-    }
-
-    public static final int PAYLOAD_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString payload_;
-    /**
-     * <code>bytes payload = 2;</code>
-     * @return The payload.
-     */
-    public com.google.protobuf.ByteString getPayload() {
-      return payload_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2524,12 +3856,6 @@ public final class ViewModelOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != com.example.todolist.model.ViewModelOuterClass.LocationType.Unknown.getNumber()) {
-        output.writeEnum(1, type_);
-      }
-      if (!payload_.isEmpty()) {
-        output.writeBytes(2, payload_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -2539,14 +3865,6 @@ public final class ViewModelOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != com.example.todolist.model.ViewModelOuterClass.LocationType.Unknown.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, type_);
-      }
-      if (!payload_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, payload_);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2562,9 +3880,6 @@ public final class ViewModelOuterClass {
       }
       com.example.todolist.model.ViewModelOuterClass.Location other = (com.example.todolist.model.ViewModelOuterClass.Location) obj;
 
-      if (type_ != other.type_) return false;
-      if (!getPayload()
-          .equals(other.getPayload())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2576,10 +3891,6 @@ public final class ViewModelOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + type_;
-      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
-      hash = (53 * hash) + getPayload().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2676,21 +3987,21 @@ public final class ViewModelOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code app.Location}
+     * Protobuf type {@code viewModel.Location}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:app.Location)
+        // @@protoc_insertion_point(builder_implements:viewModel.Location)
         com.example.todolist.model.ViewModelOuterClass.LocationOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_descriptor;
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_fieldAccessorTable
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.example.todolist.model.ViewModelOuterClass.Location.class, com.example.todolist.model.ViewModelOuterClass.Location.Builder.class);
       }
@@ -2713,17 +4024,13 @@ public final class ViewModelOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        type_ = 0;
-
-        payload_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_Location_descriptor;
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_Location_descriptor;
       }
 
       @java.lang.Override
@@ -2743,8 +4050,6 @@ public final class ViewModelOuterClass {
       @java.lang.Override
       public com.example.todolist.model.ViewModelOuterClass.Location buildPartial() {
         com.example.todolist.model.ViewModelOuterClass.Location result = new com.example.todolist.model.ViewModelOuterClass.Location(this);
-        result.type_ = type_;
-        result.payload_ = payload_;
         onBuilt();
         return result;
       }
@@ -2793,12 +4098,6 @@ public final class ViewModelOuterClass {
 
       public Builder mergeFrom(com.example.todolist.model.ViewModelOuterClass.Location other) {
         if (other == com.example.todolist.model.ViewModelOuterClass.Location.getDefaultInstance()) return this;
-        if (other.type_ != 0) {
-          setTypeValue(other.getTypeValue());
-        }
-        if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
-          setPayload(other.getPayload());
-        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2827,91 +4126,6 @@ public final class ViewModelOuterClass {
         }
         return this;
       }
-
-      private int type_ = 0;
-      /**
-       * <code>.app.LocationType type = 1;</code>
-       * @return The enum numeric value on the wire for type.
-       */
-      public int getTypeValue() {
-        return type_;
-      }
-      /**
-       * <code>.app.LocationType type = 1;</code>
-       * @param value The enum numeric value on the wire for type to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTypeValue(int value) {
-        type_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.app.LocationType type = 1;</code>
-       * @return The type.
-       */
-      public com.example.todolist.model.ViewModelOuterClass.LocationType getType() {
-        @SuppressWarnings("deprecation")
-        com.example.todolist.model.ViewModelOuterClass.LocationType result = com.example.todolist.model.ViewModelOuterClass.LocationType.valueOf(type_);
-        return result == null ? com.example.todolist.model.ViewModelOuterClass.LocationType.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.app.LocationType type = 1;</code>
-       * @param value The type to set.
-       * @return This builder for chaining.
-       */
-      public Builder setType(com.example.todolist.model.ViewModelOuterClass.LocationType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        type_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.app.LocationType type = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearType() {
-        
-        type_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes payload = 2;</code>
-       * @return The payload.
-       */
-      public com.google.protobuf.ByteString getPayload() {
-        return payload_;
-      }
-      /**
-       * <code>bytes payload = 2;</code>
-       * @param value The payload to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPayload(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        payload_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes payload = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPayload() {
-        
-        payload_ = getDefaultInstance().getPayload();
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2925,10 +4139,10 @@ public final class ViewModelOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:app.Location)
+      // @@protoc_insertion_point(builder_scope:viewModel.Location)
     }
 
-    // @@protoc_insertion_point(class_scope:app.Location)
+    // @@protoc_insertion_point(class_scope:viewModel.Location)
     private static final com.example.todolist.model.ViewModelOuterClass.Location DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.Location();
@@ -2966,15 +4180,15 @@ public final class ViewModelOuterClass {
   }
 
   public interface ViewModelOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:app.ViewModel)
+      // @@protoc_insertion_point(interface_extends:viewModel.ViewModel)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code app.ViewModel}
+   * Protobuf type {@code viewModel.ViewModel}
    */
   public  static final class ViewModel extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:app.ViewModel)
+      // @@protoc_insertion_point(message_implements:viewModel.ViewModel)
       ViewModelOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use ViewModel.newBuilder() to construct.
@@ -3035,19 +4249,19 @@ public final class ViewModelOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_descriptor;
+      return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_fieldAccessorTable
+      return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.example.todolist.model.ViewModelOuterClass.ViewModel.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Builder.class);
     }
 
     public interface ProjectOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:app.ViewModel.Project)
+        // @@protoc_insertion_point(interface_extends:viewModel.ViewModel.Project)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -3069,35 +4283,35 @@ public final class ViewModelOuterClass {
           getNameBytes();
 
       /**
-       * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+       * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
        */
       java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task> 
           getTasksList();
       /**
-       * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+       * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
        */
       com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task getTasks(int index);
       /**
-       * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+       * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
        */
       int getTasksCount();
       /**
-       * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+       * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
        */
       java.util.List<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.TaskOrBuilder> 
           getTasksOrBuilderList();
       /**
-       * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+       * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
        */
       com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.TaskOrBuilder getTasksOrBuilder(
           int index);
     }
     /**
-     * Protobuf type {@code app.ViewModel.Project}
+     * Protobuf type {@code viewModel.ViewModel.Project}
      */
     public  static final class Project extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:app.ViewModel.Project)
+        // @@protoc_insertion_point(message_implements:viewModel.ViewModel.Project)
         ProjectOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use Project.newBuilder() to construct.
@@ -3185,19 +4399,19 @@ public final class ViewModelOuterClass {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Project_descriptor;
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Project_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Project_fieldAccessorTable
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Project_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Builder.class);
       }
 
       public interface TaskOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:app.ViewModel.Project.Task)
+          // @@protoc_insertion_point(interface_extends:viewModel.ViewModel.Project.Task)
           com.google.protobuf.MessageOrBuilder {
 
         /**
@@ -3231,11 +4445,11 @@ public final class ViewModelOuterClass {
             getEmojiBytes();
       }
       /**
-       * Protobuf type {@code app.ViewModel.Project.Task}
+       * Protobuf type {@code viewModel.ViewModel.Project.Task}
        */
       public  static final class Task extends
           com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:app.ViewModel.Project.Task)
+          // @@protoc_insertion_point(message_implements:viewModel.ViewModel.Project.Task)
           TaskOrBuilder {
       private static final long serialVersionUID = 0L;
         // Use Task.newBuilder() to construct.
@@ -3316,13 +4530,13 @@ public final class ViewModelOuterClass {
         }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Project_Task_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Project_Task_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Project_Task_fieldAccessorTable
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Project_Task_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.Builder.class);
         }
@@ -3585,21 +4799,21 @@ public final class ViewModelOuterClass {
           return builder;
         }
         /**
-         * Protobuf type {@code app.ViewModel.Project.Task}
+         * Protobuf type {@code viewModel.ViewModel.Project.Task}
          */
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:app.ViewModel.Project.Task)
+            // @@protoc_insertion_point(builder_implements:viewModel.ViewModel.Project.Task)
             com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.TaskOrBuilder {
           public static final com.google.protobuf.Descriptors.Descriptor
               getDescriptor() {
-            return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Project_Task_descriptor;
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Project_Task_descriptor;
           }
 
           @java.lang.Override
           protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
               internalGetFieldAccessorTable() {
-            return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Project_Task_fieldAccessorTable
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Project_Task_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
                     com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.Builder.class);
           }
@@ -3634,7 +4848,7 @@ public final class ViewModelOuterClass {
           @java.lang.Override
           public com.google.protobuf.Descriptors.Descriptor
               getDescriptorForType() {
-            return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Project_Task_descriptor;
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Project_Task_descriptor;
           }
 
           @java.lang.Override
@@ -3942,10 +5156,10 @@ public final class ViewModelOuterClass {
           }
 
 
-          // @@protoc_insertion_point(builder_scope:app.ViewModel.Project.Task)
+          // @@protoc_insertion_point(builder_scope:viewModel.ViewModel.Project.Task)
         }
 
-        // @@protoc_insertion_point(class_scope:app.ViewModel.Project.Task)
+        // @@protoc_insertion_point(class_scope:viewModel.ViewModel.Project.Task)
         private static final com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task DEFAULT_INSTANCE;
         static {
           DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task();
@@ -4031,32 +5245,32 @@ public final class ViewModelOuterClass {
       public static final int TASKS_FIELD_NUMBER = 8856;
       private java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task> tasks_;
       /**
-       * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+       * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
        */
       public java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task> getTasksList() {
         return tasks_;
       }
       /**
-       * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+       * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
        */
       public java.util.List<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.TaskOrBuilder> 
           getTasksOrBuilderList() {
         return tasks_;
       }
       /**
-       * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+       * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
        */
       public int getTasksCount() {
         return tasks_.size();
       }
       /**
-       * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+       * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
        */
       public com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task getTasks(int index) {
         return tasks_.get(index);
       }
       /**
-       * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+       * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
        */
       public com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.TaskOrBuilder getTasksOrBuilder(
           int index) {
@@ -4242,21 +5456,21 @@ public final class ViewModelOuterClass {
         return builder;
       }
       /**
-       * Protobuf type {@code app.ViewModel.Project}
+       * Protobuf type {@code viewModel.ViewModel.Project}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:app.ViewModel.Project)
+          // @@protoc_insertion_point(builder_implements:viewModel.ViewModel.Project)
           com.example.todolist.model.ViewModelOuterClass.ViewModel.ProjectOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Project_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Project_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Project_fieldAccessorTable
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Project_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Builder.class);
         }
@@ -4296,7 +5510,7 @@ public final class ViewModelOuterClass {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Project_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Project_descriptor;
         }
 
         @java.lang.Override
@@ -4561,7 +5775,7 @@ public final class ViewModelOuterClass {
             com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task, com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.Builder, com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.TaskOrBuilder> tasksBuilder_;
 
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task> getTasksList() {
           if (tasksBuilder_ == null) {
@@ -4571,7 +5785,7 @@ public final class ViewModelOuterClass {
           }
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public int getTasksCount() {
           if (tasksBuilder_ == null) {
@@ -4581,7 +5795,7 @@ public final class ViewModelOuterClass {
           }
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task getTasks(int index) {
           if (tasksBuilder_ == null) {
@@ -4591,7 +5805,7 @@ public final class ViewModelOuterClass {
           }
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public Builder setTasks(
             int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task value) {
@@ -4608,7 +5822,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public Builder setTasks(
             int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.Builder builderForValue) {
@@ -4622,7 +5836,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public Builder addTasks(com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task value) {
           if (tasksBuilder_ == null) {
@@ -4638,7 +5852,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public Builder addTasks(
             int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task value) {
@@ -4655,7 +5869,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public Builder addTasks(
             com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.Builder builderForValue) {
@@ -4669,7 +5883,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public Builder addTasks(
             int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.Builder builderForValue) {
@@ -4683,7 +5897,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public Builder addAllTasks(
             java.lang.Iterable<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task> values) {
@@ -4698,7 +5912,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public Builder clearTasks() {
           if (tasksBuilder_ == null) {
@@ -4711,7 +5925,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public Builder removeTasks(int index) {
           if (tasksBuilder_ == null) {
@@ -4724,14 +5938,14 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.Builder getTasksBuilder(
             int index) {
           return getTasksFieldBuilder().getBuilder(index);
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.TaskOrBuilder getTasksOrBuilder(
             int index) {
@@ -4741,7 +5955,7 @@ public final class ViewModelOuterClass {
           }
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public java.util.List<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.TaskOrBuilder> 
              getTasksOrBuilderList() {
@@ -4752,14 +5966,14 @@ public final class ViewModelOuterClass {
           }
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.Builder addTasksBuilder() {
           return getTasksFieldBuilder().addBuilder(
               com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.getDefaultInstance());
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.Builder addTasksBuilder(
             int index) {
@@ -4767,7 +5981,7 @@ public final class ViewModelOuterClass {
               index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.getDefaultInstance());
         }
         /**
-         * <code>repeated .app.ViewModel.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Project.Task tasks = 8856;</code>
          */
         public java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Project.Task.Builder> 
              getTasksBuilderList() {
@@ -4800,10 +6014,10 @@ public final class ViewModelOuterClass {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:app.ViewModel.Project)
+        // @@protoc_insertion_point(builder_scope:viewModel.ViewModel.Project)
       }
 
-      // @@protoc_insertion_point(class_scope:app.ViewModel.Project)
+      // @@protoc_insertion_point(class_scope:viewModel.ViewModel.Project)
       private static final com.example.todolist.model.ViewModelOuterClass.ViewModel.Project DEFAULT_INSTANCE;
       static {
         DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.ViewModel.Project();
@@ -4841,7 +6055,7 @@ public final class ViewModelOuterClass {
     }
 
     public interface TaskOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:app.ViewModel.Task)
+        // @@protoc_insertion_point(interface_extends:viewModel.ViewModel.Task)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -4875,11 +6089,11 @@ public final class ViewModelOuterClass {
           getEmojiBytes();
     }
     /**
-     * Protobuf type {@code app.ViewModel.Task}
+     * Protobuf type {@code viewModel.ViewModel.Task}
      */
     public  static final class Task extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:app.ViewModel.Task)
+        // @@protoc_insertion_point(message_implements:viewModel.ViewModel.Task)
         TaskOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use Task.newBuilder() to construct.
@@ -4960,13 +6174,13 @@ public final class ViewModelOuterClass {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Task_descriptor;
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Task_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Task_fieldAccessorTable
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Task_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.example.todolist.model.ViewModelOuterClass.ViewModel.Task.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Task.Builder.class);
       }
@@ -5229,21 +6443,21 @@ public final class ViewModelOuterClass {
         return builder;
       }
       /**
-       * Protobuf type {@code app.ViewModel.Task}
+       * Protobuf type {@code viewModel.ViewModel.Task}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:app.ViewModel.Task)
+          // @@protoc_insertion_point(builder_implements:viewModel.ViewModel.Task)
           com.example.todolist.model.ViewModelOuterClass.ViewModel.TaskOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Task_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Task_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Task_fieldAccessorTable
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Task_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.example.todolist.model.ViewModelOuterClass.ViewModel.Task.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Task.Builder.class);
         }
@@ -5278,7 +6492,7 @@ public final class ViewModelOuterClass {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Task_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Task_descriptor;
         }
 
         @java.lang.Override
@@ -5586,10 +6800,10 @@ public final class ViewModelOuterClass {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:app.ViewModel.Task)
+        // @@protoc_insertion_point(builder_scope:viewModel.ViewModel.Task)
       }
 
-      // @@protoc_insertion_point(class_scope:app.ViewModel.Task)
+      // @@protoc_insertion_point(class_scope:viewModel.ViewModel.Task)
       private static final com.example.todolist.model.ViewModelOuterClass.ViewModel.Task DEFAULT_INSTANCE;
       static {
         DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.ViewModel.Task();
@@ -5627,39 +6841,39 @@ public final class ViewModelOuterClass {
     }
 
     public interface HomeOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:app.ViewModel.Home)
+        // @@protoc_insertion_point(interface_extends:viewModel.ViewModel.Home)
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+       * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
        */
       java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project> 
           getProjectsList();
       /**
-       * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+       * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
        */
       com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project getProjects(int index);
       /**
-       * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+       * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
        */
       int getProjectsCount();
       /**
-       * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+       * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
        */
       java.util.List<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.ProjectOrBuilder> 
           getProjectsOrBuilderList();
       /**
-       * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+       * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
        */
       com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.ProjectOrBuilder getProjectsOrBuilder(
           int index);
     }
     /**
-     * Protobuf type {@code app.ViewModel.Home}
+     * Protobuf type {@code viewModel.ViewModel.Home}
      */
     public  static final class Home extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:app.ViewModel.Home)
+        // @@protoc_insertion_point(message_implements:viewModel.ViewModel.Home)
         HomeOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use Home.newBuilder() to construct.
@@ -5734,19 +6948,19 @@ public final class ViewModelOuterClass {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_descriptor;
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_fieldAccessorTable
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Builder.class);
       }
 
       public interface ProjectOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:app.ViewModel.Home.Project)
+          // @@protoc_insertion_point(interface_extends:viewModel.ViewModel.Home.Project)
           com.google.protobuf.MessageOrBuilder {
 
         /**
@@ -5768,35 +6982,35 @@ public final class ViewModelOuterClass {
             getNameBytes();
 
         /**
-         * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
          */
         java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task> 
             getTasksList();
         /**
-         * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
          */
         com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task getTasks(int index);
         /**
-         * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
          */
         int getTasksCount();
         /**
-         * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
          */
         java.util.List<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.TaskOrBuilder> 
             getTasksOrBuilderList();
         /**
-         * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
          */
         com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.TaskOrBuilder getTasksOrBuilder(
             int index);
       }
       /**
-       * Protobuf type {@code app.ViewModel.Home.Project}
+       * Protobuf type {@code viewModel.ViewModel.Home.Project}
        */
       public  static final class Project extends
           com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:app.ViewModel.Home.Project)
+          // @@protoc_insertion_point(message_implements:viewModel.ViewModel.Home.Project)
           ProjectOrBuilder {
       private static final long serialVersionUID = 0L;
         // Use Project.newBuilder() to construct.
@@ -5884,19 +7098,19 @@ public final class ViewModelOuterClass {
         }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_Project_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_Project_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_Project_fieldAccessorTable
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_Project_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Builder.class);
         }
 
         public interface TaskOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:app.ViewModel.Home.Project.Task)
+            // @@protoc_insertion_point(interface_extends:viewModel.ViewModel.Home.Project.Task)
             com.google.protobuf.MessageOrBuilder {
 
           /**
@@ -5930,11 +7144,11 @@ public final class ViewModelOuterClass {
               getEmojiBytes();
         }
         /**
-         * Protobuf type {@code app.ViewModel.Home.Project.Task}
+         * Protobuf type {@code viewModel.ViewModel.Home.Project.Task}
          */
         public  static final class Task extends
             com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:app.ViewModel.Home.Project.Task)
+            // @@protoc_insertion_point(message_implements:viewModel.ViewModel.Home.Project.Task)
             TaskOrBuilder {
         private static final long serialVersionUID = 0L;
           // Use Task.newBuilder() to construct.
@@ -6015,13 +7229,13 @@ public final class ViewModelOuterClass {
           }
           public static final com.google.protobuf.Descriptors.Descriptor
               getDescriptor() {
-            return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_Project_Task_descriptor;
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_Project_Task_descriptor;
           }
 
           @java.lang.Override
           protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
               internalGetFieldAccessorTable() {
-            return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_Project_Task_fieldAccessorTable
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_Project_Task_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
                     com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.Builder.class);
           }
@@ -6284,21 +7498,21 @@ public final class ViewModelOuterClass {
             return builder;
           }
           /**
-           * Protobuf type {@code app.ViewModel.Home.Project.Task}
+           * Protobuf type {@code viewModel.ViewModel.Home.Project.Task}
            */
           public static final class Builder extends
               com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-              // @@protoc_insertion_point(builder_implements:app.ViewModel.Home.Project.Task)
+              // @@protoc_insertion_point(builder_implements:viewModel.ViewModel.Home.Project.Task)
               com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.TaskOrBuilder {
             public static final com.google.protobuf.Descriptors.Descriptor
                 getDescriptor() {
-              return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_Project_Task_descriptor;
+              return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_Project_Task_descriptor;
             }
 
             @java.lang.Override
             protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
                 internalGetFieldAccessorTable() {
-              return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_Project_Task_fieldAccessorTable
+              return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_Project_Task_fieldAccessorTable
                   .ensureFieldAccessorsInitialized(
                       com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.Builder.class);
             }
@@ -6333,7 +7547,7 @@ public final class ViewModelOuterClass {
             @java.lang.Override
             public com.google.protobuf.Descriptors.Descriptor
                 getDescriptorForType() {
-              return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_Project_Task_descriptor;
+              return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_Project_Task_descriptor;
             }
 
             @java.lang.Override
@@ -6641,10 +7855,10 @@ public final class ViewModelOuterClass {
             }
 
 
-            // @@protoc_insertion_point(builder_scope:app.ViewModel.Home.Project.Task)
+            // @@protoc_insertion_point(builder_scope:viewModel.ViewModel.Home.Project.Task)
           }
 
-          // @@protoc_insertion_point(class_scope:app.ViewModel.Home.Project.Task)
+          // @@protoc_insertion_point(class_scope:viewModel.ViewModel.Home.Project.Task)
           private static final com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task DEFAULT_INSTANCE;
           static {
             DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task();
@@ -6730,32 +7944,32 @@ public final class ViewModelOuterClass {
         public static final int TASKS_FIELD_NUMBER = 8856;
         private java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task> tasks_;
         /**
-         * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
          */
         public java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task> getTasksList() {
           return tasks_;
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
          */
         public java.util.List<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.TaskOrBuilder> 
             getTasksOrBuilderList() {
           return tasks_;
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
          */
         public int getTasksCount() {
           return tasks_.size();
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task getTasks(int index) {
           return tasks_.get(index);
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.TaskOrBuilder getTasksOrBuilder(
             int index) {
@@ -6941,21 +8155,21 @@ public final class ViewModelOuterClass {
           return builder;
         }
         /**
-         * Protobuf type {@code app.ViewModel.Home.Project}
+         * Protobuf type {@code viewModel.ViewModel.Home.Project}
          */
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:app.ViewModel.Home.Project)
+            // @@protoc_insertion_point(builder_implements:viewModel.ViewModel.Home.Project)
             com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.ProjectOrBuilder {
           public static final com.google.protobuf.Descriptors.Descriptor
               getDescriptor() {
-            return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_Project_descriptor;
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_Project_descriptor;
           }
 
           @java.lang.Override
           protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
               internalGetFieldAccessorTable() {
-            return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_Project_fieldAccessorTable
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_Project_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
                     com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Builder.class);
           }
@@ -6995,7 +8209,7 @@ public final class ViewModelOuterClass {
           @java.lang.Override
           public com.google.protobuf.Descriptors.Descriptor
               getDescriptorForType() {
-            return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_Project_descriptor;
+            return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_Project_descriptor;
           }
 
           @java.lang.Override
@@ -7260,7 +8474,7 @@ public final class ViewModelOuterClass {
               com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.Builder, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.TaskOrBuilder> tasksBuilder_;
 
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task> getTasksList() {
             if (tasksBuilder_ == null) {
@@ -7270,7 +8484,7 @@ public final class ViewModelOuterClass {
             }
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public int getTasksCount() {
             if (tasksBuilder_ == null) {
@@ -7280,7 +8494,7 @@ public final class ViewModelOuterClass {
             }
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task getTasks(int index) {
             if (tasksBuilder_ == null) {
@@ -7290,7 +8504,7 @@ public final class ViewModelOuterClass {
             }
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public Builder setTasks(
               int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task value) {
@@ -7307,7 +8521,7 @@ public final class ViewModelOuterClass {
             return this;
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public Builder setTasks(
               int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.Builder builderForValue) {
@@ -7321,7 +8535,7 @@ public final class ViewModelOuterClass {
             return this;
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public Builder addTasks(com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task value) {
             if (tasksBuilder_ == null) {
@@ -7337,7 +8551,7 @@ public final class ViewModelOuterClass {
             return this;
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public Builder addTasks(
               int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task value) {
@@ -7354,7 +8568,7 @@ public final class ViewModelOuterClass {
             return this;
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public Builder addTasks(
               com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.Builder builderForValue) {
@@ -7368,7 +8582,7 @@ public final class ViewModelOuterClass {
             return this;
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public Builder addTasks(
               int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.Builder builderForValue) {
@@ -7382,7 +8596,7 @@ public final class ViewModelOuterClass {
             return this;
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public Builder addAllTasks(
               java.lang.Iterable<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task> values) {
@@ -7397,7 +8611,7 @@ public final class ViewModelOuterClass {
             return this;
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public Builder clearTasks() {
             if (tasksBuilder_ == null) {
@@ -7410,7 +8624,7 @@ public final class ViewModelOuterClass {
             return this;
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public Builder removeTasks(int index) {
             if (tasksBuilder_ == null) {
@@ -7423,14 +8637,14 @@ public final class ViewModelOuterClass {
             return this;
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.Builder getTasksBuilder(
               int index) {
             return getTasksFieldBuilder().getBuilder(index);
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.TaskOrBuilder getTasksOrBuilder(
               int index) {
@@ -7440,7 +8654,7 @@ public final class ViewModelOuterClass {
             }
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public java.util.List<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.TaskOrBuilder> 
                getTasksOrBuilderList() {
@@ -7451,14 +8665,14 @@ public final class ViewModelOuterClass {
             }
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.Builder addTasksBuilder() {
             return getTasksFieldBuilder().addBuilder(
                 com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.getDefaultInstance());
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.Builder addTasksBuilder(
               int index) {
@@ -7466,7 +8680,7 @@ public final class ViewModelOuterClass {
                 index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.getDefaultInstance());
           }
           /**
-           * <code>repeated .app.ViewModel.Home.Project.Task tasks = 8856;</code>
+           * <code>repeated .viewModel.ViewModel.Home.Project.Task tasks = 8856;</code>
            */
           public java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Task.Builder> 
                getTasksBuilderList() {
@@ -7499,10 +8713,10 @@ public final class ViewModelOuterClass {
           }
 
 
-          // @@protoc_insertion_point(builder_scope:app.ViewModel.Home.Project)
+          // @@protoc_insertion_point(builder_scope:viewModel.ViewModel.Home.Project)
         }
 
-        // @@protoc_insertion_point(class_scope:app.ViewModel.Home.Project)
+        // @@protoc_insertion_point(class_scope:viewModel.ViewModel.Home.Project)
         private static final com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project DEFAULT_INSTANCE;
         static {
           DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project();
@@ -7542,32 +8756,32 @@ public final class ViewModelOuterClass {
       public static final int PROJECTS_FIELD_NUMBER = 6910;
       private java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project> projects_;
       /**
-       * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+       * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
        */
       public java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project> getProjectsList() {
         return projects_;
       }
       /**
-       * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+       * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
        */
       public java.util.List<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.ProjectOrBuilder> 
           getProjectsOrBuilderList() {
         return projects_;
       }
       /**
-       * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+       * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
        */
       public int getProjectsCount() {
         return projects_.size();
       }
       /**
-       * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+       * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
        */
       public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project getProjects(int index) {
         return projects_.get(index);
       }
       /**
-       * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+       * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
        */
       public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.ProjectOrBuilder getProjectsOrBuilder(
           int index) {
@@ -7732,21 +8946,21 @@ public final class ViewModelOuterClass {
         return builder;
       }
       /**
-       * Protobuf type {@code app.ViewModel.Home}
+       * Protobuf type {@code viewModel.ViewModel.Home}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:app.ViewModel.Home)
+          // @@protoc_insertion_point(builder_implements:viewModel.ViewModel.Home)
           com.example.todolist.model.ViewModelOuterClass.ViewModel.HomeOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_fieldAccessorTable
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Builder.class);
         }
@@ -7782,7 +8996,7 @@ public final class ViewModelOuterClass {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_Home_descriptor;
+          return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_Home_descriptor;
         }
 
         @java.lang.Override
@@ -7929,7 +9143,7 @@ public final class ViewModelOuterClass {
             com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Builder, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.ProjectOrBuilder> projectsBuilder_;
 
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project> getProjectsList() {
           if (projectsBuilder_ == null) {
@@ -7939,7 +9153,7 @@ public final class ViewModelOuterClass {
           }
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public int getProjectsCount() {
           if (projectsBuilder_ == null) {
@@ -7949,7 +9163,7 @@ public final class ViewModelOuterClass {
           }
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project getProjects(int index) {
           if (projectsBuilder_ == null) {
@@ -7959,7 +9173,7 @@ public final class ViewModelOuterClass {
           }
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public Builder setProjects(
             int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project value) {
@@ -7976,7 +9190,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public Builder setProjects(
             int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Builder builderForValue) {
@@ -7990,7 +9204,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public Builder addProjects(com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project value) {
           if (projectsBuilder_ == null) {
@@ -8006,7 +9220,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public Builder addProjects(
             int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project value) {
@@ -8023,7 +9237,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public Builder addProjects(
             com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Builder builderForValue) {
@@ -8037,7 +9251,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public Builder addProjects(
             int index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Builder builderForValue) {
@@ -8051,7 +9265,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public Builder addAllProjects(
             java.lang.Iterable<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project> values) {
@@ -8066,7 +9280,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public Builder clearProjects() {
           if (projectsBuilder_ == null) {
@@ -8079,7 +9293,7 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public Builder removeProjects(int index) {
           if (projectsBuilder_ == null) {
@@ -8092,14 +9306,14 @@ public final class ViewModelOuterClass {
           return this;
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Builder getProjectsBuilder(
             int index) {
           return getProjectsFieldBuilder().getBuilder(index);
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.ProjectOrBuilder getProjectsOrBuilder(
             int index) {
@@ -8109,7 +9323,7 @@ public final class ViewModelOuterClass {
           }
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public java.util.List<? extends com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.ProjectOrBuilder> 
              getProjectsOrBuilderList() {
@@ -8120,14 +9334,14 @@ public final class ViewModelOuterClass {
           }
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Builder addProjectsBuilder() {
           return getProjectsFieldBuilder().addBuilder(
               com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.getDefaultInstance());
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Builder addProjectsBuilder(
             int index) {
@@ -8135,7 +9349,7 @@ public final class ViewModelOuterClass {
               index, com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.getDefaultInstance());
         }
         /**
-         * <code>repeated .app.ViewModel.Home.Project projects = 6910;</code>
+         * <code>repeated .viewModel.ViewModel.Home.Project projects = 6910;</code>
          */
         public java.util.List<com.example.todolist.model.ViewModelOuterClass.ViewModel.Home.Project.Builder> 
              getProjectsBuilderList() {
@@ -8168,10 +9382,10 @@ public final class ViewModelOuterClass {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:app.ViewModel.Home)
+        // @@protoc_insertion_point(builder_scope:viewModel.ViewModel.Home)
       }
 
-      // @@protoc_insertion_point(class_scope:app.ViewModel.Home)
+      // @@protoc_insertion_point(class_scope:viewModel.ViewModel.Home)
       private static final com.example.todolist.model.ViewModelOuterClass.ViewModel.Home DEFAULT_INSTANCE;
       static {
         DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.ViewModel.Home();
@@ -8353,21 +9567,21 @@ public final class ViewModelOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code app.ViewModel}
+     * Protobuf type {@code viewModel.ViewModel}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:app.ViewModel)
+        // @@protoc_insertion_point(builder_implements:viewModel.ViewModel)
         com.example.todolist.model.ViewModelOuterClass.ViewModelOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_descriptor;
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_fieldAccessorTable
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.example.todolist.model.ViewModelOuterClass.ViewModel.class, com.example.todolist.model.ViewModelOuterClass.ViewModel.Builder.class);
       }
@@ -8396,7 +9610,7 @@ public final class ViewModelOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.example.todolist.model.ViewModelOuterClass.internal_static_app_ViewModel_descriptor;
+        return com.example.todolist.model.ViewModelOuterClass.internal_static_viewModel_ViewModel_descriptor;
       }
 
       @java.lang.Override
@@ -8505,10 +9719,10 @@ public final class ViewModelOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:app.ViewModel)
+      // @@protoc_insertion_point(builder_scope:viewModel.ViewModel)
     }
 
-    // @@protoc_insertion_point(class_scope:app.ViewModel)
+    // @@protoc_insertion_point(class_scope:viewModel.ViewModel)
     private static final com.example.todolist.model.ViewModelOuterClass.ViewModel DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.example.todolist.model.ViewModelOuterClass.ViewModel();
@@ -8546,70 +9760,75 @@ public final class ViewModelOuterClass {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_Settings_descriptor;
+    internal_static_viewModel_Location_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_Settings_fieldAccessorTable;
+      internal_static_viewModel_Location_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_Location_descriptor;
+    internal_static_viewModel_Location_Home_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_Location_fieldAccessorTable;
+      internal_static_viewModel_Location_Home_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_Location_Home_descriptor;
+    internal_static_viewModel_Location_Home_Filter_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_Location_Home_fieldAccessorTable;
+      internal_static_viewModel_Location_Home_Filter_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_Location_Project_descriptor;
+    internal_static_viewModel_Location_Home_Sorter_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_Location_Project_fieldAccessorTable;
+      internal_static_viewModel_Location_Home_Sorter_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_Location_Task_descriptor;
+    internal_static_viewModel_Location_Project_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_Location_Task_fieldAccessorTable;
+      internal_static_viewModel_Location_Project_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_Location_AddTask_descriptor;
+    internal_static_viewModel_Location_Task_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_Location_AddTask_fieldAccessorTable;
+      internal_static_viewModel_Location_Task_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_ViewModel_descriptor;
+    internal_static_viewModel_Location_AddTask_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_ViewModel_fieldAccessorTable;
+      internal_static_viewModel_Location_AddTask_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_ViewModel_Project_descriptor;
+    internal_static_viewModel_ViewModel_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_ViewModel_Project_fieldAccessorTable;
+      internal_static_viewModel_ViewModel_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_ViewModel_Project_Task_descriptor;
+    internal_static_viewModel_ViewModel_Project_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_ViewModel_Project_Task_fieldAccessorTable;
+      internal_static_viewModel_ViewModel_Project_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_ViewModel_Task_descriptor;
+    internal_static_viewModel_ViewModel_Project_Task_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_ViewModel_Task_fieldAccessorTable;
+      internal_static_viewModel_ViewModel_Project_Task_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_ViewModel_Home_descriptor;
+    internal_static_viewModel_ViewModel_Task_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_ViewModel_Home_fieldAccessorTable;
+      internal_static_viewModel_ViewModel_Task_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_ViewModel_Home_Project_descriptor;
+    internal_static_viewModel_ViewModel_Home_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_ViewModel_Home_Project_fieldAccessorTable;
+      internal_static_viewModel_ViewModel_Home_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_app_ViewModel_Home_Project_Task_descriptor;
+    internal_static_viewModel_ViewModel_Home_Project_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_app_ViewModel_Home_Project_Task_fieldAccessorTable;
+      internal_static_viewModel_ViewModel_Home_Project_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_viewModel_ViewModel_Home_Project_Task_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_viewModel_ViewModel_Home_Project_Task_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -8619,105 +9838,117 @@ public final class ViewModelOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017viewModel.proto\022\003app\"\n\n\010Settings\"\207\001\n\010L" +
-      "ocation\022\037\n\004type\030\001 \001(\0162\021.app.LocationType" +
-      "\022\017\n\007payload\030\002 \001(\014\032\006\n\004Home\032\035\n\007Project\022\022\n\t" +
-      "ProjectID\030\211\025 \001(\014\032\027\n\004Task\022\017\n\006TaskID\030\265\r \001(" +
-      "\014\032\t\n\007AddTask\"\217\003\n\tViewModel\032\206\001\n\007Project\022\013" +
-      "\n\002ID\030\323& \001(\014\022\r\n\004name\030\300\037 \001(\t\022+\n\005tasks\030\230E \003" +
-      "(\0132\033.app.ViewModel.Project.Task\0322\n\004Task\022" +
-      "\013\n\002ID\030\272. \001(\014\022\r\n\004name\030\220A \001(\t\022\016\n\005emoji\030\276L " +
-      "\001(\t\0322\n\004Task\022\013\n\002ID\030\373& \001(\014\022\r\n\004name\030\304& \001(\t\022" +
-      "\016\n\005emoji\030\333\024 \001(\t\032\304\001\n\004Home\022.\n\010projects\030\3765 " +
-      "\003(\0132\033.app.ViewModel.Home.Project\032\213\001\n\007Pro" +
-      "ject\022\013\n\002ID\030\323& \001(\014\022\r\n\004name\030\300\037 \001(\t\0220\n\005task" +
-      "s\030\230E \003(\0132 .app.ViewModel.Home.Project.Ta" +
-      "sk\0322\n\004Task\022\013\n\002ID\030\202\027 \001(\014\022\r\n\004name\030\360! \001(\t\022\016" +
-      "\n\005emoji\030\256\027 \001(\t*?\n\014LocationType\022\013\n\007Unknow" +
-      "n\020\000\022\t\n\004Home\020\261\013\022\014\n\007Project\020\243\014\022\t\n\004Task\020\360\014B" +
-      "\037\n\032com.example.todolist.model\272\002\000b\006proto3"
+      "\n\017viewModel.proto\022\tviewModel\"\275\002\n\010Locatio" +
+      "n\032\355\001\n\004Home\0220\n\006filter\030\203\025 \001(\0132\037.viewModel." +
+      "Location.Home.Filter\0220\n\006sorter\030\205\025 \001(\0132\037." +
+      "viewModel.Location.Home.Sorter\0322\n\006Filter" +
+      "\022\024\n\013projectName\030\231\013 \001(\t\022\022\n\tprojectId\030\232\013 \001" +
+      "(\t\032M\n\006Sorter\022\025\n\014projectField\030\233\013 \001(\005\022,\n\td" +
+      "irection\030\234\013 \001(\0162\030.viewModel.SortDirectio" +
+      "n\032\035\n\007Project\022\022\n\tProjectID\030\211\025 \001(\014\032\027\n\004Task" +
+      "\022\017\n\006TaskID\030\265\r \001(\014\032\t\n\007AddTask\"\241\003\n\tViewMod" +
+      "el\032\214\001\n\007Project\022\013\n\002ID\030\323& \001(\014\022\r\n\004name\030\300\037 \001" +
+      "(\t\0221\n\005tasks\030\230E \003(\0132!.viewModel.ViewModel" +
+      ".Project.Task\0322\n\004Task\022\013\n\002ID\030\272. \001(\014\022\r\n\004na" +
+      "me\030\220A \001(\t\022\016\n\005emoji\030\276L \001(\t\0322\n\004Task\022\013\n\002ID\030" +
+      "\373& \001(\014\022\r\n\004name\030\304& \001(\t\022\016\n\005emoji\030\333\024 \001(\t\032\320\001" +
+      "\n\004Home\0224\n\010projects\030\3765 \003(\0132!.viewModel.Vi" +
+      "ewModel.Home.Project\032\221\001\n\007Project\022\013\n\002ID\030\323" +
+      "& \001(\014\022\r\n\004name\030\300\037 \001(\t\0226\n\005tasks\030\230E \003(\0132&.v" +
+      "iewModel.ViewModel.Home.Project.Task\0322\n\004" +
+      "Task\022\013\n\002ID\030\202\027 \001(\014\022\r\n\004name\030\360! \001(\t\022\016\n\005emoj" +
+      "i\030\256\027 \001(\t*?\n\014LocationType\022\013\n\007Unknown\020\000\022\t\n" +
+      "\004Home\020\261\013\022\014\n\007Project\020\243\014\022\t\n\004Task\020\360\014*#\n\rSor" +
+      "tDirection\022\010\n\004Desc\020\000\022\010\n\003Asc\020\274\rB\037\n\032com.ex" +
+      "ample.todolist.model\272\002\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_app_Settings_descriptor =
+    internal_static_viewModel_Location_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_app_Settings_fieldAccessorTable = new
+    internal_static_viewModel_Location_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_Settings_descriptor,
+        internal_static_viewModel_Location_descriptor,
         new java.lang.String[] { });
-    internal_static_app_Location_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_app_Location_fieldAccessorTable = new
+    internal_static_viewModel_Location_Home_descriptor =
+      internal_static_viewModel_Location_descriptor.getNestedTypes().get(0);
+    internal_static_viewModel_Location_Home_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_Location_descriptor,
-        new java.lang.String[] { "Type", "Payload", });
-    internal_static_app_Location_Home_descriptor =
-      internal_static_app_Location_descriptor.getNestedTypes().get(0);
-    internal_static_app_Location_Home_fieldAccessorTable = new
+        internal_static_viewModel_Location_Home_descriptor,
+        new java.lang.String[] { "Filter", "Sorter", });
+    internal_static_viewModel_Location_Home_Filter_descriptor =
+      internal_static_viewModel_Location_Home_descriptor.getNestedTypes().get(0);
+    internal_static_viewModel_Location_Home_Filter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_Location_Home_descriptor,
-        new java.lang.String[] { });
-    internal_static_app_Location_Project_descriptor =
-      internal_static_app_Location_descriptor.getNestedTypes().get(1);
-    internal_static_app_Location_Project_fieldAccessorTable = new
+        internal_static_viewModel_Location_Home_Filter_descriptor,
+        new java.lang.String[] { "ProjectName", "ProjectId", });
+    internal_static_viewModel_Location_Home_Sorter_descriptor =
+      internal_static_viewModel_Location_Home_descriptor.getNestedTypes().get(1);
+    internal_static_viewModel_Location_Home_Sorter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_Location_Project_descriptor,
+        internal_static_viewModel_Location_Home_Sorter_descriptor,
+        new java.lang.String[] { "ProjectField", "Direction", });
+    internal_static_viewModel_Location_Project_descriptor =
+      internal_static_viewModel_Location_descriptor.getNestedTypes().get(1);
+    internal_static_viewModel_Location_Project_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_viewModel_Location_Project_descriptor,
         new java.lang.String[] { "ProjectID", });
-    internal_static_app_Location_Task_descriptor =
-      internal_static_app_Location_descriptor.getNestedTypes().get(2);
-    internal_static_app_Location_Task_fieldAccessorTable = new
+    internal_static_viewModel_Location_Task_descriptor =
+      internal_static_viewModel_Location_descriptor.getNestedTypes().get(2);
+    internal_static_viewModel_Location_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_Location_Task_descriptor,
+        internal_static_viewModel_Location_Task_descriptor,
         new java.lang.String[] { "TaskID", });
-    internal_static_app_Location_AddTask_descriptor =
-      internal_static_app_Location_descriptor.getNestedTypes().get(3);
-    internal_static_app_Location_AddTask_fieldAccessorTable = new
+    internal_static_viewModel_Location_AddTask_descriptor =
+      internal_static_viewModel_Location_descriptor.getNestedTypes().get(3);
+    internal_static_viewModel_Location_AddTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_Location_AddTask_descriptor,
+        internal_static_viewModel_Location_AddTask_descriptor,
         new java.lang.String[] { });
-    internal_static_app_ViewModel_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_app_ViewModel_fieldAccessorTable = new
+    internal_static_viewModel_ViewModel_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_viewModel_ViewModel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_ViewModel_descriptor,
+        internal_static_viewModel_ViewModel_descriptor,
         new java.lang.String[] { });
-    internal_static_app_ViewModel_Project_descriptor =
-      internal_static_app_ViewModel_descriptor.getNestedTypes().get(0);
-    internal_static_app_ViewModel_Project_fieldAccessorTable = new
+    internal_static_viewModel_ViewModel_Project_descriptor =
+      internal_static_viewModel_ViewModel_descriptor.getNestedTypes().get(0);
+    internal_static_viewModel_ViewModel_Project_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_ViewModel_Project_descriptor,
+        internal_static_viewModel_ViewModel_Project_descriptor,
         new java.lang.String[] { "ID", "Name", "Tasks", });
-    internal_static_app_ViewModel_Project_Task_descriptor =
-      internal_static_app_ViewModel_Project_descriptor.getNestedTypes().get(0);
-    internal_static_app_ViewModel_Project_Task_fieldAccessorTable = new
+    internal_static_viewModel_ViewModel_Project_Task_descriptor =
+      internal_static_viewModel_ViewModel_Project_descriptor.getNestedTypes().get(0);
+    internal_static_viewModel_ViewModel_Project_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_ViewModel_Project_Task_descriptor,
+        internal_static_viewModel_ViewModel_Project_Task_descriptor,
         new java.lang.String[] { "ID", "Name", "Emoji", });
-    internal_static_app_ViewModel_Task_descriptor =
-      internal_static_app_ViewModel_descriptor.getNestedTypes().get(1);
-    internal_static_app_ViewModel_Task_fieldAccessorTable = new
+    internal_static_viewModel_ViewModel_Task_descriptor =
+      internal_static_viewModel_ViewModel_descriptor.getNestedTypes().get(1);
+    internal_static_viewModel_ViewModel_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_ViewModel_Task_descriptor,
+        internal_static_viewModel_ViewModel_Task_descriptor,
         new java.lang.String[] { "ID", "Name", "Emoji", });
-    internal_static_app_ViewModel_Home_descriptor =
-      internal_static_app_ViewModel_descriptor.getNestedTypes().get(2);
-    internal_static_app_ViewModel_Home_fieldAccessorTable = new
+    internal_static_viewModel_ViewModel_Home_descriptor =
+      internal_static_viewModel_ViewModel_descriptor.getNestedTypes().get(2);
+    internal_static_viewModel_ViewModel_Home_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_ViewModel_Home_descriptor,
+        internal_static_viewModel_ViewModel_Home_descriptor,
         new java.lang.String[] { "Projects", });
-    internal_static_app_ViewModel_Home_Project_descriptor =
-      internal_static_app_ViewModel_Home_descriptor.getNestedTypes().get(0);
-    internal_static_app_ViewModel_Home_Project_fieldAccessorTable = new
+    internal_static_viewModel_ViewModel_Home_Project_descriptor =
+      internal_static_viewModel_ViewModel_Home_descriptor.getNestedTypes().get(0);
+    internal_static_viewModel_ViewModel_Home_Project_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_ViewModel_Home_Project_descriptor,
+        internal_static_viewModel_ViewModel_Home_Project_descriptor,
         new java.lang.String[] { "ID", "Name", "Tasks", });
-    internal_static_app_ViewModel_Home_Project_Task_descriptor =
-      internal_static_app_ViewModel_Home_Project_descriptor.getNestedTypes().get(0);
-    internal_static_app_ViewModel_Home_Project_Task_fieldAccessorTable = new
+    internal_static_viewModel_ViewModel_Home_Project_Task_descriptor =
+      internal_static_viewModel_ViewModel_Home_Project_descriptor.getNestedTypes().get(0);
+    internal_static_viewModel_ViewModel_Home_Project_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_app_ViewModel_Home_Project_Task_descriptor,
+        internal_static_viewModel_ViewModel_Home_Project_Task_descriptor,
         new java.lang.String[] { "ID", "Name", "Emoji", });
   }
 

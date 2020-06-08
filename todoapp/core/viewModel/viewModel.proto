@@ -11,8 +11,25 @@ enum LocationType {
   Task = 1648;
 }
 
+enum SortDirection {
+  Desc = 0;
+  Asc = 1724;
+}
+
+
 message Location {
-  message Home {}
+  message Home {
+    message Filter {
+      string projectName = 1433;
+      string projectId = 1434;
+    }
+    Filter filter = 2691;
+    message Sorter {
+      int32 projectField = 1435;
+      SortDirection direction = 1436;
+    }
+    Sorter sorter = 2693; 
+  }
   message Project { bytes ProjectID = 2697; }
   message Task { bytes TaskID = 1717; }
   message AddTask {}

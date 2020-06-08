@@ -1,7 +1,5 @@
 package com.example.todolist.repository
 
-import com.example.todolist.model.HomeFilter
-import com.example.todolist.model.HomeSorter
 import com.example.todolist.model.UiModel
 import com.example.todolist.model.ViewModelOuterClass.ViewModel
 import com.example.todolist.model.ViewModelOuterClass.Location
@@ -11,50 +9,24 @@ class HomeRepository(
     private val loader: Loader,
     private val ui: UiModel
 ) {
-    private val homeProjectSortingComparator = { it: ViewModel.Home.Project ->
-        val homeSorter = ui.homeSorter
-        when (homeSorter.field) {
-            ViewModel.Home.Project.ID_FIELD_NUMBER -> it.id.toString()
-            ViewModel.Home.Project.NAME_FIELD_NUMBER -> it.name
-            else -> null
-        }
-    }
-
     fun loadHome() {
-        // TODO: Implement the loading with applied filter on GoLang side
-        // TODO: Implement the loading with applied sorter on GoLang side
-        val homeFilter = ui.homeFilter
-        val homeSorter = ui.homeSorter
+        val payload = Location.Home
+            .newBuilder()
+            .setFilter(ui.homeFilter)
+            .setSorter(ui.homeSorter)
+            .build()
 
-        val payload = Location.Home.newBuilder().build()
         loader.load(payload) { result ->
-            val home = ViewModel.Home.parseFrom(result)
-            val filteredProjects = home.projectsList.filter {
-                it.id.toString().contains(homeFilter.projectId) &&
-                it.name.contains(homeFilter.projectName)
-            }
-
-            val sortedProjects = if (homeSorter.isDesc) {
-                filteredProjects.sortedByDescending(homeProjectSortingComparator)
-            }
-            else {
-                filteredProjects.sortedBy(homeProjectSortingComparator)
-            }
-
-            ui.home = home
-                .toBuilder()
-                .clearProjects()
-                .addAllProjects(sortedProjects)
-                .build()
+            ui.home = ViewModel.Home.parseFrom(result)
         }
     }
 
-    fun applyHomeFilter(f: HomeFilter) {
+    fun applyHomeFilter(f: Location.Home.Filter) {
         ui.homeFilter = f
         loadHome()
     }
 
-    fun applyHomeSorter(s: HomeSorter) {
+    fun applyHomeSorter(s: Location.Home.Sorter) {
         ui.homeSorter = s
         loadHome()
     }

@@ -26,33 +26,11 @@ class GoBinding {
     }
 
     fun read(payload: Message): ByteArray? {
-        val type = LocationType.valueOf(payload.javaClass.simpleName)
-        val location = Location
-            .newBuilder()
-            .setType(type)
-            .setPayload(payload.toByteString())
-            .build()
-
-        val data = binding.viewModel(location.toByteArray())
-
-        return data
+        return binding.viewModel(payload.toByteArray())
     }
 
     fun execute(payload: Message) {
-        val ts = com.google.protobuf.Timestamp
-            .newBuilder()
-            .setSeconds(System.currentTimeMillis() / 1000)
-            .build()
-
-        val type = CommandType.valueOf(payload.javaClass.simpleName)
-        val command = Command
-            .newBuilder()
-            .setType(type)
-            .setPayload(payload.toByteString())
-            .setTimestamp(ts)
-            .build()
-
-        binding.execute(command.toByteArray())
+        binding.execute(payload.toByteArray())
     }
 
     fun close() {

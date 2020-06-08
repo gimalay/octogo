@@ -17,8 +17,8 @@ import com.example.todolist.ui.themeTypography
 @Composable
 fun DialogButton(
     disabled: Boolean = false,
-    text: String,
-    dialogTitle: String = text,
+    buttonText: String,
+    dialogTitle: String = buttonText,
     defaultVisible: Boolean = false,
     onApply: () -> Unit = {},
     children: @Composable() () -> Unit
@@ -26,7 +26,7 @@ fun DialogButton(
     val (visible, onVisibleChanged) = +state { defaultVisible }
 
     Button(
-        text,
+        buttonText,
         style = ContainedButtonStyle(),
         onClick = { onVisibleChanged(true) }
     )
