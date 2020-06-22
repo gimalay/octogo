@@ -6,7 +6,7 @@ The goal of the project is to create a mobile application with native iOS and An
 
 # Techinical details 
 - Persitance layer is implement via boltdb embeded key-value store
-- Tiny CQRS like API between UI and application logic 
+- Tiny Command/Query API between UI and application logic 
 - Static typing of ViewModels and Commands implemented with Protobuf codegeneration for Go, Swift and Java
 
 # Swift UI 
